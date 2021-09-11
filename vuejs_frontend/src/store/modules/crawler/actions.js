@@ -1,0 +1,264 @@
+import Crawler from "../../../apis/crawler";
+import Scrapyd from "../../../apis/scrapyd";
+import router from "../../../router/index"
+
+// Create Crawler
+export const createCrawler = ({ commit }, form) => {
+    commit('SET_LOADING',true)
+    commit('CLEAR_OTHER_ERRORS')
+
+    Crawler.createCrawler(form).then(response => {
+        console.log("IN CREATE CRAWLER")
+        console.log(response.data)
+        // if(response.data.start_url){
+        //     commit('SET_CRAWLER_URL', response.data.auth_token)
+        // }
+        // commit('SET_CRAWLERDATA', response.data);
+        commit('SET_LOADING',false)
+        router.push({ name: 'crawlers_list' });
+        }).catch((error) => {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+            commit('SET_CRAWLERDATA', null);
+            commit('SET_LOADING',false);
+    })
+    .catch((error) => {
+        if(error.response != undefined)
+        {
+            let error_data = error.response.data
+            console.log(error.response.status)
+            // commit('SET_CRAWLERDATA', null);
+            if (error.response.status != 400) {
+                let error_message = error.response.status+" "+error.response.statusText
+                commit('SET_OTHER_ERRORS',error_message)
+            }
+        }
+        else
+        {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+        }
+        
+        
+        commit('SET_LOADING',false)
+    })
+    
+}
+
+
+//Run Crawler
+export const runCrawler = ({ commit, dispatch }, playload) => {
+    commit('SET_LOADING',true)
+    commit('CLEAR_OTHER_ERRORS')
+    commit('SET_LOADING_CRAWLER_EXECUTION', true)
+    Crawler.runCrawler(playload.id).then(response => {
+        
+        // if(response.data.start_url){
+        //     commit('SET_CRAWLER_URL', response.data.auth_token)
+        // }
+        commit('SET_RUNNING_CRAWLER', response.data)
+        commit('SET_LOADING_CRAWLER_EXECUTION', false)
+        commit('SET_LOADING',false)
+        dispatch('getAllCrawlers', playload.form)
+        commit('CLEAR_OTHER_ERRORS')
+        commit('SET_RUNNING_CRAWLER_TASK_ID', response.data['task_id'])
+        // router.push({ name: 'dashboard' });
+        }).catch((error) => {
+            commit('SET_RUNNING_CRAWLER', null)
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+            commit('SET_LOADING_CRAWLER_EXECUTION', false)
+            commit('SET_LOADING',false);
+    })
+    .catch((error) => {
+        if(error.response != undefined)
+        {
+            let error_data = error.response.data
+            console.log(error.response.status)
+            commit('SET_RUNNING_CRAWLER', null)
+            if (error.response.status != 400) {
+                let error_message = error.response.status+" "+error.response.statusText
+                commit('SET_OTHER_ERRORS',error_message)
+            }
+        }
+        else
+        {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+        }
+        
+        commit('SET_LOADING_CRAWLER_EXECUTION', false)
+        commit('SET_LOADING',false)
+    })
+    
+}
+
+
+// Get Crawler
+export const getAllCrawlers = ({ commit, dispatch  }, form) => {
+    commit('SET_LOADING',true)
+    commit('CLEAR_OTHER_ERRORS')
+
+    Crawler.getAllCrawlers().then(response => {
+        console.log("GET CRAWLERS")
+        console.log(response.data)
+        // if(response.data.start_url){
+        //     commit('SET_CRAWLER_URL', response.data.auth_token)
+        // }
+        commit('SET_CRAWLERS_DATA', response.data);
+        dispatch('getRuningJobs', form)
+        commit('SET_LOADING',false)
+        // router.push({ name: 'dashboard' });
+        }).catch((error) => {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+            commit('SET_CRAWLERDATA', null);
+            commit('SET_LOADING',false);
+    })
+    .catch((error) => {
+        if(error.response != undefined)
+        {
+            let error_data = error.response.data
+            console.log(error.response.status)
+            commit('SET_CRAWLERS_DATA', null);
+            if (error.response.status != 400) {
+                let error_message = error.response.status+" "+error.response.statusText
+                commit('SET_OTHER_ERRORS',error_message)
+            }
+        }
+        else
+        {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+        }
+        
+        
+        commit('SET_LOADING',false)
+    })
+    
+}
+
+
+// Get Running jobs
+export const getRuningJobs = ({ commit}, form) => {
+    commit('SET_LOADING_TO_SCRAPYD',true)
+    commit('CLEAR_OTHER_ERRORS')
+    Scrapyd.getRuningJobs(form).then(response => {
+        console.log(response.data)
+        let pending = response.data['pending']
+        let running = response.data['running']
+        let finished = response.data['finished']
+        if(pending.length > 0 ){
+            // pending['state'] = 'pending'
+            var pending_result = pending.map(function(el) {
+                var o = Object.assign({}, el);
+                o.state = 'pending';
+                o.isActive = true;
+                return o;
+            })
+            commit('SET_JOB',pending_result)
+            commit('SET_JOB_STATE', 'pending')
+        }
+        else if(running.length > 0){
+            var running_result = running.map(function(el) {
+                var o = Object.assign({}, el);
+                o.state = 'running';
+                o.isActive = true;
+                return o;
+            })
+            commit('SET_JOB',running_result)
+            commit('SET_JOB_STATE', 'running')
+        }
+        else if(finished.length > 0){
+            var finished_result = finished.map(function(el) {
+                var o = Object.assign({}, el);
+                o.state = 'finished';
+                o.isActive = false;
+                return o;
+            })
+            commit('SET_FINISHED_JOBS',finished_result)
+            commit('SET_JOB_STATE', 'finished')
+        }
+        
+        commit('SET_LOADING_TO_SCRAPYD',false)
+        }).catch((error) => {
+            error = error+". Can't connect to the server.JOBS"
+            commit('SET_OTHER_ERRORS',error)
+            commit('SET_LOADING_TO_SCRAPYD',false);
+    })
+    .catch((error) => {
+        if(error.response != undefined)
+        {
+            console.log(error.response.status)
+            commit('SET_CRAWLERS_DATA', null);
+            if (error.response.status != 400) {
+                let error_message = error.response.status+" "+error.response.statusText
+                commit('SET_OTHER_ERRORS',error_message)
+            }
+        }
+        else
+        {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+        }
+        
+        
+        commit('SET_LOADING_TO_SCRAPYD',false)
+    })
+    
+}
+
+// Cancel Running jobs
+export const cancelRunningJob = ({ commit, dispatch }, form) => {
+    commit('SET_LOADING',true)
+    commit('CLEAR_OTHER_ERRORS')
+    commit('SET_LOADING_CRAWLER_EXECUTION', true)
+    
+    Scrapyd.cancelRunningJob(form).then(response => {
+        console.log("CANCELING RUNNING JOB")
+        console.log(response.data)
+        // if(response.data.start_url){
+        //     commit('SET_CRAWLER_URL', response.data.auth_token)
+        // }
+        // commit('SET_CRAWLERDATA', response.data);
+        commit('SET_LOADING_CRAWLER_EXECUTION', false)
+        commit('SET_LOADING',false)
+        // router.push({ name: 'crawlers_list' });
+        }).catch((error) => {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+            commit('SET_LOADING',false);
+    })
+    .catch((error) => {
+        if(error.response != undefined)
+        {
+            let error_data = error.response.data
+            console.log(error.response.status)
+            // commit('SET_CRAWLERDATA', null);
+            if (error.response.status != 400) {
+                let error_message = error.response.status+" "+error.response.statusText
+                commit('SET_OTHER_ERRORS',error_message)
+            }
+        }
+        else
+        {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+        }
+        
+        
+        commit('SET_LOADING',false)
+        commit('SET_LOADING_CRAWLER_EXECUTION', false)
+    })
+    
+}
+
+
+
+
+
+
+
+
+
+
