@@ -16,3 +16,9 @@ def UpperCase(value):
 class AvitoItem(scrapy.Item):
     # define the fields for your item here like:
     product_data_items = scrapy.Field()
+
+class AvitoCrawlerItem(scrapy.Item):
+    avito_crawler_id = scrapy.Field()
+    number_of_products_found = scrapy.Field()
+    estimated_time_to_finish = scrapy.Field()
+    

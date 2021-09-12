@@ -4,4 +4,4 @@ from CrawlerApp.models import Crawler
 class CrawlerSerializer(serializers.ModelSerializer):
     class Meta:
         model=Crawler
-        fields=('crawlerId','name', 'start_url', 'task_id')
+        fields=('crawlerId','name', 'start_url', 'task_id', 'products_crawled')
