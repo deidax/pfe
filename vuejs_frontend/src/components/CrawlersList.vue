@@ -34,21 +34,36 @@
                     class="ma-2"
                     small
                     v-if="getJobState == 'pending'"
-                  >{{getJobState}}</v-chip>
+                  >
+                  <v-icon left small>
+                    mdi-cog-sync
+                  </v-icon>
+                    {{getJobState}}
+                  </v-chip>
                   <v-chip
                     class="ma-2"
                     small
                     color="red"
                     text-color="white"
                     v-else-if="getJobState == 'running'"
-                  >{{getJobState}}</v-chip>
+                  >
+                    <span style="margin: 3px">
+                      <i  class="fas fa-cog fa-spin" style="color:white"></i>
+                    </span>
+                      {{getJobState}}
+                  </v-chip>
                   <v-chip
                     class="ma-2"
                     small
                     color="green"
                     text-color="white"
                     v-else-if="getJobState == 'finished'"
-                  >{{getJobState}}</v-chip>
+                  >
+                  <v-icon left small>
+                    mdi-check-all
+                  </v-icon>
+                  {{getJobState}}
+                  </v-chip>
                 </span>
                 <span v-else-if="getCrawlerInfo(item.task_id) != null">
                   <!-- {{getCrawlerInfo(item.task_id).state}} -->
@@ -56,29 +71,56 @@
                     class="ma-2"
                     small
                     v-if="getCrawlerInfo(item.task_id).state == 'pending'"
-                  >{{getCrawlerInfo(item.task_id).state}}</v-chip>
+                  >
+                    {{getCrawlerInfo(item.task_id).state}}
+                  </v-chip>
                   <v-chip
                     class="ma-2"
                     small
                     color="red"
                     text-color="white"
                     v-else-if="getCrawlerInfo(item.task_id).state == 'running'"
-                  >{{getCrawlerInfo(item.task_id).state}}</v-chip>
+                  >
+                    <span style="margin: 3px">
+                      <i class="fas fa-cog fa-spin" style="color:white"></i>
+                    </span>
+                    {{getCrawlerInfo(item.task_id).state}}
+                  </v-chip>
                   <v-chip
                     class="ma-2"
                     small
                     color="green"
                     text-color="white"
                     v-else-if="getCrawlerInfo(item.task_id).state == 'finished'"
-                  >{{getCrawlerInfo(item.task_id).state}}</v-chip>
+                  >
+                  <v-icon left small>
+                    mdi-check-all
+                  </v-icon>
+                  {{getCrawlerInfo(item.task_id).state}}
+                  </v-chip>
                 </span>
-                <span v-else>--</span>
+                <span v-else><v-icon small>mdi-check-outline</v-icon></span>
+            </template>
+            <template v-slot:item.task_id="{ item }">
+                <v-chip
+                    class="ma-2"
+                    small
+                    color="orange"
+                    text-color="white"
+                    v-if="item.task_id == 'New Crawler'"
+                  >
+                  <v-icon left small>
+                    mdi-alert-decagram
+                  </v-icon>
+                  {{item.task_id}}
+                  </v-chip>
+                  <span v-else>{{item.task_id}}</span>
             </template>
               <template v-slot:item.btn_run_stop="{ item }">
                 <v-btn
                   icon
                   v-if="crawlerButtonControlSwitch(item.task_id) && getJobState != 'finished'"
-                  :disabled="getLoadingRunningCrawlerExecution"
+                  :disabled="getLoadingRunningCrawlerExecution || stoppingCrawler"
                   v-on:click="exitRunningJob(item.task_id)"
                   color="black">
                   <v-icon>mdi-close-circle-outline</v-icon>
@@ -86,7 +128,7 @@
                 <v-btn
                   icon
                   v-else
-                  :disabled="getLoadingRunningCrawlerExecution || getJobState != 'finished'"
+                  :disabled="getLoadingRunningCrawlerExecution || getJobState != 'finished' || stoppingCrawler"
                   v-on:click="executeCrawler(item.crawlerId)"
                   color="black">
                   <v-icon>mdi-play</v-icon>
@@ -103,6 +145,12 @@
               </template>
             </v-data-table>
         </v-card>
+        <v-overlay :value="stoppingCrawler">
+          <v-progress-circular
+            indeterminate
+            size="64"
+          ></v-progress-circular>
+        </v-overlay>
       </v-main>
    </v-app>
 </template>
@@ -120,6 +168,7 @@ import {mapActions,mapGetters} from "vuex"
         inProcess: true,
         startLongPolling:false,
         polling: null,
+        stoppingCrawler: false,
         crawlerInProcess:{
           project: 'default',
           job: ''
@@ -173,6 +222,7 @@ import {mapActions,mapGetters} from "vuex"
       ...mapGetters("Crawler",["getJob"]),
       ...mapGetters("Crawler",["getFinishedJobs"]),
       ...mapGetters("Crawler",["getJobState"]),
+      
 
       getFullPath () {
         return this.$route.path
@@ -210,6 +260,7 @@ import {mapActions,mapGetters} from "vuex"
 
         exitRunningJob(taskId){
           this.crawlerInProcess['job'] = taskId
+          this.stoppingCrawler = true
           this.cancelRunningJob(this.crawlerInProcess)
           this.inProcess = false
           this.getAllCrawlers(this.crawlerInProcess)
@@ -249,6 +300,7 @@ import {mapActions,mapGetters} from "vuex"
                 if(this.getJobState == 'finished' || !this.isAuth){
                   console.log("STOP POLLING!!")
                   clearInterval(interval);
+                  this.stoppingCrawler = false
                   // clearInterval(this.$store.getters['Crawler/getPollingInterval'])
                 }
               }

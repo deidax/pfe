@@ -52,6 +52,7 @@
         size="64"
       ></v-progress-circular>
     </v-overlay>
+    
 </div>
 </template>
 
@@ -78,6 +79,7 @@ export default {
     ...mapGetters("Auth", ["getUser"]),
     ...mapGetters("Auth", ["isLogoutLoading"]),
     ...mapGetters("Crawler",["getJobState"]),
+
 
   }
 

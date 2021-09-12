@@ -10,5 +10,5 @@ export default{
     job:[],
     finished_jobs: [],
     job_state:'finished',
-    polling_interval: null
+    polling_interval: null,
 }

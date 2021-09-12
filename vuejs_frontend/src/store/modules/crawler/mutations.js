@@ -58,3 +58,4 @@ export const SET_LOADING_CRAWLER_EXECUTION = (state, loading_crawler_execution) 
 export const SET_POLLING_INTERVAL = (state, polling_interval) => {
     state.polling_interval = polling_interval
 }
+

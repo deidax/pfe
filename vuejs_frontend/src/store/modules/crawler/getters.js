@@ -46,3 +46,5 @@ export const getLoadingRunningCrawlerExecution = (state) => {
 export const getPollingInterval = (state) => {
     return state.polling_interval
 }
+
+
