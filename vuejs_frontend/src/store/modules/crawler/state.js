@@ -11,4 +11,5 @@ export default{
     finished_jobs: [],
     job_state:'finished',
     polling_interval: null,
+    deleting_crawler_loading: false
 }

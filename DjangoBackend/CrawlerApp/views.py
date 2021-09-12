@@ -27,6 +27,10 @@ def crawlerManagerApi(request, id=0):
             crawler_args_serializer.save()
             return JsonResponse({"message":"Crawler saved successfully", "code":200}, safe=False)
         return JsonResponse({"message":"Failed to create crawler", "code":422}, safe=False)
+    elif request.method =='DELETE':
+        crawler = Crawler.objects.get(crawlerId=id)
+        crawler.delete()
+        return JsonResponse({"message":"Crawler deleted successfully", "code":200}, safe=False)
     # elif request.method == 'PUT':
     #     department_data = JSONParser().parse(request)
     #     department = Departement.objects.get(DepartementId=department_data['DepartementId'])
@@ -35,10 +39,6 @@ def crawlerManagerApi(request, id=0):
     #         department_serializer.save()
     #         return JsonResponse("Updated successfully", safe=False)
     #     return JsonResponse("Fialed to update", safe=False)
-    # elif request.method=='DELETE':
-    #     department = Departement.objects.get(DepartementId=id)
-    #     department.delete()
-    #     return JsonResponse("Deleted successfully", safe=False)
 
 @csrf_exempt
 def crawlerApi(request, id):

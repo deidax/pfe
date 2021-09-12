@@ -55,7 +55,10 @@ import {mapActions,mapGetters} from "vuex"
     methods:{
         ...mapActions('Crawler',['createCrawler']),
         createNewCrawler(){
-          this.createCrawler(this.form)
+          let playload = {}
+          playload['form'] = this.form
+          playload['vm'] = this
+          this.createCrawler(playload)
         },
         
     },

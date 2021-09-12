@@ -3,7 +3,7 @@
       <v-main>
         <v-card>
           <v-card-title>
-            Crawlers List {{this.polling}}
+            Crawlers List
             <!-- {{getRunningCrawlerTaskId['task_id']}} -->
             <v-spacer></v-spacer>
             <v-text-field
@@ -128,7 +128,7 @@
                 <v-btn
                   icon
                   v-else
-                  :disabled="getLoadingRunningCrawlerExecution || getJobState != 'finished' || stoppingCrawler"
+                  :disabled="getLoadingRunningCrawlerExecution || getJobState != 'finished' || stoppingCrawler || getDeletingCrawlerLoading"
                   v-on:click="executeCrawler(item.crawlerId)"
                   color="black">
                   <v-icon>mdi-play</v-icon>
@@ -139,6 +139,7 @@
                 <v-btn
                   icon
                   :disabled="getLoadingRunningCrawlerExecution || getJobState != 'finished'"
+                  v-on:click="removeCrawler(item.crawlerId)"
                   color="black">
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
@@ -151,6 +152,47 @@
             size="64"
           ></v-progress-circular>
         </v-overlay>
+
+        <v-dialog
+          v-model="getDeletingCrawlerLoading"
+          hide-overlay
+          persistent
+          width="300"
+        >
+          <v-card
+            color="primary"
+            dark
+          >
+            <v-card-text>
+              Please stand by
+              <v-progress-linear
+                indeterminate
+                color="white"
+                class="mb-0"
+              ></v-progress-linear>
+            </v-card-text>
+          </v-card>
+        </v-dialog>
+        <v-snackbar
+        ref="snackbarDeleteCrawler"
+        elevation="24"
+        color="success"
+        v-model="crawlerAlert"
+        :timeout="crawlerAlertTimeoutMessage"
+        >
+        <v-icon large>{{crawlerAlertIcon}}</v-icon>
+        <b style="font-size:150%; margin-left:5px">{{ crawlerAlertMessage }}</b>
+        <template v-slot:action="{ attrs }">
+          <v-btn
+            color="white"
+            text
+            v-bind="attrs"
+            @click="crawlerAlert = false"
+          >
+            Close
+          </v-btn>
+        </template>
+    </v-snackbar>
       </v-main>
    </v-app>
 </template>
@@ -169,6 +211,10 @@ import {mapActions,mapGetters} from "vuex"
         startLongPolling:false,
         polling: null,
         stoppingCrawler: false,
+        crawlerAlert: false,
+        crawlerAlertTimeoutMessage: 5000,
+        crawlerAlertMessage: '',
+        crawlerAlertIcon: '',
         crawlerInProcess:{
           project: 'default',
           job: ''
@@ -222,6 +268,7 @@ import {mapActions,mapGetters} from "vuex"
       ...mapGetters("Crawler",["getJob"]),
       ...mapGetters("Crawler",["getFinishedJobs"]),
       ...mapGetters("Crawler",["getJobState"]),
+      ...mapGetters("Crawler",["getDeletingCrawlerLoading"]),
       
 
       getFullPath () {
@@ -244,6 +291,7 @@ import {mapActions,mapGetters} from "vuex"
         ...mapActions('Crawler',['getJobs']),
         ...mapActions('Crawler',['cancelRunningJob']),
         ...mapActions('Crawler',['getRuningJobs']),
+        ...mapActions('Crawler',['deleteCrawler']),
 
         getCrawlersData(){
           this.getAllCrawlers(this.crawlerInProcess)
@@ -255,6 +303,9 @@ import {mapActions,mapGetters} from "vuex"
           console.log(playload)
           this.runCrawler(playload)
           this.startLongPolling=true
+          this.crawlerAlert = true
+          this.crawlerAlertMessage = "Crawler started"
+          this.crawlerAlertIcon = 'mdi-spider'
           // this.pollingFreshCrawlersInfo()
         },
 
@@ -264,6 +315,14 @@ import {mapActions,mapGetters} from "vuex"
           this.cancelRunningJob(this.crawlerInProcess)
           this.inProcess = false
           this.getAllCrawlers(this.crawlerInProcess)
+        },
+
+        removeCrawler(crawlerId){
+          let playload = {}
+          playload['crawler_id'] = crawlerId
+          playload['crawlerInProcess'] = this.crawlerInProcess
+          playload['vm'] = this
+          this.deleteCrawler(playload)
         },
 
         getCrawlerInfo (task_id){
@@ -301,6 +360,9 @@ import {mapActions,mapGetters} from "vuex"
                   console.log("STOP POLLING!!")
                   clearInterval(interval);
                   this.stoppingCrawler = false
+                  this.crawlerAlert = true
+                  this.crawlerAlertMessage = "Crawler finished"
+                  this.crawlerAlertIcon = 'mdi-spider'
                   // clearInterval(this.$store.getters['Crawler/getPollingInterval'])
                 }
               }

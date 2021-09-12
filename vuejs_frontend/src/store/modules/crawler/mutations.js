@@ -59,3 +59,7 @@ export const SET_POLLING_INTERVAL = (state, polling_interval) => {
     state.polling_interval = polling_interval
 }
 
+export const DELETING_CRAWLER_LOADING = (state, deleting_crawler_loading) => {
+    state.deleting_crawler_loading = deleting_crawler_loading
+}
+

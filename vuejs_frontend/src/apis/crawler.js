@@ -19,6 +19,13 @@ export default{
         return Api.get(CRAWLER_END_POINT)
     },
 
+    async deleteCrawler(id){
+        return Api.delete(CRAWLER_END_POINT+'/'+id)
+    },
+    
+
+
+
 
     
 }

@@ -48,3 +48,7 @@ export const getPollingInterval = (state) => {
 }
 
 
+export const getDeletingCrawlerLoading = (state) => {
+    return state.deleting_crawler_loading
+}
+

@@ -3,11 +3,11 @@ import Scrapyd from "../../../apis/scrapyd";
 import router from "../../../router/index"
 
 // Create Crawler
-export const createCrawler = ({ commit }, form) => {
+export const createCrawler = ({ commit }, playload) => {
     commit('SET_LOADING',true)
     commit('CLEAR_OTHER_ERRORS')
 
-    Crawler.createCrawler(form).then(response => {
+    Crawler.createCrawler(playload.form).then(response => {
         console.log("IN CREATE CRAWLER")
         console.log(response.data)
         // if(response.data.start_url){
@@ -15,6 +15,8 @@ export const createCrawler = ({ commit }, form) => {
         // }
         // commit('SET_CRAWLERDATA', response.data);
         commit('SET_LOADING',false)
+        // playload.vm.crawlerDeleted = true
+        // playload.vm.crawlerDeletedMessage = response.data.message
         router.push({ name: 'crawlers_list' });
         }).catch((error) => {
             error = error+". Can't connect to the server."
@@ -94,7 +96,7 @@ export const runCrawler = ({ commit, dispatch }, playload) => {
 }
 
 
-// Get Crawler
+// Get Crawlers
 export const getAllCrawlers = ({ commit, dispatch  }, form) => {
     commit('SET_LOADING',true)
     commit('CLEAR_OTHER_ERRORS')
@@ -249,6 +251,49 @@ export const cancelRunningJob = ({ commit, dispatch }, form) => {
         
         commit('SET_LOADING',false)
         commit('SET_LOADING_CRAWLER_EXECUTION', false)
+    })
+    
+}
+
+// Delete Crawler
+export const deleteCrawler = ({ commit, dispatch }, playload )=> {
+    commit('CLEAR_OTHER_ERRORS')
+    commit('DELETING_CRAWLER_LOADING', true)
+    Crawler.deleteCrawler(playload.crawler_id).then(response => {
+        console.log(response.data)
+        // if(response.data.start_url){
+        //     commit('SET_CRAWLER_URL', response.data.auth_token)
+        // }
+        playload.vm.crawlerAlert = true
+        playload.vm.crawlerAlertMessage = response.data.message
+        playload.vm.crawlerAlertIcon = 'mdi-delete-sweep'
+        commit('DELETING_CRAWLER_LOADING', false)
+        dispatch('getAllCrawlers', playload.crawlerInProcess)
+        // router.push({ name: 'crawlers_list' });
+        }).catch((error) => {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+            commit('DELETING_CRAWLER_LOADING',false);
+    })
+    .catch((error) => {
+        if(error.response != undefined)
+        {
+            let error_data = error.response.data
+            console.log(error.response.status)
+            // commit('SET_CRAWLERDATA', null);
+            if (error.response.status != 400) {
+                let error_message = error.response.status+" "+error.response.statusText
+                commit('SET_OTHER_ERRORS',error_message)
+            }
+        }
+        else
+        {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+        }
+        
+        
+        commit('DELETING_CRAWLER_LOADING', false)
     })
     
 }
