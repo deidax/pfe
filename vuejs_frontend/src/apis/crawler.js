@@ -4,6 +4,7 @@ import AuthHeader from './authHeader'
 
 const RUN_CRAWLER_END_POINT = "/crawler/"
 const CRAWLER_END_POINT = "/crawler_manager"
+const CRAWLER_DETAILS_END_POINT ="/crawler_details_manager"
 
 export default{
 
@@ -22,6 +23,10 @@ export default{
     async deleteCrawler(id){
         return Api.delete(CRAWLER_END_POINT+'/'+id)
     },
+
+    async getCrawlerDetails(){
+        return Api.get(CRAWLER_DETAILS_END_POINT)
+    }
     
 
 

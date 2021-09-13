@@ -8,11 +8,7 @@ export const createCrawler = ({ commit }, playload) => {
     commit('CLEAR_OTHER_ERRORS')
 
     Crawler.createCrawler(playload.form).then(response => {
-        console.log("IN CREATE CRAWLER")
-        console.log(response.data)
-        // if(response.data.start_url){
-        //     commit('SET_CRAWLER_URL', response.data.auth_token)
-        // }
+
         // commit('SET_CRAWLERDATA', response.data);
         commit('SET_LOADING',false)
         // playload.vm.crawlerDeleted = true
@@ -54,7 +50,7 @@ export const runCrawler = ({ commit, dispatch }, playload) => {
     commit('CLEAR_OTHER_ERRORS')
     commit('SET_LOADING_CRAWLER_EXECUTION', true)
     Crawler.runCrawler(playload.id).then(response => {
-        
+        console.log(response.data)
         // if(response.data.start_url){
         //     commit('SET_CRAWLER_URL', response.data.auth_token)
         // }
@@ -62,6 +58,7 @@ export const runCrawler = ({ commit, dispatch }, playload) => {
         commit('SET_LOADING_CRAWLER_EXECUTION', false)
         commit('SET_LOADING',false)
         dispatch('getAllCrawlers', playload.form)
+        dispatch('getCrawlerDetailsApi')
         commit('CLEAR_OTHER_ERRORS')
         commit('SET_RUNNING_CRAWLER_TASK_ID', response.data['task_id'])
         // router.push({ name: 'dashboard' });
@@ -102,8 +99,6 @@ export const getAllCrawlers = ({ commit, dispatch  }, form) => {
     commit('CLEAR_OTHER_ERRORS')
 
     Crawler.getAllCrawlers().then(response => {
-        console.log("GET CRAWLERS")
-        console.log(response.data)
         // if(response.data.start_url){
         //     commit('SET_CRAWLER_URL', response.data.auth_token)
         // }
@@ -146,7 +141,6 @@ export const getRuningJobs = ({ commit}, form) => {
     commit('SET_LOADING_TO_SCRAPYD',true)
     commit('CLEAR_OTHER_ERRORS')
     Scrapyd.getRuningJobs(form).then(response => {
-        console.log(response.data)
         let pending = response.data['pending']
         let running = response.data['running']
         let finished = response.data['finished']
@@ -217,8 +211,6 @@ export const cancelRunningJob = ({ commit, dispatch }, form) => {
     commit('SET_LOADING_CRAWLER_EXECUTION', true)
     
     Scrapyd.cancelRunningJob(form).then(response => {
-        console.log("CANCELING RUNNING JOB")
-        console.log(response.data)
         // if(response.data.start_url){
         //     commit('SET_CRAWLER_URL', response.data.auth_token)
         // }
@@ -260,7 +252,6 @@ export const deleteCrawler = ({ commit, dispatch }, playload )=> {
     commit('CLEAR_OTHER_ERRORS')
     commit('DELETING_CRAWLER_LOADING', true)
     Crawler.deleteCrawler(playload.crawler_id).then(response => {
-        console.log(response.data)
         // if(response.data.start_url){
         //     commit('SET_CRAWLER_URL', response.data.auth_token)
         // }
@@ -294,6 +285,46 @@ export const deleteCrawler = ({ commit, dispatch }, playload )=> {
         
         
         commit('DELETING_CRAWLER_LOADING', false)
+    })
+    
+}
+
+// Crawler Details
+export const getCrawlerDetailsApi = ({ commit })=> {
+    commit('CLEAR_OTHER_ERRORS')
+    commit('CRAWLER_DETAILS_LOADING', true)
+    Crawler.getCrawlerDetails().then(response => {
+        console.log("Crawler Details--->")
+        console.log(response.data)
+        // console.log("State--->")
+        // console.log(state.job_state)
+        commit('SET_CRAWLER_DETAILS', response.data)
+        commit('CRAWLER_DETAILS_LOADING', false)
+        // router.push({ name: 'crawlers_list' });
+        }).catch((error) => {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+            commit('CRAWLER_DETAILS_LOADING',false);
+    })
+    .catch((error) => {
+        if(error.response != undefined)
+        {
+            let error_data = error.response.data
+            console.log(error.response.status)
+            // commit('SET_CRAWLERDATA', null);
+            if (error.response.status != 400) {
+                let error_message = error.response.status+" "+error.response.statusText
+                commit('SET_OTHER_ERRORS',error_message)
+            }
+        }
+        else
+        {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+        }
+        
+        
+        commit('CRAWLER_DETAILS_LOADING', false)
     })
     
 }

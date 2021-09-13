@@ -1,0 +1,216 @@
+2021-09-13 18:18:32 [scrapy.utils.log] INFO: Scrapy 2.5.0 started (bot: avito)
+2021-09-13 18:18:32 [scrapy.utils.log] INFO: Versions: lxml 4.6.3.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.7.0, Python 3.8.10 (default, Jun  2 2021, 10:49:15) - [GCC 9.4.0], pyOpenSSL 20.0.1 (OpenSSL 1.1.1l  24 Aug 2021), cryptography 3.4.8, Platform Linux-5.11.0-34-generic-x86_64-with-glibc2.29
+2021-09-13 18:18:32 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.epollreactor.EPollReactor
+2021-09-13 18:18:32 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'avito',
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'logs/default/productspider/9c2b830614b611ecb3e9eb2be6e979cc.log',
+ 'NEWSPIDER_MODULE': 'avito.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['avito.spiders']}
+2021-09-13 18:18:32 [scrapy.extensions.telnet] INFO: Telnet Password: 2c995642aac3f928
+2021-09-13 18:18:32 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2021-09-13 18:18:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
+2021-09-13 18:18:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
+2021-09-13 18:18:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2021-09-13 18:18:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2021-09-13 18:18:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2021-09-13 18:18:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2021-09-13 18:18:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-13 18:18:34 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
+2021-09-13 18:18:34 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy_user_agents.middlewares.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-09-13 18:18:34 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-09-13 18:18:34 [scrapy.middleware] INFO: Enabled item pipelines:
+['avito.pipelines.MongoDBPipeline']
+2021-09-13 18:18:34 [scrapy.core.engine] INFO: Spider opened
+2021-09-13 18:18:34 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-09-13 18:18:34 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-09-13 18:18:34 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36
+2021-09-13 18:18:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/robots.txt> (referer: None)
+2021-09-13 18:18:34 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36
+2021-09-13 18:18:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre> (referer: None)
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36
+2021-09-13 18:18:38 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre?o=2> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
+2021-09-13 18:18:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36
+2021-09-13 18:18:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:18:43 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
+2021-09-13 18:18:43 [py.warnings] WARNING: /home/khalil/Projects/PFE/scrapy_app/avito-env/lib/python3.8/site-packages/scrapy/utils/project.py:81: ScrapyDeprecationWarning: Use of environment variables prefixed with SCRAPY_ to override settings is deprecated. The following environment variables are currently defined: JOB, LOG_FILE, SLOT, SPIDER
+  warnings.warn(
+
+2021-09-13 18:18:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp/betonniere_silla__47071316.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:18:48 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+2021-09-13 18:18:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/betonniere_silla__47071316.htm>
+None
+2021-09-13 18:18:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/betonniere_silla__47071316.htm>
+None
+2021-09-13 18:18:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre?o=2> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:18:50 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+2021-09-13 18:18:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp/Temara_45925052.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:18:56 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+2021-09-13 18:18:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/Temara_45925052.htm>
+None
+2021-09-13 18:18:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/Temara_45925052.htm>
+None
+2021-09-13 18:19:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/agdal/engins_btp/Manitou__46108436.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:03 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36
+2021-09-13 18:19:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/agdal/engins_btp/Manitou__46108436.htm>
+None
+2021-09-13 18:19:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/agdal/engins_btp/Manitou__46108436.htm>
+None
+2021-09-13 18:19:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp/klak_mli7__46057727.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:05 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+2021-09-13 18:19:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp/%D8%B1%D8%A7%D9%81%D9%8A%D8%B9%D8%A7_46138348.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:05 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36
+2021-09-13 18:19:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/klak_mli7__46057727.htm>
+None
+2021-09-13 18:19:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/klak_mli7__46057727.htm>
+None
+2021-09-13 18:19:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/%D8%B1%D8%A7%D9%81%D9%8A%D8%B9%D8%A7_46138348.htm>
+None
+2021-09-13 18:19:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/%D8%B1%D8%A7%D9%81%D9%8A%D8%B9%D8%A7_46138348.htm>
+None
+2021-09-13 18:19:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/hay_nahda/engins_btp/Trax_JCB_4CX_46157305.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:08 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36
+2021-09-13 18:19:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/hay_nahda/engins_btp/Trax_JCB_4CX_46157305.htm>
+None
+2021-09-13 18:19:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/hay_nahda/engins_btp/Trax_JCB_4CX_46157305.htm>
+None
+2021-09-13 18:19:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp/%C3%A9l%C3%A9vateur_0_km_46238721.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:14 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+2021-09-13 18:19:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/%C3%A9l%C3%A9vateur_0_km_46238721.htm>
+None
+2021-09-13 18:19:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/%C3%A9l%C3%A9vateur_0_km_46238721.htm>
+None
+2021-09-13 18:19:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/aakkari/engins_btp/Ppmpe_a_eau_100_ch_42630760.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:19 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
+2021-09-13 18:19:19 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/aakkari/engins_btp/Ppmpe_a_eau_100_ch_42630760.htm>
+None
+2021-09-13 18:19:19 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/aakkari/engins_btp/Ppmpe_a_eau_100_ch_42630760.htm>
+None
+2021-09-13 18:19:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp/%D9%84%D8%A7%D9%81%D8%A7%D8%AC_%D9%85%D8%AA%D9%86%D9%82%D9%84_%D9%84%D9%84%D8%A8%D9%8A%D8%B9_46273408.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36
+2021-09-13 18:19:21 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/%D9%84%D8%A7%D9%81%D8%A7%D8%AC_%D9%85%D8%AA%D9%86%D9%82%D9%84_%D9%84%D9%84%D8%A8%D9%8A%D8%B9_46273408.htm>
+None
+2021-09-13 18:19:21 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/%D9%84%D8%A7%D9%81%D8%A7%D8%AC_%D9%85%D8%AA%D9%86%D9%82%D9%84_%D9%84%D9%84%D8%A8%D9%8A%D8%B9_46273408.htm>
+None
+2021-09-13 18:19:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp/jcb_3cx__46296841.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:24 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.43 Safari/537.31
+2021-09-13 18:19:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/jcb_3cx__46296841.htm>
+None
+2021-09-13 18:19:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/jcb_3cx__46296841.htm>
+None
+2021-09-13 18:19:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp/case_988_46306212.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:28 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36
+2021-09-13 18:19:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/case_988_46306212.htm>
+None
+2021-09-13 18:19:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/rabat/engins_btp/case_988_46306212.htm>
+None
+2021-09-13 18:19:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/aakkari/engins_btp/%D8%AF%D8%A7%D9%85%D8%A8%D9%8A%D8%B1_%D9%85%D9%84%D9%8A%D8%AD%D8%A9_45679826.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:30 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36
+2021-09-13 18:19:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/aakkari/engins_btp/%D8%AF%D8%A7%D9%85%D8%A8%D9%8A%D8%B1_%D9%85%D9%84%D9%8A%D8%AD%D8%A9_45679826.htm>
+None
+2021-09-13 18:19:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/aakkari/engins_btp/%D8%AF%D8%A7%D9%85%D8%A8%D9%8A%D8%B1_%D9%85%D9%84%D9%8A%D8%AD%D8%A9_45679826.htm>
+None
+2021-09-13 18:19:34 [scrapy.extensions.logstats] INFO: Crawled 16 pages (at 16 pages/min), scraped 24 items (at 24 items/min)
+2021-09-13 18:19:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/aakkari/engins_btp/Dumper_Barford_4_4__45282569.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:35 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.91 Safari/537.36
+2021-09-13 18:19:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/aakkari/engins_btp/Dumper_Barford_4_4__45282569.htm>
+None
+2021-09-13 18:19:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/aakkari/engins_btp/Dumper_Barford_4_4__45282569.htm>
+None
+2021-09-13 18:19:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/engins_btp/Compresseur_ATLAS_COPCO_TR%C3%88S_BON_%C3%89TAT_44032366.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36
+2021-09-13 18:19:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/engins_btp/Compresseur_ATLAS_COPCO_TR%C3%88S_BON_%C3%89TAT_44032366.htm>
+None
+2021-09-13 18:19:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/engins_btp/Compresseur_ATLAS_COPCO_TR%C3%88S_BON_%C3%89TAT_44032366.htm>
+None
+2021-09-13 18:19:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/aakkari/engins_btp/Rok_pneumatique_atlas_copco_442c_45982533.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:42 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36
+2021-09-13 18:19:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/aakkari/engins_btp/Rok_pneumatique_atlas_copco_442c_45982533.htm>
+None
+2021-09-13 18:19:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/aakkari/engins_btp/Rok_pneumatique_atlas_copco_442c_45982533.htm>
+None
+2021-09-13 18:19:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/aakkari/engins_btp/Groupe_%C3%A9lectrog%C3%A8ne_200_kva_45982905.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:49 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+2021-09-13 18:19:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/aakkari/engins_btp/Groupe_%C3%A9lectrog%C3%A8ne_200_kva_45982905.htm>
+None
+2021-09-13 18:19:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/aakkari/engins_btp/Groupe_%C3%A9lectrog%C3%A8ne_200_kva_45982905.htm>
+None
+2021-09-13 18:19:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/rabat/engins_btp/mat%C3%A9riel___en_bonne_%C3%A9tat__%C3%A0__vendre__46541550.htm> (referer: https://www.avito.ma/fr/rabat/engins_btp-%C3%A0_vendre)
+2021-09-13 18:19:50 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36
+2021-09-13 18:19:50 [scrapy.crawler] INFO: Received SIGTERM, shutting down gracefully. Send again to force 
+2021-09-13 18:19:50 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2021-09-13 18:19:50 [scrapy.crawler] INFO: Received SIGTERM twice, forcing unclean shutdown

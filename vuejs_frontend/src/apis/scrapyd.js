@@ -8,8 +8,6 @@ const SCRAPYD_CANCEL_JOB = "/crawler_cancel_process"
 export default{
 
     async getRuningJobs(form){
-        console.log('=======> scrapyd')
-        console.log(form)
         return Api.post(SCRAPYD_LIST_JOBS_END_POINT, form)
     },
 

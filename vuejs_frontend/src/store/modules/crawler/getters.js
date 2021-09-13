@@ -52,3 +52,10 @@ export const getDeletingCrawlerLoading = (state) => {
     return state.deleting_crawler_loading
 }
 
+export const getCrawlerDetailsLoading = (state) => {
+    return state.crawler_details_loading
+}
+
+export const getCrawlerDetails = (state) => {
+    return state.crawler_details
+}

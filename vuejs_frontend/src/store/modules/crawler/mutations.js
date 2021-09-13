@@ -63,3 +63,11 @@ export const DELETING_CRAWLER_LOADING = (state, deleting_crawler_loading) => {
     state.deleting_crawler_loading = deleting_crawler_loading
 }
 
+export const CRAWLER_DETAILS_LOADING = (state, crawler_details_loading) => {
+    state.crawler_details_loading = crawler_details_loading
+}
+
+export const SET_CRAWLER_DETAILS = (state, crawler_details) => {
+    Vue.set(state,'crawler_details', crawler_details)
+}
+

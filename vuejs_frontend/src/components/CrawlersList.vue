@@ -144,6 +144,17 @@
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </template>
+              <!-- Details btn -->
+              <template v-slot:item.details_btn="{ item }">
+                <v-btn
+                  icon
+                  v-if="crawlerButtonControlSwitch(item.task_id) && getJobState != 'finished'"
+                  :disabled="getLoadingRunningCrawlerExecution || stoppingCrawler || !crawlerDetailsReady"
+                  v-on:click="openCrawlerDetails()"
+                  color="black">
+                  <v-icon>mdi-eye</v-icon>
+                </v-btn>
+              </template>
             </v-data-table>
         </v-card>
         <v-overlay :value="stoppingCrawler">
@@ -194,13 +205,22 @@
         </template>
     </v-snackbar>
       </v-main>
+    <crawler-details 
+        v-show="crawlerDetailsReady" 
+        :percentage="productsInsertedPercentage" 
+        :openDialog="triggerOpenCrawlerDetails" 
+        :activeCrawlerDetails="getCrawlerDetails"
+        @update-openDialog="updateDialog"
+    ></crawler-details>
    </v-app>
 </template>
 
 
 <script>
-import {mapActions,mapGetters} from "vuex"
+import {mapActions,mapGetters, mapState} from "vuex"
+import CrawlerDetails from './CrawlerDetails.vue';
   export default {
+  components: { CrawlerDetails },
 
     name: 'CrawlersList',
     
@@ -215,6 +235,13 @@ import {mapActions,mapGetters} from "vuex"
         crawlerAlertTimeoutMessage: 5000,
         crawlerAlertMessage: '',
         crawlerAlertIcon: '',
+        triggerOpenCrawlerDetails: false,
+        totalProductsFound: 0,
+        lastCrawler: {},
+        lastCrawlerTaskId: null,
+        crawlerDetailsReady: false,
+        productsInsertedPercentage:0,
+        job_id : null,
         crawlerInProcess:{
           project: 'default',
           job: ''
@@ -230,6 +257,7 @@ import {mapActions,mapGetters} from "vuex"
           { text: 'Unique ID', value: 'task_id', sortable: false},
           { text: ' ', value: 'btn_run_stop', sortable: false },
           { text: ' ', value: 'btn_delete', sortable: false },
+          { text: ' ', value: 'details_btn', sortable: false },
         ],
         // crawlers_data: getCrawlers
       }
@@ -250,10 +278,26 @@ import {mapActions,mapGetters} from "vuex"
       // },
 
       getJobState(newVal, oldVal){
-          console.log("OLD: "+oldVal)
-          console.log("NEW: "+newVal)
+          // console.log("OLD: "+oldVal)
+          // console.log("NEW: "+newVal)
           console.log("POLLING!!!!!!!!")
           this.pollingFreshCrawlersInfo()
+      },
+
+      getLastCrawlerTaskId(newVal, oldVal){
+          console.log("OLD: "+oldVal)
+          console.log("NEW: "+newVal)
+          if(oldVal != undefined){
+            console.log("-->READY")
+            this.crawlerDetailsReady = true
+          }
+      },
+      
+      getCrawlerProductsInserted(newVal, oldVal){
+        console.log("OLD: "+oldVal)
+        console.log("NEW: "+newVal)
+        this.productsInsertedPercentage = this.calculatePercentage(newVal, this.getCrawlerDetails.number_of_products_found)
+        console.log("PERCENTAGE -------> "+this.productsInsertedPercentage)
       }
 
     },
@@ -269,22 +313,31 @@ import {mapActions,mapGetters} from "vuex"
       ...mapGetters("Crawler",["getFinishedJobs"]),
       ...mapGetters("Crawler",["getJobState"]),
       ...mapGetters("Crawler",["getDeletingCrawlerLoading"]),
+      ...mapGetters("Crawler",["getCrawlerDetails"]),
+      ...mapState("Crawler",["crawler_details"]),
+      ...mapState("Crawler",["running_crawler_task_id"]),
       
 
       getFullPath () {
         return this.$route.path
       },
 
-      // activateLongPolling(){
-      //   console.log(this.getJobState)
-      //   return this.startLongPolling && this.getJobState != 'finished'
-      // }
+      getLastCrawlerTaskId(){
+        console.log('******')
+        return this.crawler_details.task_id
+      },
+
+      getCrawlerProductsInserted(){
+        try {
+          return this.getCrawlerDetails.products_inserted
+        } catch (error) {}
+      }
 
       
 
       
     },
-
+    
     methods:{
         ...mapActions('Crawler',['getAllCrawlers']),
         ...mapActions('Crawler',['runCrawler']),
@@ -292,6 +345,11 @@ import {mapActions,mapGetters} from "vuex"
         ...mapActions('Crawler',['cancelRunningJob']),
         ...mapActions('Crawler',['getRuningJobs']),
         ...mapActions('Crawler',['deleteCrawler']),
+        ...mapActions('Crawler',['getCrawlerDetailsApi']),
+
+        updateDialog(openDialog){
+          this.triggerOpenCrawlerDetails = openDialog
+        },
 
         getCrawlersData(){
           this.getAllCrawlers(this.crawlerInProcess)
@@ -314,6 +372,7 @@ import {mapActions,mapGetters} from "vuex"
           this.stoppingCrawler = true
           this.cancelRunningJob(this.crawlerInProcess)
           this.inProcess = false
+          
           this.getAllCrawlers(this.crawlerInProcess)
         },
 
@@ -348,18 +407,35 @@ import {mapActions,mapGetters} from "vuex"
           return isActive
         },
 
+        openCrawlerDetails(){
+          this.triggerOpenCrawlerDetails = true
+        },
+
+        calculatePercentage(value, total){
+          return Math.ceil((value/total) * 100)
+        },
+
         pollingFreshCrawlersInfo(){
           // console.log(this.activateLongPolling)
             var interval = setInterval(
               function () { 
                 console.log("LongPolling--->"+this.getJobState)
                 this.getAllCrawlers(this.crawlerInProcess)
-                console.log('interval--->'+ this.isAuth)
-                // this.$store.commit('Crawler/SET_POLLING_INTERVAL', interval)
+
+                this.getCrawlerDetailsApi()
+                  if(this.getLastCrawlerTaskId == this.getJob[0].id){
+                    this.crawlerDetailsReady = true
+                  }
+                  else{
+                    this.crawlerDetailsReady = false
+                  }
+                  
+             
                 if(this.getJobState == 'finished' || !this.isAuth){
                   console.log("STOP POLLING!!")
                   clearInterval(interval);
                   this.stoppingCrawler = false
+                  this.crawlerDetailsReady = false
                   this.crawlerAlert = true
                   this.crawlerAlertMessage = "Crawler finished"
                   this.crawlerAlertIcon = 'mdi-spider'
@@ -377,8 +453,13 @@ import {mapActions,mapGetters} from "vuex"
     // },
 
     created () {
+      this.getCrawlerDetailsApi()
+      // let _lastCrawler = this.getCrawlerDetails.task_id
+      // // this.lastCrawlerTaskId = _lastCrawler['task_id']
+      //   console.log("crawlerDetailsTaskId===>")
+      //   console.log(_lastCrawler)
       if(this.getJobState != 'finished'){
-        console.log("created===>")
+        
         this.pollingFreshCrawlersInfo()
       }
     }

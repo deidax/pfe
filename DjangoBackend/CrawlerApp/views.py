@@ -9,6 +9,7 @@ from CrawlerApp.serializers import CrawlerSerializer
 from uuid import uuid4
 from urllib.parse import urlparse
 from scrapyd_api import ScrapydAPI
+import pymongo
 import json
 
 # connect scrapyd service
@@ -97,3 +98,15 @@ def getScrapydListJobsApi(request):
         scrapyd_list_jobs = scrapyd.list_jobs(running_project['project'])
 
         return JsonResponse(scrapyd_list_jobs)
+
+@csrf_exempt
+def crawlerDetailsManagerApi(request):
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    mongodb = client["avito"]
+    avito_crawler_collection = mongodb["avito_crawler"]
+    if request.method == 'GET':
+        avito_crawler_data = avito_crawler_collection.find_one()
+        # client.close()
+        avito_crawler_data.pop('_id')
+        return JsonResponse(avito_crawler_data)
+

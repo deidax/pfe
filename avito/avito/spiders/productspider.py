@@ -12,6 +12,7 @@ from termcolor import colored
 import pyfiglet
 from scrapy.utils.project import get_project_settings
 from datetime import datetime
+import os
 
 class ProductSpider(CrawlSpider):
     name = "productspider"
@@ -43,7 +44,7 @@ class ProductSpider(CrawlSpider):
         products_number = self.calculate_products_to_scrape(response)
         self.display_total_products_flag(products_number)
         self.is_multiple_pages = True
-        yield self.avito_crawler
+        
 
         print(colored("****     FINDING PRODUCTS LINKS     ****", 'magenta'))
         product_listes = response.xpath("//div[contains(@class, 'listing')]/div")
@@ -63,7 +64,9 @@ class ProductSpider(CrawlSpider):
         if self.is_multiple_pages == False:
             # products_number = self.calculate_products_to_scrape(response)
             self.display_total_products_flag(0)
-            yield self.avito_crawler
+            # yield self.avito_crawler
+        
+        yield self.avito_crawler
 
         print(colored("****     SCRAPING PRODUCT     ****", 'magenta'))
         # is_right_product_to_scrap = response.xpath('//*[@id="__next"]/div[2]/div[2]/div/div[1]/div[1]/div[3]/button').extract_first()
@@ -151,6 +154,7 @@ class ProductSpider(CrawlSpider):
         if self.display_number_of_products and products_number is not None:
             # Save details about the crawler
             self.avito_crawler['number_of_products_found'] = products_number
+            self.avito_crawler['task_id'] = os.environ['SCRAPY_JOB']
             prd_total_str = str(products_number)+' PRODUCTS FOUND'
             result = pyfiglet.figlet_format(prd_total_str, font = "digital" )
             result = colored(result, 'yellow')
