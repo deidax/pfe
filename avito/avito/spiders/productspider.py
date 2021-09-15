@@ -11,7 +11,7 @@ import sys
 from termcolor import colored
 import pyfiglet
 from scrapy.utils.project import get_project_settings
-from datetime import datetime
+import datetime
 import os
 
 class ProductSpider(CrawlSpider):
@@ -177,8 +177,14 @@ class ProductSpider(CrawlSpider):
         estimated_time = "%d:%d:%d:%d" % (day, hour, minutes, seconds)
         self.avito_crawler['avito_crawler_id'] = 1
         self.avito_crawler['estimated_time_to_finish'] = estimated_time
-        estimated_time_str = "TIEM TO SCRAPE ~ " + estimated_time
+        estimated_count_down_date = datetime.datetime.now() + datetime.timedelta(days=day,hours=hour,minutes=minutes,seconds=seconds)
+        estimated_count_down_date = estimated_count_down_date.strftime("%d %b, %Y %H:%M:%S")
+        self.avito_crawler['estimatred_count_down_date'] = estimated_count_down_date
+        estimated_time_str = "ESTIMATED TIME TO SCRAPE ~ " + estimated_time
+        estimated_count_down_date_str = "ESTIMATED DATETIME TO FINISH ~ " + estimated_count_down_date
         print(colored('__['+estimated_time_str+']__','red'))
+        print(colored('__['+estimated_count_down_date_str+']__','red'))
+
         print('\n')
 
     def loading(self):
@@ -187,4 +193,3 @@ class ProductSpider(CrawlSpider):
         sys.stdout.write('\r'+loading_str+'...')
         time.sleep(0.1)
         sys.stdout.write('\r'+done_str)
-    

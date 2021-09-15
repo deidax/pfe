@@ -9,6 +9,8 @@ const CRAWLER_DETAILS_END_POINT ="/crawler_details_manager"
 export default{
 
     async createCrawler(form){
+        console.log("CREATE")
+        console.log(form)
         return Api.post(CRAWLER_END_POINT, form)
     },
 

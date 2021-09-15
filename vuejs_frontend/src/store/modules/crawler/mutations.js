@@ -3,7 +3,8 @@
 import Vue from 'vue'
 
 export const SET_CRAWLERS_DATA = (state, crawlers_data) => {
-    state.crawlers = crawlers_data;
+    // state.crawlers = crawlers_data;
+    Vue.set(state, 'crawlers', crawlers_data)
 }
 
 

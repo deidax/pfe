@@ -21,6 +21,7 @@ class AvitoCrawlerItem(scrapy.Item):
     avito_crawler_id = scrapy.Field()
     number_of_products_found = scrapy.Field()
     estimated_time_to_finish = scrapy.Field()
+    estimatred_count_down_date = scrapy.Field()
     task_id = scrapy.Field()
     products_inserted = scrapy.Field()
     

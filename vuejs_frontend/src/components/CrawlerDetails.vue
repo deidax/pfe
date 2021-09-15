@@ -37,21 +37,73 @@
           <!-- <v-subheader>Loading Products Data From Avito</v-subheader> -->
           <v-list-item>
             <v-list-item-content>
-            <v-list-item-title><i>Loading Products Data From Avito</i></v-list-item-title>
-              <v-list-item-title>
+            <v-list-item-title v-if="activeCrawlerDetails.number_of_products_found != 0 && jobState != 'finished'"><i>Loading Products Data From Avito</i></v-list-item-title>
+              <v-list-item-title v-if="activeCrawlerDetails.number_of_products_found != 0 && jobState != 'finished'">
                 <v-progress-linear
                   v-model="percentage"
-                  height="25"
+                  striped
+                  color="light-blue"
+                  height="20"
                 >
                   <strong>{{ percentage }}%</strong>
                 </v-progress-linear>
               </v-list-item-title>
+              <v-list-item-title v-if="activeCrawlerDetails.number_of_products_found == 0 && jobState != 'finished'">
+                <v-progress-linear
+                  indeterminate
+                  color="cyan"
+                ></v-progress-linear>
+              </v-list-item-title>
+              <v-list-item-title v-if="jobState == 'finished'">
+                <v-alert type="success" v-if="(activeCrawlerDetails.products_inserted  + 1) == activeCrawlerDetails.number_of_products_found && activeCrawlerDetails.number_of_products_found != 0">
+                  <h1>Done !</h1>
+                  <h2>{{activeCrawlerDetails.products_inserted  + 1}} / {{activeCrawlerDetails.number_of_products_found}} Products inserted in DB</h2>
+                </v-alert>
+                <v-alert type="info" v-if="(activeCrawlerDetails.products_inserted  + 1) != activeCrawlerDetails.number_of_products_found && activeCrawlerDetails.number_of_products_found != 0">
+                  <h1>Info !</h1>
+                  <h2>{{activeCrawlerDetails.products_inserted  + 1}} / {{activeCrawlerDetails.number_of_products_found}} Products inserted in DB</h2>
+                </v-alert>
+                <v-alert type="info" v-if="activeCrawlerDetails.number_of_products_found == 0">
+                  <h1>Done !</h1>
+                  <h2>{{activeCrawlerDetails.products_inserted  + 1}} Products inserted in DB</h2>
+                </v-alert>
+              </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>Products found: <b>{{ activeCrawlerDetails.number_of_products_found }}</b></v-list-item-title>
+            <v-list-item-content v-if="jobState != 'finished'">
+              <div class="text-center" v-if="activeCrawlerDetails.number_of_products_found != 0">
+                <v-chip
+                  class="ma-2"
+                  color="success"
+                  outlined
+                  large
+                >
+                  <v-icon left>
+                    mdi-radar
+                  </v-icon>
+                  <b style="margin-right: 5px">{{ activeCrawlerDetails.number_of_products_found }}</b> products found 
+                </v-chip>
+
+
+                <v-chip
+                  class="ma-2"
+                  color="deep-purple accent-4"
+                  outlined
+                  large
+                >
+                  <v-icon left>
+                    mdi-alarm
+                  </v-icon>
+                  Estimated time to finish 
+                  <b v-if="crawlertimeCounter == ''">...</b>
+                  <b style="margin-left: 3px" v-else>{{ crawlertimeCounter }}</b>
+                </v-chip>
+
+              </div>
+              <!-- <v-list-item-title>Products found: <b>{{ activeCrawlerDetails.number_of_products_found }}</b></v-list-item-title>
               <v-list-item-title>Estimated time to finish: <b>{{ activeCrawlerDetails.estimated_time_to_finish }}</b></v-list-item-title>
+              <v-list-item-title>Time Counter: <b>{{ crawlertimeCounter }}</b></v-list-item-title> -->
              <!-- <v-list-item-subtitle>{{ activeCrawlerDetails.number_of_products_found }}</v-list-item-subtitle> -->
             </v-list-item-content>
           </v-list-item>
@@ -61,9 +113,9 @@
           three-line
           subheader
         >
-          <v-subheader>General</v-subheader>
+          <v-subheader>Logs</v-subheader>
           <v-list-item>
-            <v-list-item-action>
+            <!-- <v-list-item-action>
               <v-checkbox v-model="notifications"></v-checkbox>
             </v-list-item-action>
             <v-list-item-content>
@@ -87,7 +139,7 @@
             <v-list-item-content>
               <v-list-item-title>Auto-add widgets</v-list-item-title>
               <v-list-item-subtitle>Automatically add home screen widgets</v-list-item-subtitle>
-            </v-list-item-content>
+            </v-list-item-content> -->
           </v-list-item>
         </v-list>
       </v-card>
@@ -100,7 +152,10 @@
     props:{
         openDialog: Boolean,
         percentage: 0,
-        activeCrawlerDetails: {}
+        jobState: '',
+        activeCrawlerDetails: {},
+        crawlertimeCounter: ''
+        
     },
     data () {
       return {
@@ -108,16 +163,19 @@
         sound: true,
         widgets: false,
 
-        openDialogSwitch: false
+        openDialogSwitch: false,
+        
       }
     },
+
     methods: {
       closeDialog(){
         let openDialogSwitch = this.openDialog
         openDialogSwitch = false
         this.$emit('update-openDialog', openDialogSwitch)
-      }
-    }
+      },
+
+    },
     
 
   }

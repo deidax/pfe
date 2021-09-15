@@ -3,7 +3,7 @@
       <v-main>
         <v-card>
           <v-card-title>
-            Crawlers List
+            Crawlers List {{refreshCrawlerListData}}
             <!-- {{getRunningCrawlerTaskId['task_id']}} -->
             <v-spacer></v-spacer>
             <v-text-field
@@ -210,6 +210,8 @@
         :percentage="productsInsertedPercentage" 
         :openDialog="triggerOpenCrawlerDetails" 
         :activeCrawlerDetails="getCrawlerDetails"
+        :jobState="getJobState"
+        :crawlertimeCounter="timeCounter"
         @update-openDialog="updateDialog"
     ></crawler-details>
    </v-app>
@@ -223,6 +225,9 @@ import CrawlerDetails from './CrawlerDetails.vue';
   components: { CrawlerDetails },
 
     name: 'CrawlersList',
+    props: {
+      refreshCrawlerListData: false
+    },
     
     data () {
       return {
@@ -241,6 +246,7 @@ import CrawlerDetails from './CrawlerDetails.vue';
         lastCrawlerTaskId: null,
         crawlerDetailsReady: false,
         productsInsertedPercentage:0,
+        timeCounter: '',
         job_id : null,
         crawlerInProcess:{
           project: 'default',
@@ -264,6 +270,7 @@ import CrawlerDetails from './CrawlerDetails.vue';
     },
 
     mounted () {
+      this.getJobState
       this.getCrawlersData();
     },
 
@@ -272,10 +279,10 @@ import CrawlerDetails from './CrawlerDetails.vue';
         this.getCrawlersData()
       },
 
-      // startLongPolling () {
-      //   console.log("LongPolling")
-      //   this.pollingFreshCrawlersInfo()
-      // },
+      refreshCrawlerListData(){
+        // this.getCrawlersData()
+        location.reload();
+      },  
 
       getJobState(newVal, oldVal){
           // console.log("OLD: "+oldVal)
@@ -290,6 +297,8 @@ import CrawlerDetails from './CrawlerDetails.vue';
           if(oldVal != undefined){
             console.log("-->READY")
             this.crawlerDetailsReady = true
+            console.log(this.getCrawlerDetails.estimatred_count_down_date)
+            
           }
       },
       
@@ -372,6 +381,7 @@ import CrawlerDetails from './CrawlerDetails.vue';
           this.stoppingCrawler = true
           this.cancelRunningJob(this.crawlerInProcess)
           this.inProcess = false
+          this.timeCounter = ''
           
           this.getAllCrawlers(this.crawlerInProcess)
         },
@@ -409,6 +419,7 @@ import CrawlerDetails from './CrawlerDetails.vue';
 
         openCrawlerDetails(){
           this.triggerOpenCrawlerDetails = true
+          this.timeCountDown(this.getCrawlerDetails.estimatred_count_down_date)
         },
 
         calculatePercentage(value, total){
@@ -434,6 +445,10 @@ import CrawlerDetails from './CrawlerDetails.vue';
                 if(this.getJobState == 'finished' || !this.isAuth){
                   console.log("STOP POLLING!!")
                   clearInterval(interval);
+                  if(this.isAuth){
+                    let n_audio = new Audio('https://freesound.org/data/previews/320/320655_5260872-lq.mp3');
+                    n_audio.play();
+                  }
                   this.stoppingCrawler = false
                   this.crawlerDetailsReady = false
                   this.crawlerAlert = true
@@ -444,7 +459,38 @@ import CrawlerDetails from './CrawlerDetails.vue';
               }
               .bind(this), 3000)
             // this.polling = interval
-        }
+        },
+
+        timeCountDown(time){
+        // try {
+            let countDownDate = new Date(time).getTime();
+
+            // Run myfunc every second
+            let myfunc = setInterval(function() {
+
+            let now = new Date().getTime();
+            let timeleft = countDownDate - now;
+                
+            // Calculating the days, hours, minutes and seconds left
+            let days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+                
+            this.timeCounter = days+":"+hours+":"+minutes+":"+seconds
+            console.log(this.timeCounter)
+            console.log("TIMMMME")
+            // Display the message when countdown is over
+            if (timeleft < 0 || this.getJobState == 'finished') {
+              this.timeCounter = ''
+              clearInterval(myfunc);
+                  console.log("TIME UP")
+              }
+            }
+            .bind(this), 1000);
+        // }
+          // catch (error) {}
+        },
 
     },
 
@@ -462,6 +508,8 @@ import CrawlerDetails from './CrawlerDetails.vue';
         
         this.pollingFreshCrawlersInfo()
       }
+
+      
     }
     
   }

@@ -1,12 +1,19 @@
 <template>
    <v-app id="inspire">
       <v-main>
-            <v-form class="ccf" @submit.prevent="executeCrawler" id="create-crawler-form">
+            <v-form class="ccf" @submit.prevent="createNewCrawler" id="create-crawler-form">
               <v-container>
                 <v-row>
                   <v-col
                     cols="12"
                     sm="6">
+                    <v-text-field
+                      v-model="form.name"
+                      name="name"
+                      solo
+                      label="Crawler Name"
+                      clearable>
+                      </v-text-field>
                     <v-text-field
                       v-model="form.start_url"
                       name="start_url"
@@ -35,6 +42,7 @@ import {mapActions,mapGetters} from "vuex"
     {
       return{
         form:{
+          name: '',
           start_url: ''
         },
       }
@@ -45,9 +53,12 @@ import {mapActions,mapGetters} from "vuex"
     },
 
     methods:{
-        ...mapActions('Crawler',['runCrawler']),
-        executeCrawler(){
-          this.runCrawler(this.form)
+        ...mapActions('Crawler',['createCrawler']),
+        createNewCrawler(){
+          let playload = {}
+          playload['form'] = this.form
+          playload['vm'] = this
+          this.createCrawler(playload)
         },
         
     },

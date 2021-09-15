@@ -2,9 +2,30 @@
   <v-container>
   <nav-bar/>
   <span style="display: none">{{displayOtherServerErrors}}</span>
-  <h1 v-show="createCrawler">Create a new Crawler</h1>
-  <create-crawler v-show="createCrawler"/>
-  <crawlers-list v-show="crawlersList"/>
+  <create-crawler 
+    :openCreateForm="triggerOpenCreateForm"
+    :refreshCrawlerListData="refreshCrawlers" 
+    @update-openCreateForm="updateCreateForm"
+    @update-crawlersList="refreshCrawlerList"/>
+  <crawlers-list 
+    v-show="crawlersList"
+    :refreshCrawlerListData="refreshCrawlers"
+    />
+  <v-fab-transition>
+        <v-btn
+          color="blue"
+          fixed
+          fab
+          large
+          dark
+          bottom
+          right
+          class="v-btn--create"
+          v-on:click="triggerOpenCreateForm = true"
+        >
+          <v-icon>mdi-pen</v-icon>
+        </v-btn>
+    </v-fab-transition>
   <!-- Server errors -->
       <v-snackbar
         v-model="snackbar"
@@ -41,6 +62,8 @@ import {mapActions,mapGetters} from "vuex"
 
     data: () => ({
       snackbar: false,
+      triggerOpenCreateForm: false,
+      refreshCrawlers: false,
     }),
     
     components: {
@@ -57,18 +80,31 @@ import {mapActions,mapGetters} from "vuex"
         return this.snackbar = true
       },
 
-      createCrawler() {
-        if(this.$route.name == "create_crawler") {
-          return true
-        }
-        return false
-      },
+
+      // createCrawler() {
+      //   if(this.$route.name == "create_crawler") {
+      //     return true
+      //   }
+      //   return false
+      // },
       crawlersList() {
         if(this.$route.name == "crawlers_list") {
           return true
         }
         return false
       }
+    },
+
+    methods: {
+      updateCreateForm(openCreateForm){
+        this.triggerOpenCreateForm = openCreateForm
+      },
+
+      refreshCrawlerList(){
+          this.refreshCrawlers = true
+      },
     }
+    
+
   }
 </script>

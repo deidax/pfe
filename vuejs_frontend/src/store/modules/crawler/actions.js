@@ -13,7 +13,7 @@ export const createCrawler = ({ commit }, playload) => {
         commit('SET_LOADING',false)
         // playload.vm.crawlerDeleted = true
         // playload.vm.crawlerDeletedMessage = response.data.message
-        router.push({ name: 'crawlers_list' });
+        // router.push({ name: 'crawlers_list' });
         }).catch((error) => {
             error = error+". Can't connect to the server."
             commit('SET_OTHER_ERRORS',error)
