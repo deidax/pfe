@@ -19,12 +19,14 @@ class ProductSpider(CrawlSpider):
 
     allowed_domains = ['www.avito.ma']
     start_urls = []
+    options = []
     avito_crawler = AvitoCrawlerItem()
 
-    rules = [
-        Rule(LinkExtractor(restrict_xpaths='//div[contains(@class, "cslvkF")]/a'), callback='parse', follow=True),
-        Rule(LinkExtractor(restrict_xpaths='//div[contains(@class, "listing")]/div/a'), callback='parse_products', follow=True)
-    ]
+    # rules = [
+    #     Rule(LinkExtractor(restrict_xpaths='//div[contains(@class, "cslvkF")]/a'), callback='parse', follow=True),
+    #     Rule(LinkExtractor(restrict_xpaths='//div[contains(@class, "listing")]/div/a'), callback='parse_products', follow=True)
+    # ]
+    rules = []
 
     link_counts = 0
     products_number = 0
@@ -34,9 +36,19 @@ class ProductSpider(CrawlSpider):
     def __init__(self, *args, **kwargs):
         self.start_urls = []
         self.start_urls.append(kwargs.get('url'))
+        self.options = kwargs.get('options')
+        self.rules = [
+            Rule(LinkExtractor(restrict_xpaths='//div[contains(@class, "cslvkF")]/a'), callback='parse', follow=True),
+            Rule(LinkExtractor(restrict_xpaths='//div[contains(@class, "listing")]/div/a'), callback='parse_products', follow=True),
+        ]
+        print('\n\n')
         scrapyTitle = pyfiglet.figlet_format("AvitoScraper", font='speed')
         print(colored(scrapyTitle, 'yellow'))
-        print(colored(self.start_urls[0], 'red'))
+        print(colored('__Start URL --> ['+self.start_urls[0]+']\n', 'green'))
+        print(colored('__Fields Selected --> ['+self.options+']\n', 'green'))
+
+        self.options = self.options.split(',')
+
         super(ProductSpider, self).__init__(*args, **kwargs)
 
     
@@ -76,54 +88,15 @@ class ProductSpider(CrawlSpider):
         data = json.loads(json_response)
         product_general_data = data['props']['pageProps']['initialReduxState']['ad']['view']['adInfo']
         
-        product_id = product_general_data['id']
-        subject = product_general_data['subject']
-        price = product_general_data['price']['value']
-        description = self.remove_html_tags(product_general_data['description'])
-        seller_name = product_general_data['seller']['name']
-        seller_type = product_general_data['seller']['type']
-        seller_phone = product_general_data['phone']
-        is_seller_phone_verified = product_general_data['isPhoneVerified']
-        has_shipping = product_general_data['hasShipping']
-        seller_address = product_general_data['seller']['address']
-        last_update_date = product_general_data['listTime']['raw']
-        city = product_general_data['location']['city']['name']
-        address = product_general_data['location']['address']
-        images = product_general_data['images']
-        number_of_images = len(images) if images else 0
-        url = product_general_data['friendlyUrl']['url']
-
-        product_params_data = product_general_data['params']
+        general_product_data_dict = {}
         product_params_murged_list = []
-
-        for key, product_param in product_params_data.items():
-                if isinstance(product_param, list):
-                    product_params_murged_list = itertools.chain(product_params_murged_list, product_param)
-
-        
-        general_product_data_dict = {
-            'product_id': product_id,
-            'subject': subject,
-            'price': price,
-            'description': description,
-            'seller_name': seller_name,
-            'seller_type': seller_type,
-            'seller_phone': seller_phone,
-            'is_seller_phone_verified': is_seller_phone_verified,
-            'seller_address': seller_address,
-            'has_shipping': has_shipping,
-            'last_update_date': last_update_date,
-            'address': address,
-            'city': city,
-            'number_of_images': number_of_images,
-            'url': url
-        }
-
         product_params_murged_dict = {}
-        for i in product_params_murged_list:
-            product_params_murged_dict.update( { i['key'] : i['value'] } )
 
-        product_final_data = {**general_product_data_dict, **product_params_murged_dict}
+        print(colored('--->option --> ', 'red'))
+        print(colored(self.options, 'red'))
+        
+
+        product_final_data = self.data_loader(self.options, product_general_data, general_product_data_dict, product_params_murged_list,product_params_murged_dict)
 
         product = AvitoItem()
 
@@ -193,3 +166,47 @@ class ProductSpider(CrawlSpider):
         sys.stdout.write('\r'+loading_str+'...')
         time.sleep(0.1)
         sys.stdout.write('\r'+done_str)
+    
+    # seller_data,price,description,subject,phone,city,number_of_product_images,extra_data
+    def data_loader(self, options, product_general_data, general_product_data_dict, product_params_murged_list,product_params_murged_dict):
+        general_product_data_dict['product_id'] = product_general_data['id']
+
+        if 'subject' in options:
+            general_product_data_dict['subject'] = product_general_data['subject']
+        if 'price' in options:
+            general_product_data_dict['price'] = product_general_data['price']['value']
+        if 'seller_data' in options:
+            general_product_data_dict['seller_name'] = product_general_data['seller']['name']
+            general_product_data_dict['seller_type'] = product_general_data['seller']['type']
+            general_product_data_dict['seller_address'] = product_general_data['seller']['address']
+        if 'description' in options:
+            general_product_data_dict['description'] = self.remove_html_tags(product_general_data['description'])
+        if 'phone' in options:
+            general_product_data_dict['seller_phone'] = product_general_data['phone']
+            general_product_data_dict['is_seller_phone_verified'] = product_general_data['isPhoneVerified']
+        if 'city' in options:
+            general_product_data_dict['city'] = product_general_data['location']['city']['name']
+        if 'number_of_product_images' in options:
+            images = product_general_data['images']
+            general_product_data_dict['number_of_images'] = len(images) if images else 0
+        if 'extra_data' in options:
+            product_params_data = product_general_data['params']
+            for key, product_param in product_params_data.items():
+                    if isinstance(product_param, list):
+                        product_params_murged_list = itertools.chain(product_params_murged_list, product_param)
+
+        general_product_data_dict['address'] = product_general_data['location']['address']
+        general_product_data_dict['url'] = product_general_data['friendlyUrl']['url']
+        general_product_data_dict['last_update_date'] = product_general_data['listTime']['raw']
+        general_product_data_dict['has_shipping'] = product_general_data['hasShipping']
+
+        for i in product_params_murged_list:
+            product_params_murged_dict.update( { i['key'] : i['value'] } )
+
+        product_final_data = {**general_product_data_dict, **product_params_murged_dict}
+
+        return product_final_data
+        
+
+
+        

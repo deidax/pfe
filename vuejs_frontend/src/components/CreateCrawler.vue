@@ -30,6 +30,69 @@
                   required
                 ></v-text-field>
               </v-col>
+              <v-col cols="12">
+                <h3>Select data to look for</h3>
+              </v-col>
+              <v-divider></v-divider>
+              <v-col cols="3">
+                <v-checkbox
+                  value="seller_data"
+                  v-model="options"
+                  label="Seller Data"
+                ></v-checkbox>
+              </v-col>
+              <v-col cols="3">
+                <v-checkbox
+                  value="price"
+                  v-model="options"
+                  label="Price"
+                ></v-checkbox>
+              </v-col>
+              <v-col cols="3">
+                <v-checkbox
+                  value="description"
+                  v-model="options"
+                  label="Description"
+                ></v-checkbox>
+              </v-col>
+              <v-col cols="3">
+                <v-checkbox
+                  value="subject"
+                  v-model="options"
+                  label="Subject"
+                ></v-checkbox>
+              </v-col>
+
+              <v-col cols="3">
+                <v-checkbox
+                  value="phone"
+                  v-model="options"
+                  label="Phone numbers"
+                ></v-checkbox>
+              </v-col>
+              <v-col cols="3">
+                <v-checkbox
+                  value="city"
+                  v-model="options"
+                  label="Cities"
+                ></v-checkbox>
+              </v-col>
+              <v-col cols="3">
+                <v-checkbox
+                  value="number_of_product_images"
+                  v-model="options"
+                  label="Images count"
+                ></v-checkbox>
+              </v-col>
+              <v-col cols="3">
+                <v-checkbox
+                  value="extra_data"
+                  v-model="options"
+                  label="Extra data"
+                ></v-checkbox>
+              </v-col>
+
+                     
             </v-row>
           </v-container>
           </v-form>
@@ -71,8 +134,17 @@ import {mapActions,mapGetters} from "vuex"
     data: () => ({
       form:{
           name: '',
-          start_url: ''
+          start_url: '',
       },
+      options:[],
+      // seller_data: true,
+      // price: true,
+      // description: true,
+      // subject: true,
+      // phone: true,
+      // city: true,
+      // number_of_product_images: true,
+      // extra_data: true,
     }),
 
     computed: {
@@ -84,6 +156,8 @@ import {mapActions,mapGetters} from "vuex"
       ...mapActions('Crawler',['getAllCrawlers']),
       
       createNewCrawler(){
+        let options = this.options.toString()
+        this.form['options'] = options
         let playload = {}
         playload['form'] = this.form
         playload['vm'] = this

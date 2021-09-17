@@ -1,0 +1,2137 @@
+2021-09-17 14:30:14 [scrapy.utils.log] INFO: Scrapy 2.5.0 started (bot: avito)
+2021-09-17 14:30:14 [scrapy.utils.log] INFO: Versions: lxml 4.6.3.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.7.0, Python 3.8.10 (default, Jun  2 2021, 10:49:15) - [GCC 9.4.0], pyOpenSSL 20.0.1 (OpenSSL 1.1.1l  24 Aug 2021), cryptography 3.4.8, Platform Linux-5.11.0-34-generic-x86_64-with-glibc2.29
+2021-09-17 14:30:14 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.epollreactor.EPollReactor
+2021-09-17 14:30:14 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'avito',
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'logs/default/productspider/62d1ffec17bb11ecb3e9eb2be6e979cc.log',
+ 'NEWSPIDER_MODULE': 'avito.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['avito.spiders']}
+2021-09-17 14:30:14 [scrapy.extensions.telnet] INFO: Telnet Password: 31a25c3663b3dfdb
+2021-09-17 14:30:14 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2021-09-17 14:30:14 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
+2021-09-17 14:30:14 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
+2021-09-17 14:30:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
+2021-09-17 14:30:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2021-09-17 14:30:17 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
+2021-09-17 14:30:17 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy_user_agents.middlewares.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-09-17 14:30:17 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-09-17 14:30:17 [scrapy.middleware] INFO: Enabled item pipelines:
+['avito.pipelines.MongoDBPipeline']
+2021-09-17 14:30:17 [scrapy.core.engine] INFO: Spider opened
+2021-09-17 14:30:17 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-09-17 14:30:17 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-09-17 14:30:17 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36
+2021-09-17 14:30:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/robots.txt> (referer: None)
+2021-09-17 14:30:17 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.91 Safari/537.36
+2021-09-17 14:30:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre> (referer: None)
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36
+2021-09-17 14:30:21 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.109 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36
+2021-09-17 14:30:21 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36
+2021-09-17 14:30:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:30:24 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
+2021-09-17 14:30:24 [py.warnings] WARNING: /home/khalil/Projects/PFE/scrapy_app/avito-env/lib/python3.8/site-packages/scrapy/utils/project.py:81: ScrapyDeprecationWarning: Use of environment variables prefixed with SCRAPY_ to override settings is deprecated. The following environment variables are currently defined: JOB, LOG_FILE, SLOT, SPIDER
+  warnings.warn(
+
+2021-09-17 14:30:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Toyota_Hilux_22000km_DC_2_4_D4D__47138056.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:30:29 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 5.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+2021-09-17 14:30:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Toyota_Hilux_22000km_DC_2_4_D4D__47138056.htm>
+None
+2021-09-17 14:30:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Toyota_Hilux_22000km_DC_2_4_D4D__47138056.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Toyota',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_esp': '1',
+                        'car_leather': '1',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_camera': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'TOYOTA HILUX Double Cabine 2.4 D4D '
+                                       '150ch 4wdExcellent etat jamais '
+                                       'accidenté Modèle: 02/201722000km '
+                                       'kilométrage Authentique - Peinture '
+                                       'd’origine- Optiques avant full led- '
+                                       'Régulateur limitateur vitesse- Ecran '
+                                       'tactile 10 Android - Antibrouillard '
+                                       'led- pack extérieur chrome- Système '
+                                       '4x4 et Crabotage Automatique- '
+                                       'Climatisation - ABS- Anti patinage- '
+                                       'Démarrage STAR- Keyless-Go: 2 clés '
+                                       'originales - Marche pied- barre de '
+                                       'toit- barre led- Déflecteurs de '
+                                       'vitres- Bedliner- Rollbar- Détecteur '
+                                       'de changement de rapportVidange '
+                                       'complet, batterie  & 4 pneus goodrich '
+                                       'changés même pas 2000 kmPour plus '
+                                       'd’informations veuillez me contacter',
+                        'doors': '5',
+                        'first_owner': 'Oui',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-17 09:19:49',
+                        'mileage': '20 000 - 24 999',
+                        'model': 'Hilux',
+                        'number_of_images': 8,
+                        'pfiscale': '12 CV',
+                        'price': None,
+                        'product_id': '62082453',
+                        'regdate': '2017',
+                        'seller_address': None,
+                        'seller_name': 'Amine',
+                        'seller_phone': '0762727897',
+                        'seller_type': 'private',
+                        'subject': 'Toyota Hilux 22000km DC 2.4 D4D ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Toyota_Hilux_22000km_DC_2_4_D4D__47138056.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:30:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=6> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:30:31 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36
+2021-09-17 14:30:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=7> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:30:34 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.36 Safari/525.19
+2021-09-17 14:30:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=5> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:30:36 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36
+2021-09-17 14:30:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=4> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:30:40 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36
+2021-09-17 14:30:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=3> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:30:44 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36
+2021-09-17 14:30:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:30:49 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+2021-09-17 14:30:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Dacia_Logan_46986547.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:30:53 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36
+2021-09-17 14:30:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Dacia_Logan_46986547.htm>
+None
+2021-09-17 14:30:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Dacia_Logan_46986547.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Dacia',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'طوموبيل اقتصادية و وينة عامرة جي وركب',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': True,
+                        'last_update_date': '2021-09-06 19:56:43',
+                        'mileage': '0 - 4 999',
+                        'model': 'Logan',
+                        'number_of_images': 2,
+                        'pfiscale': '6 CV',
+                        'price': 80000,
+                        'product_id': '61881607',
+                        'regdate': '2014',
+                        'seller_address': None,
+                        'seller_name': 'Abdo',
+                        'seller_phone': '0646283006',
+                        'seller_type': 'private',
+                        'subject': 'Dacia Logan',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Dacia_Logan_46986547.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:31:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/quartier_industriel/voitures/Clio_4_46990088.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:31:00 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11
+2021-09-17 14:31:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/quartier_industriel/voitures/Clio_4_46990088.htm>
+None
+2021-09-17 14:31:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/quartier_industriel/voitures/Clio_4_46990088.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Quartier Industriel',
+                        'brand': 'Renault',
+                        'bv': None,
+                        'city': 'Bouznika',
+                        'description': 'Clio 4Modèle 2017Tt optionSon '
+                                       'accèdent ',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-07 01:39:59',
+                        'mileage': '45 000 - 49 999',
+                        'model': 'Clio',
+                        'number_of_images': 4,
+                        'pfiscale': '5 CV',
+                        'price': 115000,
+                        'product_id': '61886919',
+                        'regdate': '2017',
+                        'seller_address': None,
+                        'seller_name': 'Marouane',
+                        'seller_phone': '0635229177',
+                        'seller_type': 'private',
+                        'subject': 'Clio 4',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/quartier_industriel/voitures/Clio_4_46990088.htm',
+                        'v_origin': None}}
+2021-09-17 14:31:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Pass%C3%A2t_B7_47014075.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:31:01 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36
+2021-09-17 14:31:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Pass%C3%A2t_B7_47014075.htm>
+None
+2021-09-17 14:31:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Pass%C3%A2t_B7_47014075.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Volkswagen',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '0',
+                        'car_reverse_camera': '1',
+                        'car_reverse_radar': '0',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'salamJe met à vendre ma propre VV '
+                                       'passât B7',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-08 15:55:27',
+                        'mileage': '170 000 - 179 999',
+                        'model': 'Passat',
+                        'number_of_images': 8,
+                        'pfiscale': '8 CV',
+                        'price': 130000,
+                        'product_id': '61917139',
+                        'regdate': '2012',
+                        'seller_address': None,
+                        'seller_name': 'Ilyas ',
+                        'seller_phone': '0664025043',
+                        'seller_type': 'private',
+                        'subject': 'Passât B7',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Passât_B7_47014075.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:31:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Honda__47017398.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:31:05 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36
+2021-09-17 14:31:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Honda__47017398.htm>
+None
+2021-09-17 14:31:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Honda__47017398.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Honda',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Honda accord ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-08 19:10:11',
+                        'mileage': '190 000 - 199 999',
+                        'model': 'Accord',
+                        'number_of_images': 5,
+                        'pfiscale': '9 CV',
+                        'price': 105000,
+                        'product_id': '61921277',
+                        'regdate': '2009',
+                        'seller_address': None,
+                        'seller_name': 'Yassine',
+                        'seller_phone': '0669802921',
+                        'seller_type': 'private',
+                        'subject': 'Honda ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Honda__47017398.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:31:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Clio_classique_2_47019732.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:31:05 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36
+2021-09-17 14:31:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Clio_classique_2_47019732.htm>
+None
+2021-09-17 14:31:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Clio_classique_2_47019732.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Renault',
+                        'bv': 'Manuelle',
+                        'city': 'Bouznika',
+                        'description': 'A vendre Clio classique 2 en bon état. '
+                                       'Disponible sur bouznika. ',
+                        'doors': '5',
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-08 22:39:25',
+                        'mileage': '140 000 - 149 999',
+                        'model': 'Clio',
+                        'number_of_images': 5,
+                        'pfiscale': '6 CV',
+                        'price': 49000,
+                        'product_id': '61924077',
+                        'regdate': '2005',
+                        'seller_address': None,
+                        'seller_name': 'Salah elouafi',
+                        'seller_phone': '0675062112',
+                        'seller_type': 'private',
+                        'subject': 'Clio classique 2',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Clio_classique_2_47019732.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:31:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Citro%C3%ABn_zx_47034274.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:31:08 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36
+2021-09-17 14:31:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Citro%C3%ABn_zx_47034274.htm>
+None
+2021-09-17 14:31:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Citro%C3%ABn_zx_47034274.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Citroen',
+                        'bv': None,
+                        'city': 'Bouznika',
+                        'description': 'Citroën ZX modèle 1995 Prix à négocier',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Essence',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-09 22:55:56',
+                        'mileage': '250 000 - 299 999',
+                        'model': 'ZX',
+                        'number_of_images': 3,
+                        'pfiscale': None,
+                        'price': None,
+                        'product_id': '61942986',
+                        'regdate': '1995',
+                        'seller_address': None,
+                        'seller_name': 'Abdelhak',
+                        'seller_phone': '0668792302',
+                        'seller_type': 'private',
+                        'subject': 'Citroën zx',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Citroën_zx_47034274.htm',
+                        'v_origin': None}}
+2021-09-17 14:31:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/al_kawtar/voitures/Dacia_Logan__47044549.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:31:12 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+2021-09-17 14:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/al_kawtar/voitures/Dacia_Logan__47044549.htm>
+None
+2021-09-17 14:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/al_kawtar/voitures/Dacia_Logan__47044549.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Al Kawtar',
+                        'brand': 'Dacia',
+                        'bv': 'Manuelle',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_electric_windows': '1',
+                        'car_onboard_computer': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Véhicule de très bonne état ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-10 17:34:29',
+                        'mileage': '180 000 - 189 999',
+                        'model': 'Logan',
+                        'number_of_images': 8,
+                        'pfiscale': '6 CV',
+                        'price': 70000,
+                        'product_id': '61956542',
+                        'regdate': '2014',
+                        'seller_address': None,
+                        'seller_name': 'Elhadj bouzouzou',
+                        'seller_phone': '0661970045',
+                        'seller_type': 'private',
+                        'subject': 'Dacia Logan ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/al_kawtar/voitures/Dacia_Logan__47044549.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:31:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Audi_Q3_2L_47060176.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:31:14 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.0.12195 Safari/537.36
+2021-09-17 14:31:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Audi_Q3_2L_47060176.htm>
+None
+2021-09-17 14:31:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Audi_Q3_2L_47060176.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Audi',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Je mets en vente ma voiture audi Q3 en '
+                                       'très bonne état jamais accidenté 2èmes '
+                                       'main exporter Germain modèle fin 11/ '
+                                       '2014 dewana 2019 boit manuel carburant '
+                                       'diesel faible consommation puissance '
+                                       'fiscale 8cv .',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-11 19:24:57',
+                        'mileage': '120 000 - 129 999',
+                        'model': 'Q3',
+                        'number_of_images': 7,
+                        'pfiscale': '8 CV',
+                        'price': 240000,
+                        'product_id': '61976165',
+                        'regdate': '2014',
+                        'seller_address': None,
+                        'seller_name': 'Azzedine hallab',
+                        'seller_phone': '0629131120',
+                        'seller_type': 'private',
+                        'subject': 'Audi Q3 2L',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Audi_Q3_2L_47060176.htm',
+                        'v_origin': 'Dédouanée'}}
+2021-09-17 14:31:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Ford_47061214.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:31:16 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 5.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36
+2021-09-17 14:31:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Ford_47061214.htm>
+None
+2021-09-17 14:31:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Ford_47061214.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Ford',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_leather': '1',
+                        'car_navigation': '1',
+                        'car_reverse_camera': '1',
+                        'car_reverse_radar': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Modil 2016 17 11',
+                        'doors': '5',
+                        'first_owner': 'Oui',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-11 20:43:53',
+                        'mileage': '120 000 - 129 999',
+                        'model': 'Fiesta',
+                        'number_of_images': 3,
+                        'pfiscale': '6 CV',
+                        'price': None,
+                        'product_id': '61977443',
+                        'regdate': '2017',
+                        'seller_address': None,
+                        'seller_name': 'Montassir',
+                        'seller_phone': '0662498358',
+                        'seller_type': 'private',
+                        'subject': 'Ford',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Ford_47061214.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:31:17 [scrapy.extensions.logstats] INFO: Crawled 19 pages (at 19 pages/min), scraped 20 items (at 20 items/min)
+2021-09-17 14:31:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Volkswagen_caddy_47061568.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:31:20 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 5.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36
+2021-09-17 14:31:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Volkswagen_caddy_47061568.htm>
+None
+2021-09-17 14:31:21 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Volkswagen_caddy_47061568.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Volkswagen',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_camera': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'je mets en vente ma voiture caddy tout '
+                                       'options clima digital feu automatique '
+                                       'model 2009 ded 2019 pour plus '
+                                       'informations contactez moi',
+                        'doors': None,
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-11 21:06:55',
+                        'mileage': '130 000 - 139 999',
+                        'model': 'Caddy',
+                        'number_of_images': 8,
+                        'pfiscale': '9 CV',
+                        'price': 138000,
+                        'product_id': '61978133',
+                        'regdate': '2009',
+                        'seller_address': None,
+                        'seller_name': 'Abdelghani',
+                        'seller_phone': '0661892276',
+                        'seller_type': 'private',
+                        'subject': 'Volkswagen caddy',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Volkswagen_caddy_47061568.htm',
+                        'v_origin': 'Dédouanée'}}
+2021-09-17 14:31:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Honda_Jazz__47064082.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre)
+2021-09-17 14:31:27 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36
+2021-09-17 14:31:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Honda_Jazz__47064082.htm>
+None
+2021-09-17 14:31:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Honda_Jazz__47064082.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Honda',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_onboard_computer': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'voiture très bon état entretien fai '
+                                       'pneu neuf tonobil shiha rkeb o zid '
+                                       'motor excellent',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Essence',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': True,
+                        'last_update_date': '2021-09-12 01:08:33',
+                        'mileage': '170 000 - 179 999',
+                        'model': 'Jazz',
+                        'number_of_images': 8,
+                        'pfiscale': '8 CV',
+                        'price': 49000,
+                        'product_id': '61982295',
+                        'regdate': '2005',
+                        'seller_address': None,
+                        'seller_name': 'IBRAHIM',
+                        'seller_phone': '0657947975',
+                        'seller_type': 'private',
+                        'subject': 'Honda Jazz ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Honda_Jazz__47064082.htm',
+                        'v_origin': None}}
+2021-09-17 14:31:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/hamza/voitures/Voiture_classe__45219756.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=6)
+2021-09-17 14:31:27 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36
+2021-09-17 14:31:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/hamza/voitures/Voiture_classe__45219756.htm>
+None
+2021-09-17 14:31:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/hamza/voitures/Voiture_classe__45219756.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Hamza',
+                        'brand': 'Mercedes-Benz',
+                        'bv': 'Automatique',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_leather': '1',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_camera': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_roof': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Je souhaite vendre une Mercedes CLS '
+                                       '320 classe modèle 2007 Douana 2009 '
+                                       'Voiture en bon état Boîte automatique '
+                                       'et peinture carrosserie initiale ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-04-13 14:07:05',
+                        'mileage': '20 000 - 24 999',
+                        'model': 'Classe CLS',
+                        'number_of_images': 3,
+                        'pfiscale': '12 CV',
+                        'price': 125000,
+                        'product_id': '59315704',
+                        'regdate': '2007',
+                        'seller_address': None,
+                        'seller_name': 'Hamouda',
+                        'seller_phone': '0666650047',
+                        'seller_type': 'private',
+                        'subject': 'Voiture classe ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/hamza/voitures/Voiture_classe__45219756.htm',
+                        'v_origin': 'Dédouanée'}}
+2021-09-17 14:31:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Ford_fusion_tetanium_plus_45051054.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=7)
+2021-09-17 14:31:31 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36
+2021-09-17 14:31:31 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Ford_fusion_tetanium_plus_45051054.htm>
+None
+2021-09-17 14:31:31 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Ford_fusion_tetanium_plus_45051054.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Ford',
+                        'bv': 'Automatique',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_leather': '1',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'city': 'Bouznika',
+                        'description': 'Je mete en vente ma voiture Ford '
+                                       'fusion ful  option . Model fin 2016 '
+                                       "mois 8 . Pour plus d'info contacter "
+                                       'moi ! Pour les sérieux !Et mercii ',
+                        'doors': '5',
+                        'first_owner': 'Oui',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-03-29 14:47:23',
+                        'mileage': '130 000 - 139 999',
+                        'model': 'Fusion',
+                        'number_of_images': 8,
+                        'pfiscale': '8 CV',
+                        'price': 180000,
+                        'product_id': '58977638',
+                        'regdate': '2017',
+                        'seller_address': None,
+                        'seller_name': 'Salah',
+                        'seller_phone': '0660951377',
+                        'seller_type': 'private',
+                        'subject': 'Ford fusion tetanium plus',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Ford_fusion_tetanium_plus_45051054.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:31:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Mercedes_Benz_220_45587915.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=5)
+2021-09-17 14:31:34 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36
+2021-09-17 14:31:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Mercedes_Benz_220_45587915.htm>
+None
+2021-09-17 14:31:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Mercedes_Benz_220_45587915.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Mercedes-Benz',
+                        'bv': 'Automatique',
+                        'car_rims': '1',
+                        'city': 'Bouznika',
+                        'description': 'kawkawa mazal jdida  motour jdid',
+                        'doors': '5',
+                        'first_owner': 'Oui',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': True,
+                        'last_update_date': '2021-05-19 13:53:49',
+                        'mileage': '200 000 - 249 999',
+                        'model': '220',
+                        'number_of_images': 6,
+                        'pfiscale': '8 CV',
+                        'price': None,
+                        'product_id': '59955889',
+                        'regdate': '2002',
+                        'seller_address': None,
+                        'seller_name': 'Simo',
+                        'seller_phone': '0605954025',
+                        'seller_type': 'private',
+                        'subject': 'Mercedes-Benz 220',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Mercedes_Benz_220_45587915.htm',
+                        'v_origin': 'Importée neuve'}}
+2021-09-17 14:31:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/%D8%B3%D9%8A%D8%A7%D8%B1%D8%A9_%D9%85%D9%84%D9%8A%D8%AD%D8%A9_%D8%A7%D9%84%D9%84%D9%8A_%D8%A8%D8%BA%D8%A7%D9%87%D8%A7_%D9%85%D8%B1%D8%AD%D8%A8%D8%A7_45927259.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=4)
+2021-09-17 14:31:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
+2021-09-17 14:31:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/%D8%B3%D9%8A%D8%A7%D8%B1%D8%A9_%D9%85%D9%84%D9%8A%D8%AD%D8%A9_%D8%A7%D9%84%D9%84%D9%8A_%D8%A8%D8%BA%D8%A7%D9%87%D8%A7_%D9%85%D8%B1%D8%AD%D8%A8%D8%A7_45927259.htm>
+None
+2021-09-17 14:31:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/%D8%B3%D9%8A%D8%A7%D8%B1%D8%A9_%D9%85%D9%84%D9%8A%D8%AD%D8%A9_%D8%A7%D9%84%D9%84%D9%8A_%D8%A8%D8%BA%D8%A7%D9%87%D8%A7_%D9%85%D8%B1%D8%AD%D8%A8%D8%A7_45927259.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Renault',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_onboard_computer': '1',
+                        'car_rims': '1',
+                        'city': 'Bouznika',
+                        'description': 'سيارة رونو سينيك2 مليحة اللي بغاها يجي '
+                                       'يشوفها مرحبا',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-06-16 19:36:59',
+                        'mileage': '450 000 - 499 999',
+                        'model': 'Scenic',
+                        'number_of_images': 0,
+                        'pfiscale': '6 CV',
+                        'price': None,
+                        'product_id': '60467618',
+                        'regdate': '2005',
+                        'seller_address': None,
+                        'seller_name': 'Jalal',
+                        'seller_phone': '0700190659',
+                        'seller_type': 'private',
+                        'subject': 'سيارة مليحة اللي بغاها مرحبا',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/سيارة_مليحة_اللي_بغاها_مرحبا_45927259.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:31:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/GOLF_2_46199828.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=3)
+2021-09-17 14:31:42 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36
+2021-09-17 14:31:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/GOLF_2_46199828.htm>
+None
+2021-09-17 14:31:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/GOLF_2_46199828.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Volkswagen',
+                        'bv': 'Manuelle',
+                        'car_rims': '1',
+                        'city': 'Bouznika',
+                        'description': 'سيارة  مليحة  ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-07-06 19:26:00',
+                        'mileage': '0 - 4 999',
+                        'model': 'GOLF 2',
+                        'number_of_images': 7,
+                        'pfiscale': '7 CV',
+                        'price': None,
+                        'product_id': '60842690',
+                        'regdate': '1984',
+                        'seller_address': None,
+                        'seller_name': 'يوسف',
+                        'seller_phone': '0671734869',
+                        'seller_type': 'private',
+                        'subject': 'GOLF 2',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/GOLF_2_46199828.htm',
+                        'v_origin': 'Dédouanée'}}
+2021-09-17 14:31:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Dacia_Logan_46665155.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:31:48 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36
+2021-09-17 14:31:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Dacia_Logan_46665155.htm>
+None
+2021-09-17 14:31:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Dacia_Logan_46665155.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Dacia',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_leather': '0',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_camera': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_roof': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Je mets en vente ma voiture DACIA LOG '
+                                       'AN model 2018',
+                        'doors': '5',
+                        'first_owner': 'Oui',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-14 21:25:08',
+                        'mileage': '50 000 - 54 999',
+                        'model': 'Logan',
+                        'number_of_images': 6,
+                        'pfiscale': '6 CV',
+                        'price': 118000,
+                        'product_id': '61463673',
+                        'regdate': '2018',
+                        'seller_address': None,
+                        'seller_name': 'Mohamed',
+                        'seller_phone': None,
+                        'seller_type': 'private',
+                        'subject': 'Dacia Logan',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Dacia_Logan_46665155.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:31:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Passat_B6_46672424.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:31:49 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+2021-09-17 14:31:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Passat_B6_46672424.htm>
+None
+2021-09-17 14:31:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Passat_B6_46672424.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Volkswagen',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_navigation': '1',
+                        'car_reverse_camera': '1',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'je mets en vente ma voiture Passat B6 '
+                                       'jamais accidenté ww maroc et très bien '
+                                       'entretenu avec les caractéristiques '
+                                       'suivantes :- écran tactile avec '
+                                       'système Android et blouteut avec 2 '
+                                       'ports USB et carte mémoire- régulateur '
+                                       'et limiteur de vitesse- 4 pneus '
+                                       'nouvellement changés- portes '
+                                       'centralisé- dariba 1500 DH- faible '
+                                       'consommation',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-15 15:35:51',
+                        'mileage': '250 000 - 299 999',
+                        'model': 'Passat',
+                        'number_of_images': 8,
+                        'pfiscale': '8 CV',
+                        'price': 103000,
+                        'product_id': '61472409',
+                        'regdate': '2008',
+                        'seller_address': None,
+                        'seller_name': 'M.Mehdi',
+                        'seller_phone': '0640090344',
+                        'seller_type': 'private',
+                        'subject': 'Passat B6',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Passat_B6_46672424.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:31:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Peugeot_301__46677625.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:31:53 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+2021-09-17 14:31:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Peugeot_301__46677625.htm>
+None
+2021-09-17 14:31:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Peugeot_301__46677625.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Peugeot',
+                        'bv': 'Automatique',
+                        'city': 'Bouznika',
+                        'description': 'salut je mets en vente une voiture '
+                                       'Peugeot 301 2016 , qui a un vitesse '
+                                       'automatique , avec toute '
+                                       'optionessence ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Essence',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-15 23:22:04',
+                        'mileage': '75 000 - 79 999',
+                        'model': '301',
+                        'number_of_images': 8,
+                        'pfiscale': '9 CV',
+                        'price': 84000,
+                        'product_id': '61479836',
+                        'regdate': '2016',
+                        'seller_address': None,
+                        'seller_name': 'Saadi walid',
+                        'seller_phone': '0600903903',
+                        'seller_type': 'private',
+                        'subject': 'Peugeot 301 ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Peugeot_301__46677625.htm',
+                        'v_origin': 'Pas encore dédouanée'}}
+2021-09-17 14:31:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/plage_oued_cherrat/voitures/Bmw_s%C3%A9rie_3__46678364.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:31:59 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36
+2021-09-17 14:31:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/plage_oued_cherrat/voitures/Bmw_s%C3%A9rie_3__46678364.htm>
+None
+2021-09-17 14:31:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/plage_oued_cherrat/voitures/Bmw_s%C3%A9rie_3__46678364.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Plage Oued Cherrat',
+                        'brand': 'BMW',
+                        'bv': 'Automatique',
+                        'city': 'Bouznika',
+                        'description': 'je met en vente Série 3 ,318D pack '
+                                       'moderne 08/2012 ,très bonne état '
+                                       ',aucun frais à prévoir 4 pneus neufs '
+                                       ',3 mode de conduite sport économique '
+                                       'et pro très propre.',
+                        'doors': '5',
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-16 04:51:53',
+                        'mileage': '160 000 - 169 999',
+                        'model': 'Serie 3',
+                        'number_of_images': 6,
+                        'pfiscale': '8 CV',
+                        'price': 183000,
+                        'product_id': '61481165',
+                        'regdate': '2012',
+                        'seller_address': None,
+                        'seller_name': 'ayoub',
+                        'seller_phone': '0661691995',
+                        'seller_type': 'private',
+                        'subject': 'Bmw série 3 ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/plage_oued_cherrat/voitures/Bmw_série_3__46678364.htm',
+                        'v_origin': None}}
+2021-09-17 14:32:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/E71_pack_M_46692123.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:02 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36
+2021-09-17 14:32:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/E71_pack_M_46692123.htm>
+None
+2021-09-17 14:32:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/E71_pack_M_46692123.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'BMW',
+                        'bv': 'Automatique',
+                        'city': 'Bouznika',
+                        'description': 'bonjour je met en vente une x6 en très '
+                                       'bon état vidange a jour BVA et moteurs '
+                                       'presque neuf écran tactile devant et '
+                                       'deux écrans arrière cuir en rouge '
+                                       'suspension impeccable. je peux faire '
+                                       'une reprise donnez moi vos offres',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-17 00:16:26',
+                        'mileage': '200 000 - 249 999',
+                        'model': 'X6',
+                        'number_of_images': 6,
+                        'pfiscale': '11 CV',
+                        'price': 155000,
+                        'product_id': '61498738',
+                        'regdate': '2010',
+                        'seller_address': None,
+                        'seller_name': 'Moha',
+                        'seller_phone': '0662109269',
+                        'seller_type': 'private',
+                        'subject': 'E71 pack M',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/E71_pack_M_46692123.htm',
+                        'v_origin': 'Importée neuve'}}
+2021-09-17 14:32:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Dacia_dokker_46695446.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:05 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36
+2021-09-17 14:32:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Dacia_dokker_46695446.htm>
+None
+2021-09-17 14:32:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Dacia_dokker_46695446.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Dacia',
+                        'bv': None,
+                        'city': 'Bouznika',
+                        'description': 'Dacia dokker, model 2015, '
+                                       'Caractéristiques: airbags, double '
+                                       'coulisses, limiteur de vitesse, clime '
+                                       'auto120000 Km',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-17 11:32:29',
+                        'mileage': '120 000 - 129 999',
+                        'model': 'Dokker',
+                        'number_of_images': 6,
+                        'pfiscale': None,
+                        'price': 99000,
+                        'product_id': '61503200',
+                        'regdate': '2015',
+                        'seller_address': None,
+                        'seller_name': 'Issmail ber',
+                        'seller_phone': '0603721796',
+                        'seller_type': 'private',
+                        'subject': 'Dacia dokker',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Dacia_dokker_46695446.htm',
+                        'v_origin': None}}
+2021-09-17 14:32:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/fiat_46711543.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:09 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36
+2021-09-17 14:32:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/fiat_46711543.htm>
+None
+2021-09-17 14:32:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/fiat_46711543.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Fiat',
+                        'bv': None,
+                        'city': 'Bouznika',
+                        'description': 'بوزنيقة سيارة في حلة جيدة',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Essence',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-18 13:13:21',
+                        'mileage': '160 000 - 169 999',
+                        'model': 'Uno',
+                        'number_of_images': 7,
+                        'pfiscale': None,
+                        'price': 19000,
+                        'product_id': '61523782',
+                        'regdate': '1996',
+                        'seller_address': None,
+                        'seller_name': 'Yassine alami',
+                        'seller_phone': '0614540664',
+                        'seller_type': 'private',
+                        'subject': 'fiat',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/fiat_46711543.htm',
+                        'v_origin': None}}
+2021-09-17 14:32:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_208_46715099.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:12 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36
+2021-09-17 14:32:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_208_46715099.htm>
+None
+2021-09-17 14:32:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_208_46715099.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Peugeot',
+                        'bv': None,
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Voiture bon état Peugeot 208 noir '
+                                       'modèle 10/2016 diesel 6CH ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-18 18:04:42',
+                        'mileage': '170 000 - 179 999',
+                        'model': '208',
+                        'number_of_images': 3,
+                        'pfiscale': '6 CV',
+                        'price': 86000,
+                        'product_id': '61529715',
+                        'regdate': '2016',
+                        'seller_address': None,
+                        'seller_name': 'Youssef ',
+                        'seller_phone': '0687606425',
+                        'seller_type': 'private',
+                        'subject': 'Peugeot 208',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_208_46715099.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:32:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Renault_46718486.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:16 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36
+2021-09-17 14:32:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Renault_46718486.htm>
+None
+2021-09-17 14:32:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Renault_46718486.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Renault',
+                        'bv': 'Manuelle',
+                        'city': 'Bouznika',
+                        'description': 'très bonne état الصباغة من الشركة',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-19 00:08:19',
+                        'mileage': '180 000 - 189 999',
+                        'model': 'Megane 3',
+                        'number_of_images': 7,
+                        'pfiscale': '6 CV',
+                        'price': 96000,
+                        'product_id': '61534565',
+                        'regdate': '2011',
+                        'seller_address': None,
+                        'seller_name': 'سعيد',
+                        'seller_phone': '0670621681',
+                        'seller_type': 'private',
+                        'subject': 'Renault',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Renault_46718486.htm',
+                        'v_origin': 'Dédouanée'}}
+2021-09-17 14:32:17 [scrapy.extensions.logstats] INFO: Crawled 35 pages (at 16 pages/min), scraped 52 items (at 32 items/min)
+2021-09-17 14:32:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Mercedes_Class_c_200d_46722788.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:20 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36
+2021-09-17 14:32:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Mercedes_Class_c_200d_46722788.htm>
+None
+2021-09-17 14:32:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Mercedes_Class_c_200d_46722788.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Mercedes-Benz',
+                        'bv': 'Automatique',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_leather': '1',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_camera': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_roof': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Je vend ma Voiture, bon état et sutout '
+                                       "pas d'accident, aucune réparation au "
+                                       'moteur, aucun soucis, Bonjour très '
+                                       'jolie class C 200d , première main , '
+                                       'modèle 07/2017 . Voiture très très '
+                                       'propre , excellent état , intérieur '
+                                       'extrêmement neuf , toutes les options '
+                                       'sauf le toit .Et surtout un très '
+                                       'faible kilométrage',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-19 11:58:00',
+                        'mileage': '70 000 - 74 999',
+                        'model': 'Classe C',
+                        'number_of_images': 8,
+                        'pfiscale': '6 CV',
+                        'price': 300000,
+                        'product_id': '61539709',
+                        'regdate': '2017',
+                        'seller_address': None,
+                        'seller_name': 'Hamza Jaouad',
+                        'seller_phone': '0623847578',
+                        'seller_type': 'private',
+                        'subject': 'Mercedes Class c 200d',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Mercedes_Class_c_200d_46722788.htm',
+                        'v_origin': 'Dédouanée'}}
+2021-09-17 14:32:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Dacia_dokker_46751496.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:25 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+2021-09-17 14:32:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Dacia_dokker_46751496.htm>
+None
+2021-09-17 14:32:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Dacia_dokker_46751496.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Dacia',
+                        'bv': None,
+                        'city': 'Bouznika',
+                        'description': 'dokker avendre bon état jamais '
+                                       'accidenté kolchi mazal fiha '
+                                       "d'origine...",
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-21 14:51:31',
+                        'mileage': '200 000 - 249 999',
+                        'model': 'Dokker',
+                        'number_of_images': 4,
+                        'pfiscale': '6 CV',
+                        'price': 86000,
+                        'product_id': '61576951',
+                        'regdate': '2015',
+                        'seller_address': None,
+                        'seller_name': 'Montasir',
+                        'seller_phone': '0662498358',
+                        'seller_type': 'private',
+                        'subject': 'Dacia dokker',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Dacia_dokker_46751496.htm',
+                        'v_origin': None}}
+2021-09-17 14:32:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/quartier_industriel/voitures/Dacia_logan_avendre_46758842.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:28 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+2021-09-17 14:32:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/quartier_industriel/voitures/Dacia_logan_avendre_46758842.htm>
+None
+2021-09-17 14:32:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/quartier_industriel/voitures/Dacia_logan_avendre_46758842.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Quartier Industriel',
+                        'brand': 'Dacia',
+                        'bv': 'Manuelle',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_electric_windows': '1',
+                        'car_rims': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Dacia logan avendre tt option deuble '
+                                       'airbag deuble clés jamais accident '
+                                       'avec laclime Leprix :62000 dh',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-22 02:44:47',
+                        'mileage': '170 000 - 179 999',
+                        'model': 'Logan',
+                        'number_of_images': 5,
+                        'pfiscale': '6 CV',
+                        'price': 62000,
+                        'product_id': '61587498',
+                        'regdate': '2009',
+                        'seller_address': None,
+                        'seller_name': 'Samsung Abdelkhalak ',
+                        'seller_phone': '0662535717',
+                        'seller_type': 'private',
+                        'subject': 'Dacia logan avendre',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/quartier_industriel/voitures/Dacia_logan_avendre_46758842.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:32:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_partner_46769227.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:32 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36
+2021-09-17 14:32:32 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_partner_46769227.htm>
+None
+2021-09-17 14:32:32 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_partner_46769227.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Peugeot',
+                        'bv': 'Manuelle',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_electric_windows': '1',
+                        'car_rims': '0',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Salam pejout partner ba9a n9iya 2008 ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-22 22:05:18',
+                        'mileage': '300 000 - 349 999',
+                        'model': 'Partner',
+                        'number_of_images': 1,
+                        'pfiscale': '7 CV',
+                        'price': 58000,
+                        'product_id': '61599458',
+                        'regdate': '2008',
+                        'seller_address': None,
+                        'seller_name': 'Mohamed ',
+                        'seller_phone': '0700117091',
+                        'seller_type': 'private',
+                        'subject': 'Peugeot partner',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_partner_46769227.htm',
+                        'v_origin': 'Importée neuve'}}
+2021-09-17 14:32:37 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET https://www.avito.ma/fr/bouznika/voitures/citroen_xsara__46780388.htm> (failed 1 times): 500 Internal Server Error
+2021-09-17 14:32:37 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36
+2021-09-17 14:32:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Citroen__46785809.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:37 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36
+2021-09-17 14:32:37 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Citroen__46785809.htm>
+None
+2021-09-17 14:32:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Citroen__46785809.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Citroen',
+                        'bv': 'Manuelle',
+                        'car_central_locking': '1',
+                        'car_electric_windows': '1',
+                        'car_leather': '1',
+                        'car_rims': '1',
+                        'city': 'Bouznika',
+                        'description': 'باقي مزين اقتصادية',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Essence',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-24 00:48:47',
+                        'mileage': '100 000 - 109 999',
+                        'model': 'C5',
+                        'number_of_images': 2,
+                        'pfiscale': '10 CV',
+                        'price': 13000,
+                        'product_id': '61621892',
+                        'regdate': '2003',
+                        'seller_address': None,
+                        'seller_name': 'الحبيب',
+                        'seller_phone': None,
+                        'seller_type': 'private',
+                        'subject': 'Citroen ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Citroen__46785809.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:32:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Ford_Focus_46791084.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:42 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+2021-09-17 14:32:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Ford_Focus_46791084.htm>
+None
+2021-09-17 14:32:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Ford_Focus_46791084.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Ford',
+                        'bv': None,
+                        'city': 'Bouznika',
+                        'description': 'سيارة كاسبها ماشي وكالة ',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-24 12:45:03',
+                        'mileage': '20 000 - 24 999',
+                        'model': 'Focus',
+                        'number_of_images': 4,
+                        'pfiscale': '7 CV',
+                        'price': 56000,
+                        'product_id': '61629036',
+                        'regdate': '2004',
+                        'seller_address': None,
+                        'seller_name': 'Abdeo',
+                        'seller_phone': '0666897976',
+                        'seller_type': 'private',
+                        'subject': 'Ford Focus',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Ford_Focus_46791084.htm',
+                        'v_origin': None}}
+2021-09-17 14:32:51 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET https://www.avito.ma/fr/bouznika/voitures/Renault_symbole_46812213.htm> (failed 1 times): 500 Internal Server Error
+2021-09-17 14:32:51 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36
+2021-09-17 14:32:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/voiture_Peugeot_301_46823946.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:51 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36
+2021-09-17 14:32:51 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/voiture_Peugeot_301_46823946.htm>
+None
+2021-09-17 14:32:51 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/voiture_Peugeot_301_46823946.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Peugeot',
+                        'bv': 'Automatique',
+                        'car_ac': '1',
+                        'city': 'Bouznika',
+                        'description': 'salut à tous je mets en vente une '
+                                       'voiture Peugeot neuf avec toute option '
+                                       ', kilométrage : 78000 kmessencevitesse '
+                                       'automatique',
+                        'doors': '5',
+                        'first_owner': None,
+                        'fuel': 'Essence',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-26 15:23:11',
+                        'mileage': '75 000 - 79 999',
+                        'model': '301',
+                        'number_of_images': 8,
+                        'pfiscale': '9 CV',
+                        'price': 84000,
+                        'product_id': '61670032',
+                        'regdate': '2016',
+                        'seller_address': None,
+                        'seller_name': 'Saadi walid',
+                        'seller_phone': None,
+                        'seller_type': 'private',
+                        'subject': 'voiture Peugeot 301',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/voiture_Peugeot_301_46823946.htm',
+                        'v_origin': 'Pas encore dédouanée'}}
+2021-09-17 14:32:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Peugeot_307_46812228.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:32:54 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36
+2021-09-17 14:32:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Peugeot_307_46812228.htm>
+None
+2021-09-17 14:32:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Peugeot_307_46812228.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Peugeot',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_reverse_radar': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'سيارة مليحة فيها كلشي مزيان لبغاها '
+                                       'مرحبا ',
+                        'doors': '5',
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-25 18:13:57',
+                        'mileage': '300 000 - 349 999',
+                        'model': '307',
+                        'number_of_images': 7,
+                        'pfiscale': '6 CV',
+                        'price': 50000,
+                        'product_id': '61655065',
+                        'regdate': '2004',
+                        'seller_address': None,
+                        'seller_name': 'Abdo',
+                        'seller_phone': '0600403730',
+                        'seller_type': 'private',
+                        'subject': 'Peugeot 307',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Peugeot_307_46812228.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:33:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_46838623.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:00 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36
+2021-09-17 14:33:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_46838623.htm>
+None
+2021-09-17 14:33:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_46838623.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Peugeot',
+                        'bv': None,
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_rims': '1',
+                        'city': 'Bouznika',
+                        'description': 'je met en vente ma voiture toute '
+                                       'option',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Essence',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-27 16:10:57',
+                        'mileage': '100 000 - 109 999',
+                        'model': '306',
+                        'number_of_images': 4,
+                        'pfiscale': None,
+                        'price': 35000,
+                        'product_id': '61689326',
+                        'regdate': '2000',
+                        'seller_address': None,
+                        'seller_name': 'hassan auto',
+                        'seller_phone': '0675850988',
+                        'seller_type': 'private',
+                        'subject': 'Peugeot',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_46838623.htm',
+                        'v_origin': None}}
+2021-09-17 14:33:00 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2021-09-17 14:33:00 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2021-09-17 14:33:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Renault_Kangoo_46844109.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Renault_Kangoo_46844109.htm>
+None
+2021-09-17 14:33:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Renault_Kangoo_46844109.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Renault',
+                        'bv': None,
+                        'city': 'Bouznika',
+                        'description': 'Je met en vente kango modele 2015 tout '
+                                       'option première main peinture '
+                                       'd’origine ',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-27 23:59:01',
+                        'mileage': '80 000 - 84 999',
+                        'model': 'Kangoo',
+                        'number_of_images': 5,
+                        'pfiscale': '6 CV',
+                        'price': None,
+                        'product_id': '61696305',
+                        'regdate': '2015',
+                        'seller_address': None,
+                        'seller_name': 'Med',
+                        'seller_phone': '0661755216',
+                        'seller_type': 'private',
+                        'subject': 'Renault Kangoo',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Renault_Kangoo_46844109.htm',
+                        'v_origin': None}}
+2021-09-17 14:33:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Renault_fluence__46869130.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Renault_fluence__46869130.htm>
+None
+2021-09-17 14:33:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Renault_fluence__46869130.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Renault',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'je mets en vente cette Renault fluence '
+                                       'diesel mod 2012 en bon état ',
+                        'doors': '5',
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-29 21:08:49',
+                        'mileage': '20 000 - 24 999',
+                        'model': 'Fluence',
+                        'number_of_images': 5,
+                        'pfiscale': '6 CV',
+                        'price': 90000,
+                        'product_id': '61728176',
+                        'regdate': '2012',
+                        'seller_address': None,
+                        'seller_name': 'Abdesamad',
+                        'seller_phone': '0674425770',
+                        'seller_type': 'private',
+                        'subject': 'Renault fluence ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Renault_fluence__46869130.htm',
+                        'v_origin': None}}
+2021-09-17 14:33:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Voiture_a_vendre_46892688.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Voiture_a_vendre_46892688.htm>
+None
+2021-09-17 14:33:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Voiture_a_vendre_46892688.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Renault',
+                        'bv': 'Manuelle',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_electric_windows': '1',
+                        'city': 'Bouznika',
+                        'description': 'je mets ma voiture kongoo a vendre en '
+                                       'bonne état toujours au garage premier '
+                                       'main moteur jamais vu le mécanicien  ',
+                        'doors': '5',
+                        'first_owner': 'Oui',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-31 13:34:11',
+                        'mileage': '0 - 4 999',
+                        'model': 'Kangoo',
+                        'number_of_images': 3,
+                        'pfiscale': '7 CV',
+                        'price': 80000,
+                        'product_id': '61759489',
+                        'regdate': '2009',
+                        'seller_address': None,
+                        'seller_name': 'EL BAROUDI HAMID',
+                        'seller_phone': '0697637231',
+                        'seller_type': 'private',
+                        'subject': 'Voiture a vendre',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Voiture_a_vendre_46892688.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:33:17 [scrapy.extensions.logstats] INFO: Crawled 47 pages (at 12 pages/min), scraped 76 items (at 24 items/min)
+2021-09-17 14:33:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/TIGUAN_2L_TDI140_CV_46910689.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/TIGUAN_2L_TDI140_CV_46910689.htm>
+None
+2021-09-17 14:33:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/TIGUAN_2L_TDI140_CV_46910689.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Volkswagen',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_camera': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Je vends mon tiguan en très bon état '
+                                       'général.Dédouaner en 2015 Prix à '
+                                       'débattre ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-01 14:53:19',
+                        'mileage': '200 000 - 249 999',
+                        'model': 'Tiguan',
+                        'number_of_images': 5,
+                        'pfiscale': '8 CV',
+                        'price': 200000,
+                        'product_id': '61782250',
+                        'regdate': '2011',
+                        'seller_address': None,
+                        'seller_name': 'Ben d',
+                        'seller_phone': '0658520708',
+                        'seller_type': 'private',
+                        'subject': 'TIGUAN 2L TDI140 CV',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/TIGUAN_2L_TDI140_CV_46910689.htm',
+                        'v_origin': 'Dédouanée'}}
+2021-09-17 14:33:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/hyundai_accent_6cv_46916890.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:19 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/hyundai_accent_6cv_46916890.htm>
+None
+2021-09-17 14:33:19 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/hyundai_accent_6cv_46916890.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Hyundai',
+                        'bv': 'Manuelle',
+                        'car_ac': '1',
+                        'car_central_locking': '1',
+                        'car_electric_windows': '1',
+                        'car_rims': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Accent 2006 en parfait état '
+                                       'Motorisation comme neuf 192 000 km6cv '
+                                       "DieselVidange a l'heure Intérieur très "
+                                       'propre Clima,  vitre electric, '
+                                       'centralisée, jantes aluminium, '
+                                       'sonorisation sony(bluetooth) arrière '
+                                       '250 w avant 150 w, telephone main '
+                                       'libre.Tomobile jy ou rkeb ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-01 21:50:38',
+                        'mileage': '190 000 - 199 999',
+                        'model': 'Accent',
+                        'number_of_images': 6,
+                        'pfiscale': '6 CV',
+                        'price': 52000,
+                        'product_id': '61789410',
+                        'regdate': '2006',
+                        'seller_address': None,
+                        'seller_name': 'Hassan',
+                        'seller_phone': '0660057623',
+                        'seller_type': 'private',
+                        'subject': 'hyundai accent 6cv',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/hyundai_accent_6cv_46916890.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:33:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Renault_kadjar_46921054.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Renault_kadjar_46921054.htm>
+None
+2021-09-17 14:33:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Renault_kadjar_46921054.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Renault',
+                        'bv': None,
+                        'city': 'Bouznika',
+                        'description': 'Renault kadjar 1er main J’amais '
+                                       'accidenté 6cv Très bon état Pour plus '
+                                       "d'informations, merci de nous "
+                                       'contacter par message privé',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-02 11:03:41',
+                        'mileage': '95 000 - 99 999',
+                        'model': 'Kadjar',
+                        'number_of_images': 8,
+                        'pfiscale': '6 CV',
+                        'price': 175000,
+                        'product_id': '61796272',
+                        'regdate': '2018',
+                        'seller_address': None,
+                        'seller_name': 'Bouazza El Hilali',
+                        'seller_phone': '0623479551',
+                        'seller_type': 'private',
+                        'subject': 'Renault kadjar',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Renault_kadjar_46921054.htm',
+                        'v_origin': None}}
+2021-09-17 14:33:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Dacia_Logan__46882790.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:21 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Dacia_Logan__46882790.htm>
+None
+2021-09-17 14:33:21 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Dacia_Logan__46882790.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Dacia',
+                        'bv': 'Manuelle',
+                        'city': 'Bouznika',
+                        'description': 'Dacia Logan bon état ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-08-30 18:07:40',
+                        'mileage': '75 000 - 79 999',
+                        'model': 'Logan',
+                        'number_of_images': 4,
+                        'pfiscale': '6 CV',
+                        'price': 104000,
+                        'product_id': '61745904',
+                        'regdate': '2017',
+                        'seller_address': None,
+                        'seller_name': 'El mehdi ',
+                        'seller_phone': '0629586612',
+                        'seller_type': 'private',
+                        'subject': 'Dacia Logan ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Dacia_Logan__46882790.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:33:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/KIA_SPORTAG_46956295.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:32 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/KIA_SPORTAG_46956295.htm>
+None
+2021-09-17 14:33:32 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/KIA_SPORTAG_46956295.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Kia',
+                        'bv': 'Manuelle',
+                        'city': 'Bouznika',
+                        'description': 'KIA SPORTAG ',
+                        'doors': '5',
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-04 17:54:05',
+                        'mileage': '140 000 - 149 999',
+                        'model': 'Sportage',
+                        'number_of_images': 8,
+                        'pfiscale': '8 CV',
+                        'price': None,
+                        'product_id': '61839633',
+                        'regdate': '2011',
+                        'seller_address': None,
+                        'seller_name': 'NOURDIN',
+                        'seller_phone': '0662706616',
+                        'seller_type': 'private',
+                        'subject': 'KIA SPORTAG',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/KIA_SPORTAG_46956295.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:33:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/fiesta_ford_46932030.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/fiesta_ford_46932030.htm>
+None
+2021-09-17 14:33:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/fiesta_ford_46932030.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Ford',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_camera': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_speed_limiter': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'السلام عليكم كنبيع هاد السيارة نقية '
+                                       'بزاف مديل 2017 طرانط بليس العامرا لي '
+                                       'عندو الغرض مرحبا كلشي باقي دورجين فيها',
+                        'doors': '5',
+                        'first_owner': 'Oui',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-02 22:29:20',
+                        'mileage': '120 000 - 129 999',
+                        'model': 'Fiesta',
+                        'number_of_images': 8,
+                        'pfiscale': '6 CV',
+                        'price': 108000,
+                        'product_id': '61810373',
+                        'regdate': '2017',
+                        'seller_address': None,
+                        'seller_name': 'منتصر',
+                        'seller_phone': '0601453390',
+                        'seller_type': 'private',
+                        'subject': 'fiesta ford',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/fiesta_ford_46932030.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:33:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_307__46937853.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_307__46937853.htm>
+None
+2021-09-17 14:33:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_307__46937853.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': 'Peugeot',
+                        'bv': 'Manuelle',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_electric_windows': '1',
+                        'cd_mp3_bt': '1',
+                        'city': 'Bouznika',
+                        'description': 'Peugeot 307 essence model 2002 ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Essence',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-03 12:32:24',
+                        'mileage': '300 000 - 349 999',
+                        'model': '307',
+                        'number_of_images': 5,
+                        'pfiscale': '8 CV',
+                        'price': 40000,
+                        'product_id': '61817917',
+                        'regdate': '2002',
+                        'seller_address': None,
+                        'seller_name': 'Mohcine afandi',
+                        'seller_phone': '0635866055',
+                        'seller_type': 'private',
+                        'subject': 'Peugeot 307 ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/Peugeot_307__46937853.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:33:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/KIA_SPORTAG_46956495.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:37 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/KIA_SPORTAG_46956495.htm>
+None
+2021-09-17 14:33:37 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/KIA_SPORTAG_46956495.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Kia',
+                        'bv': 'Manuelle',
+                        'city': 'Bouznika',
+                        'description': 'KIA SPORTAG',
+                        'doors': '5',
+                        'first_owner': 'Oui',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-04 18:02:34',
+                        'mileage': '140 000 - 149 999',
+                        'model': 'Sportage',
+                        'number_of_images': 8,
+                        'pfiscale': '8 CV',
+                        'price': 127000,
+                        'product_id': '61839964',
+                        'regdate': '2011',
+                        'seller_address': None,
+                        'seller_name': 'NOURDIN',
+                        'seller_phone': '0662706616',
+                        'seller_type': 'private',
+                        'subject': 'KIA SPORTAG',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/KIA_SPORTAG_46956495.htm',
+                        'v_origin': None}}
+2021-09-17 14:33:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Volkswagen_golf__46966784.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Volkswagen_golf__46966784.htm>
+None
+2021-09-17 14:33:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Volkswagen_golf__46966784.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Volkswagen',
+                        'bv': 'Manuelle',
+                        'city': 'Bouznika',
+                        'description': 'golf 2 ba9a n9ia motor mlih tonobila '
+                                       'ba9a   mazyana li chari marhba bih',
+                        'doors': '3',
+                        'first_owner': 'Non',
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-05 14:38:33',
+                        'mileage': '190 000 - 199 999',
+                        'model': 'GOLF 2',
+                        'number_of_images': 4,
+                        'pfiscale': '6 CV',
+                        'price': 35000,
+                        'product_id': '61855940',
+                        'regdate': '1986',
+                        'seller_address': None,
+                        'seller_name': 'Elhaddadi hicham',
+                        'seller_phone': '0662676611',
+                        'seller_type': 'private',
+                        'subject': 'Volkswagen golf ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Volkswagen_golf__46966784.htm',
+                        'v_origin': 'Dédouanée'}}
+2021-09-17 14:33:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/plage_oued_cherrat/voitures/Ronge_Rover_%C3%A9voque__46968236.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/plage_oued_cherrat/voitures/Ronge_Rover_%C3%A9voque__46968236.htm>
+None
+2021-09-17 14:33:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/plage_oued_cherrat/voitures/Ronge_Rover_%C3%A9voque__46968236.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Plage Oued Cherrat',
+                        'brand': 'Land Rover',
+                        'bv': 'Automatique',
+                        'car_abs': '1',
+                        'car_ac': '1',
+                        'car_airbags': '1',
+                        'car_central_locking': '1',
+                        'car_cruise_control': '1',
+                        'car_electric_windows': '1',
+                        'car_esp': '1',
+                        'car_leather': '1',
+                        'car_navigation': '1',
+                        'car_onboard_computer': '1',
+                        'car_reverse_radar': '1',
+                        'car_rims': '1',
+                        'car_roof': '1',
+                        'car_speed_limiter': '1',
+                        'city': 'Bouznika',
+                        'description': 'Je vais mis en vente ma voiture Range '
+                                       'Rover Évoque pack dynamique modèle '
+                                       '2017/juin juste les gens sérieux svp ',
+                        'doors': '5',
+                        'first_owner': None,
+                        'fuel': 'Essence',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-05 16:07:24',
+                        'mileage': '95 000 - 99 999',
+                        'model': 'Range Rover Evoque',
+                        'number_of_images': 7,
+                        'pfiscale': '8 CV',
+                        'price': 310000,
+                        'product_id': '61857755',
+                        'regdate': '2017',
+                        'seller_address': None,
+                        'seller_name': 'Mme alnaser',
+                        'seller_phone': '0655335642',
+                        'seller_type': 'private',
+                        'subject': 'Ronge Rover évoque ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/plage_oued_cherrat/voitures/Ronge_Rover_évoque__46968236.htm',
+                        'v_origin': None}}
+2021-09-17 14:33:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/autre_secteur/voitures/passat__46974159.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/passat__46974159.htm>
+None
+2021-09-17 14:33:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/autre_secteur/voitures/passat__46974159.htm>
+{'product_data_items': {'address': None,
+                        'area': 'Autre secteur',
+                        'brand': None,
+                        'bv': None,
+                        'city': 'Bouznika',
+                        'description': 'passat dw 2012 bon état marhba ',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': None,
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-09-06 01:03:09',
+                        'mileage': None,
+                        'model': None,
+                        'number_of_images': 5,
+                        'pfiscale': None,
+                        'price': 135000,
+                        'product_id': '61865596',
+                        'regdate': None,
+                        'seller_address': None,
+                        'seller_name': 'simo',
+                        'seller_phone': '0667310903',
+                        'seller_type': 'private',
+                        'subject': 'passat ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/autre_secteur/voitures/passat__46974159.htm',
+                        'v_origin': None}}
+2021-09-17 14:33:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/toyota_corolla__46978892.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=2)
+2021-09-17 14:33:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/toyota_corolla__46978892.htm>
+None
+2021-09-17 14:33:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/toyota_corolla__46978892.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Toyota',
+                        'bv': 'Manuelle',
+                        'city': 'Bouznika',
+                        'description': 'tobila nadia lderouich ',
+                        'doors': '5',
+                        'first_owner': 'Non',
+                        'fuel': 'Essence',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': True,
+                        'last_update_date': '2021-09-06 12:37:12',
+                        'mileage': '200 000 - 249 999',
+                        'model': 'Corolla',
+                        'number_of_images': 5,
+                        'pfiscale': '7 CV',
+                        'price': 27000,
+                        'product_id': '61872111',
+                        'regdate': '2001',
+                        'seller_address': None,
+                        'seller_name': 'Mehdi',
+                        'seller_phone': '0618828010',
+                        'seller_type': 'private',
+                        'subject': 'toyota corolla ',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/toyota_corolla__46978892.htm',
+                        'v_origin': 'WW au Maroc'}}
+2021-09-17 14:33:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.avito.ma/fr/bouznika/voitures/Peugeot_46208467.htm> (referer: https://www.avito.ma/fr/bouznika/voitures-%C3%A0_vendre?o=3)
+2021-09-17 14:33:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Peugeot_46208467.htm>
+None
+2021-09-17 14:33:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.avito.ma/fr/bouznika/voitures/Peugeot_46208467.htm>
+{'product_data_items': {'address': None,
+                        'brand': 'Peugeot',
+                        'bv': None,
+                        'city': 'Bouznika',
+                        'description': '405 نقية مازوط 7khil أسيستي سنتراليزي '
+                                       'جاج الكتريك جانطات ألمنيوم موديل 91 '
+                                       'المطور جديد الروايد جداد مرحبا الثمن '
+                                       'مزيان ',
+                        'doors': None,
+                        'first_owner': None,
+                        'fuel': 'Diesel',
+                        'has_shipping': False,
+                        'is_seller_phone_verified': False,
+                        'last_update_date': '2021-07-07 13:45:29',
+                        'mileage': 'Plus de 500 000',
+                        'model': '405',
+                        'number_of_images': 4,
+                        'pfiscale': '7 CV',
+                        'price': 32000,
+                        'product_id': '60854736',
+                        'regdate': '1991',
+                        'seller_address': None,
+                        'seller_name': 'احمد سليم',
+                        'seller_phone': '0642917271',
+                        'seller_type': 'private',
+                        'subject': 'Peugeot',
+                        'type': 'Voitures, Vente',
+                        'url': 'https://www.avito.ma/fr/bouznika/voitures/Peugeot_46208467.htm',
+                        'v_origin': None}}
+2021-09-17 14:33:53 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 27239,
+ 'downloader/request_count': 62,
+ 'downloader/request_method_count/GET': 62,
+ 'downloader/response_bytes': 1989446,
+ 'downloader/response_count': 62,
+ 'downloader/response_status_count/200': 60,
+ 'downloader/response_status_count/500': 2,
+ 'dupefilter/filtered': 335,
+ 'elapsed_time_seconds': 216.07094,
+ 'finish_reason': 'shutdown',
+ 'finish_time': datetime.datetime(2021, 9, 17, 13, 33, 53, 166330),
+ 'httpcompression/response_bytes': 12499053,
+ 'httpcompression/response_count': 60,
+ 'item_scraped_count': 102,
+ 'log_count/DEBUG': 227,
+ 'log_count/INFO': 14,
+ 'log_count/WARNING': 46,
+ 'memusage/max': 114974720,
+ 'memusage/startup': 68210688,
+ 'request_depth_max': 2,
+ 'response_received_count': 60,
+ 'retry/count': 2,
+ 'retry/reason_count/500 Internal Server Error': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 61,
+ 'scheduler/dequeued/memory': 61,
+ 'scheduler/enqueued': 239,
+ 'scheduler/enqueued/memory': 239,
+ 'start_time': datetime.datetime(2021, 9, 17, 13, 30, 17, 95390)}
+2021-09-17 14:33:53 [scrapy.core.engine] INFO: Spider closed (shutdown)

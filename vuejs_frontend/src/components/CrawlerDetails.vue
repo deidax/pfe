@@ -45,7 +45,7 @@
                   color="light-blue"
                   height="20"
                 >
-                  <strong>{{ percentage }}%</strong>
+                  <strong>{{ isNaN(percentage) ? 'Loading...' : percentage+'%'}}</strong>
                 </v-progress-linear>
               </v-list-item-title>
               <v-list-item-title v-if="activeCrawlerDetails.number_of_products_found == 0 && jobState != 'finished'">

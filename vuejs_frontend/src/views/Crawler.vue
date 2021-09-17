@@ -13,6 +13,7 @@
     />
   <v-fab-transition>
         <v-btn
+          :disabled="getOtherErrors.length > 0 ? true : false"
           color="blue"
           fixed
           fab

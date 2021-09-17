@@ -47,18 +47,19 @@ def crawlerApi(request, id):
         crawler_data = Crawler.objects.get(crawlerId=id)
         carwler_serializer=CrawlerSerializer(crawler_data)
         start_url = carwler_serializer.data['start_url']
+        options = carwler_serializer.data['options']
         if not start_url:
             return JsonResponse({'error': 'Missing  start url', 'code': 422})
         
         domain = urlparse(start_url).netloc # parse the start url and extract the domain
         crawler_unique_id = str(uuid4()) # create a unique ID. 
         settings = {
-            'unique_id': crawler_unique_id, #  crawler unique ID for each record for DB
+            'unique_id': crawler_unique_id, #  crawler unique ID for each record for scrapyd DB
         }
 
         # schedule a new crawling task from scrapyd. 
         task = scrapyd.schedule('default', 'productspider', 
-            settings=settings, url=start_url, domain=domain)
+            settings=settings, url=start_url, options=options, domain=domain)
 
         crawler_data.task_id = task
         crawler_data.save(update_fields=['task_id'])
@@ -70,6 +71,7 @@ def crawlerApi(request, id):
              'crawler_id': carwler_serializer.data['crawlerId'],
              'crawler_name': carwler_serializer.data['name'],
              'crawler_start_url': carwler_serializer.data['start_url'],
+             'crawler_data_options': carwler_serializer.data['options'],
              'status': 'started',
              'code': 200
             }
@@ -107,6 +109,9 @@ def crawlerDetailsManagerApi(request):
     if request.method == 'GET':
         avito_crawler_data = avito_crawler_collection.find_one()
         # client.close()
-        avito_crawler_data.pop('_id')
-        return JsonResponse(avito_crawler_data)
+        if avito_crawler_data:
+            avito_crawler_data.pop('_id')
+            return JsonResponse(avito_crawler_data)
+        
+        return JsonResponse({"message": "No crawler process is found. App started for the first time."})
 

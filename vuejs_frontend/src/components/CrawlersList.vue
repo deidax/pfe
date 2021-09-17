@@ -99,6 +99,19 @@
                   {{getCrawlerInfo(item.task_id).state}}
                   </v-chip>
                 </span>
+                <span v-else-if="getOtherErrors.length > 0">
+                  <v-chip
+                    class="ma-2"
+                    small
+                    color="black"
+                    text-color="white"
+                  >
+                  <v-icon left small>
+                    mdi-restore-alert
+                  </v-icon>
+                  server error
+                  </v-chip>
+                </span>
                 <span v-else><v-icon small>mdi-check-outline</v-icon></span>
             </template>
             <template v-slot:item.task_id="{ item }">
@@ -120,7 +133,7 @@
                 <v-btn
                   icon
                   v-if="crawlerButtonControlSwitch(item.task_id) && getJobState != 'finished'"
-                  :disabled="getLoadingRunningCrawlerExecution || stoppingCrawler"
+                  :disabled="getLoadingRunningCrawlerExecution || stoppingCrawler || getOtherErrors.length > 0"
                   v-on:click="exitRunningJob(item.task_id)"
                   color="black">
                   <v-icon>mdi-close-circle-outline</v-icon>
@@ -128,7 +141,7 @@
                 <v-btn
                   icon
                   v-else
-                  :disabled="getLoadingRunningCrawlerExecution || getJobState != 'finished' || stoppingCrawler || getDeletingCrawlerLoading"
+                  :disabled="getLoadingRunningCrawlerExecution || getJobState != 'finished' || stoppingCrawler || getDeletingCrawlerLoading || getOtherErrors.length > 0"
                   v-on:click="executeCrawler(item.crawlerId)"
                   color="black">
                   <v-icon>mdi-play</v-icon>
@@ -138,7 +151,7 @@
               <template v-slot:item.btn_delete="{ item }">
                 <v-btn
                   icon
-                  :disabled="getLoadingRunningCrawlerExecution || getJobState != 'finished'"
+                  :disabled="getLoadingRunningCrawlerExecution || getJobState != 'finished' || getOtherErrors.length > 0"
                   v-on:click="removeCrawler(item.crawlerId)"
                   color="black">
                   <v-icon>mdi-delete</v-icon>
@@ -149,7 +162,7 @@
                 <v-btn
                   icon
                   v-if="crawlerButtonControlSwitch(item.task_id) && getJobState != 'finished'"
-                  :disabled="getLoadingRunningCrawlerExecution || stoppingCrawler || !crawlerDetailsReady"
+                  :disabled="getLoadingRunningCrawlerExecution || stoppingCrawler || !crawlerDetailsReady || getOtherErrors.length > 0"
                   v-on:click="openCrawlerDetails()"
                   color="black">
                   <v-icon>mdi-eye</v-icon>
@@ -325,6 +338,7 @@ import CrawlerDetails from './CrawlerDetails.vue';
       ...mapGetters("Crawler",["getCrawlerDetails"]),
       ...mapState("Crawler",["crawler_details"]),
       ...mapState("Crawler",["running_crawler_task_id"]),
+      ...mapGetters("Crawler",["getOtherErrors"]),
       
 
       getFullPath () {

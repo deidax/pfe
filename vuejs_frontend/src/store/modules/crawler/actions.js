@@ -109,7 +109,7 @@ export const getAllCrawlers = ({ commit, dispatch  }, form) => {
         }).catch((error) => {
             error = error+". Can't connect to the server."
             commit('SET_OTHER_ERRORS',error)
-            commit('SET_CRAWLERDATA', null);
+            // commit('SET_CRAWLERDATA', null);
             commit('SET_LOADING',false);
     })
     .catch((error) => {

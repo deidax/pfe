@@ -38,6 +38,14 @@
         <v-icon left dark>mdi-account-tie</v-icon>
         {{ getUser.username }}
       </v-chip>
+      <v-chip
+        class="ma-2"
+        :color="getOtherErrors.length > 0 ? 'black' : 'green'"
+        text-color="white"
+      >
+        <v-icon left dark>{{ getOtherErrors.length > 0 ? 'mdi-server-off' : 'mdi-server' }}</v-icon>
+        {{ getOtherErrors.length > 0 ? 'Server Error' : 'Server Running' }}
+      </v-chip>
       <v-btn
         text
         @click="logout()">
@@ -79,6 +87,8 @@ export default {
     ...mapGetters("Auth", ["getUser"]),
     ...mapGetters("Auth", ["isLogoutLoading"]),
     ...mapGetters("Crawler",["getJobState"]),
+    ...mapGetters("Crawler",["getOtherErrors"]),
+    
 
 
   }
