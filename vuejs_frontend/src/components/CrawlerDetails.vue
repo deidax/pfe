@@ -18,7 +18,7 @@
           >
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title>Settings</v-toolbar-title>
+          <v-toolbar-title>Settings {{openDialogSwitch}}</v-toolbar-title>
           <v-spacer></v-spacer>
           <!-- <v-toolbar-items>
             <v-btn
@@ -101,10 +101,6 @@
                 </v-chip>
 
               </div>
-              <!-- <v-list-item-title>Products found: <b>{{ activeCrawlerDetails.number_of_products_found }}</b></v-list-item-title>
-              <v-list-item-title>Estimated time to finish: <b>{{ activeCrawlerDetails.estimated_time_to_finish }}</b></v-list-item-title>
-              <v-list-item-title>Time Counter: <b>{{ crawlertimeCounter }}</b></v-list-item-title> -->
-             <!-- <v-list-item-subtitle>{{ activeCrawlerDetails.number_of_products_found }}</v-list-item-subtitle> -->
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -115,6 +111,14 @@
         >
           <v-subheader>Logs</v-subheader>
           <v-list-item>
+            <v-textarea
+              filled
+              readonly
+              rows="15"
+              id="consolelogs"
+              label="~avito-analyzer-server/crawlerlogs$"
+              :value="getCrawlerLogfile"
+            ></v-textarea>
             <!-- <v-list-item-action>
               <v-checkbox v-model="notifications"></v-checkbox>
             </v-list-item-action>
@@ -147,6 +151,8 @@
   </v-row>
 </template>
 <script>
+
+import {mapActions, mapGetters} from "vuex"
   export default {
     name: 'CrawlerDetails',
     props:{
@@ -164,19 +170,59 @@
         widgets: false,
 
         openDialogSwitch: false,
-        
+      }
+    },
+    
+    watch:{
+      openDialog(oldVal, newVal){
+        console.log("OLD VAL:"+oldVal)
+        console.log("NEW VAL:"+newVal)
+        this.readCrawlerLogFile()
       }
     },
 
+    computed: {
+      ...mapGetters("Crawler",["getCrawlerLogfile"]),
+    },
+
     methods: {
+      ...mapActions('Crawler',['getLogfile']),
+
       closeDialog(){
         let openDialogSwitch = this.openDialog
         openDialogSwitch = false
         this.$emit('update-openDialog', openDialogSwitch)
       },
 
+      crawlerLogfile(){
+        let form = {}
+        form ['task_id'] = (this.activeCrawlerDetails.task_id).toString()
+        this.getLogfile(form)
+      },
+
+      readCrawlerLogFile(startReadingLogs){
+
+        let readLog = setInterval(function() {
+        
+        console.log("READING LOG FILE")
+        this.crawlerLogfile()
+        
+        // Display the message when countdown is over
+        console.log("Reading logs")
+        if (this.jobState == 'finished' || !this.openDialog) {
+          clearInterval(readLog);
+              console.log("Log file finished")
+          }
+        }
+        .bind(this), 1000);
+      }
+
+
     },
     
 
   }
 </script>
+<style scoped>
+
+</style>

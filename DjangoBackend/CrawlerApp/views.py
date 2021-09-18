@@ -11,9 +11,14 @@ from urllib.parse import urlparse
 from scrapyd_api import ScrapydAPI
 import pymongo
 import json
+from django.conf import settings
+import os
+import time
+import urllib
 
 # connect scrapyd service
-scrapyd = ScrapydAPI('http://localhost:6800')
+SCRAPYD_SERVER = 'http://localhost:6800'
+scrapyd = ScrapydAPI(SCRAPYD_SERVER)
 
 @csrf_exempt
 def crawlerManagerApi(request, id=0):
@@ -114,4 +119,40 @@ def crawlerDetailsManagerApi(request):
             return JsonResponse(avito_crawler_data)
         
         return JsonResponse({"message": "No crawler process is found. App started for the first time."})
+
+
+@csrf_exempt
+def readLogFileApi(request):
+    if request.method == 'POST':
+
+        logfile = 'logs/default/productspider/'+request.POST.get('task_id')+'.log'
+
+        logfile_path = os.path.join(settings.SCRAPY_DIR, logfile)
+        logfile = open(logfile_path, "r")
+
+        loglines = logFollow(logfile)
+
+        # iterate over the generator
+        for line in loglines:
+            # print(line)
+            return JsonResponse(line, safe=False)
+
+
+def logFollow(logFile):
+    '''generator function that yields new lines in a file
+    '''
+    # seek the end of the file
+    logFile.seek(0, os.SEEK_END)
+    
+    # start infinite loop
+    while True:
+        # read last line of file
+        line = logFile.readline()
+        # sleep if file hasn't been updated
+        if not line:
+            time.sleep(0.1)
+            continue
+
+        yield line
+
 

@@ -3,7 +3,7 @@
       <v-main>
         <v-card>
           <v-card-title>
-            Crawlers List {{refreshCrawlerListData}}
+            Crawlers List
             <!-- {{getRunningCrawlerTaskId['task_id']}} -->
             <v-spacer></v-spacer>
             <v-text-field
@@ -272,7 +272,7 @@ import CrawlerDetails from './CrawlerDetails.vue';
             value: 'name',
           },
           { text: 'Start URL', value: 'start_url', sortable: false },
-          { text: 'State', value: 'state', sortable: false },
+          { text: 'Status', value: 'state', sortable: false },
           { text: 'Unique ID', value: 'task_id', sortable: false},
           { text: ' ', value: 'btn_run_stop', sortable: false },
           { text: ' ', value: 'btn_delete', sortable: false },
@@ -298,28 +298,19 @@ import CrawlerDetails from './CrawlerDetails.vue';
       },  
 
       getJobState(newVal, oldVal){
-          // console.log("OLD: "+oldVal)
-          // console.log("NEW: "+newVal)
-          console.log("POLLING!!!!!!!!")
           this.pollingFreshCrawlersInfo()
       },
 
       getLastCrawlerTaskId(newVal, oldVal){
-          console.log("OLD: "+oldVal)
-          console.log("NEW: "+newVal)
           if(oldVal != undefined){
             console.log("-->READY")
             this.crawlerDetailsReady = true
-            console.log(this.getCrawlerDetails.estimatred_count_down_date)
             
           }
       },
       
       getCrawlerProductsInserted(newVal, oldVal){
-        console.log("OLD: "+oldVal)
-        console.log("NEW: "+newVal)
         this.productsInsertedPercentage = this.calculatePercentage(newVal, this.getCrawlerDetails.number_of_products_found)
-        console.log("PERCENTAGE -------> "+this.productsInsertedPercentage)
       }
 
     },
@@ -346,7 +337,6 @@ import CrawlerDetails from './CrawlerDetails.vue';
       },
 
       getLastCrawlerTaskId(){
-        console.log('******')
         return this.crawler_details.task_id
       },
 
@@ -369,6 +359,7 @@ import CrawlerDetails from './CrawlerDetails.vue';
         ...mapActions('Crawler',['getRuningJobs']),
         ...mapActions('Crawler',['deleteCrawler']),
         ...mapActions('Crawler',['getCrawlerDetailsApi']),
+        
 
         updateDialog(openDialog){
           this.triggerOpenCrawlerDetails = openDialog
@@ -377,6 +368,8 @@ import CrawlerDetails from './CrawlerDetails.vue';
         getCrawlersData(){
           this.getAllCrawlers(this.crawlerInProcess)
         },
+
+        
 
 
         executeCrawler(id){
@@ -444,7 +437,6 @@ import CrawlerDetails from './CrawlerDetails.vue';
           // console.log(this.activateLongPolling)
             var interval = setInterval(
               function () { 
-                console.log("LongPolling--->"+this.getJobState)
                 this.getAllCrawlers(this.crawlerInProcess)
 
                 this.getCrawlerDetailsApi()
@@ -492,8 +484,6 @@ import CrawlerDetails from './CrawlerDetails.vue';
             let seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
                 
             this.timeCounter = days+":"+hours+":"+minutes+":"+seconds
-            console.log(this.timeCounter)
-            console.log("TIMMMME")
             // Display the message when countdown is over
             if (timeleft < 0 || this.getJobState == 'finished') {
               this.timeCounter = ''

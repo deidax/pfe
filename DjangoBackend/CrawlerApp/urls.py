@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^crawler_cancel_process$', views.cancelCrawlerProcessApi),
     url(r'^listjobs$', views.getScrapydListJobsApi),
     url(r'^crawler_details_manager$', views.crawlerDetailsManagerApi),
+    url(r'^read_log$', views.readLogFileApi),
 ]

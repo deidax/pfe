@@ -294,10 +294,6 @@ export const getCrawlerDetailsApi = ({ commit })=> {
     commit('CLEAR_OTHER_ERRORS')
     commit('CRAWLER_DETAILS_LOADING', true)
     Crawler.getCrawlerDetails().then(response => {
-        console.log("Crawler Details--->")
-        console.log(response.data)
-        // console.log("State--->")
-        // console.log(state.job_state)
         commit('SET_CRAWLER_DETAILS', response.data)
         commit('CRAWLER_DETAILS_LOADING', false)
         // router.push({ name: 'crawlers_list' });
@@ -325,6 +321,44 @@ export const getCrawlerDetailsApi = ({ commit })=> {
         
         
         commit('CRAWLER_DETAILS_LOADING', false)
+    })
+    
+}
+
+// Crawler logfile
+export const getLogfile = ({ commit }, form)=> {
+    commit('CLEAR_OTHER_ERRORS')
+    Scrapyd.getLogfile(form).then(response => {
+        // console.log(response.data)
+        
+        commit('SET_CRAWLER_LOGFILE', response.data)
+        // commit('CRAWLER_DETAILS_LOADING', false)
+        // router.push({ name: 'crawlers_list' });
+        }).catch((error) => {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+            commit('CRAWLER_DETAILS_LOADING',false);
+    })
+    .catch((error) => {
+        if(error.response != undefined)
+        {
+            let error_data = error.response.data
+            console.log(error.response.status)
+            // commit('SET_CRAWLER_LOGFILE', '')
+            // commit('SET_CRAWLERDATA', null);
+            if (error.response.status != 400) {
+                let error_message = error.response.status+" "+error.response.statusText
+                commit('SET_OTHER_ERRORS',error_message)
+            }
+        }
+        else
+        {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+        }
+        
+        
+        // commit('CRAWLER_DETAILS_LOADING', false)
     })
     
 }

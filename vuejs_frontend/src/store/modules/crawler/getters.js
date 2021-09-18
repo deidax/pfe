@@ -59,3 +59,7 @@ export const getCrawlerDetailsLoading = (state) => {
 export const getCrawlerDetails = (state) => {
     return state.crawler_details
 }
+
+export const getCrawlerLogfile = (state) => {
+    return state.crawler_logfile
+}

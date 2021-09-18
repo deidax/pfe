@@ -72,3 +72,6 @@ export const SET_CRAWLER_DETAILS = (state, crawler_details) => {
     Vue.set(state,'crawler_details', crawler_details)
 }
 
+export const SET_CRAWLER_LOGFILE = (state, crawler_logfile) => {
+    state.crawler_logfile += crawler_logfile
+}

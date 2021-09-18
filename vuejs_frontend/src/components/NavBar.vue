@@ -74,7 +74,6 @@ export default {
       appTitle: 'PFE Project',
       sidebar: false,
       menuItems: [
-          { title: 'New Crawler', path: '/create_crawler', icon: 'mdi-lead-pencil', id: 1 },
           { title: 'Crawlers', path: '/crawlers_list', icon: 'mdi-spider', id: 2 },
      ]
     }
