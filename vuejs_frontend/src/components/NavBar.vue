@@ -76,12 +76,14 @@ export default {
       menuItems: [
           { title: 'Products Data', path: '/products_data', icon: 'mdi-database', id: 1 },
           { title: 'Crawlers', path: '/crawlers_list', icon: 'mdi-spider', id: 2 },
-     ]
+     ],
     }
   },
 
   methods: {
     ...mapActions('Auth',['logout']),
+
+    
   },
   computed: {
     ...mapGetters("Auth", ["getUser"]),
@@ -89,7 +91,6 @@ export default {
     ...mapGetters("Crawler",["getJobState"]),
     ...mapGetters("Crawler",["getOtherErrors"]),
     
-
 
   }
 

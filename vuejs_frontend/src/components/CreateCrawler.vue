@@ -11,6 +11,16 @@
         </v-card-title>
         <v-card-text>
           <v-form class="ccf" @submit.prevent="createNewCrawler" id="create-crawler-form">
+          <v-alert
+            dense
+            outlined
+            type="error" 
+            v-if="errors.length">
+            <b>Please correct the following error(s):</b>
+            <ul>
+              <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
+            </ul>
+          </v-alert>
           <v-container>
             <v-row>
               <v-col cols="12">
@@ -137,14 +147,7 @@ import {mapActions,mapGetters} from "vuex"
           start_url: '',
       },
       options:[],
-      // seller_data: true,
-      // price: true,
-      // description: true,
-      // subject: true,
-      // phone: true,
-      // city: true,
-      // number_of_product_images: true,
-      // extra_data: true,
+      errors: []
     }),
 
     computed: {
@@ -154,22 +157,61 @@ import {mapActions,mapGetters} from "vuex"
     methods: {
       ...mapActions('Crawler',['createCrawler']),
       ...mapActions('Crawler',['getAllCrawlers']),
-      
+
+      checkForm(){
+        if (this.form.start_url && this.form.name && this.form.name.length > 3 && this.options.length > 0 && this.checkifValidStartURL(this.form.start_url)) {
+          return true;
+        }
+
+        this.errors = [];
+
+        if (!this.form.name) {
+          this.errors.push('Crawler Name required.');
+        }
+        if (this.form.name.length <= 3 && this.form.name) {
+          this.errors.push('Crawler Name should be longer than 3 characters.');
+        }
+        if (!this.form.start_url) {
+          this.errors.push('Crawler Start Url required.');
+        }
+        if (this.options.length == 0) {
+          this.errors.push('Select data to look for.');
+        }
+        if(!this.checkifValidStartURL(this.form.start_url)){
+          this.errors.push('Choose only start urls from Avito.com that have 1 or multiple products.');
+        }
+      },
+
+
       createNewCrawler(){
-        let options = this.options.toString()
-        this.form['options'] = options
-        let playload = {}
-        playload['form'] = this.form
-        playload['vm'] = this
-        this.createCrawler(playload).then(this.closeDialog())
-        this.$emit('update-crawlersList')
+        if(this.checkForm()){
+          let options = this.options.toString()
+          this.form['options'] = options
+          let playload = {}
+          playload['form'] = this.form
+          playload['vm'] = this
+          this.createCrawler(playload).then(this.closeDialog())
+          this.$emit('update-crawlersList')
+        }
+        
       },
 
       closeDialog(){
+        this.errors = []
         let openForm = this.openCreateForm
         openForm = false
         this.$emit('update-openCreateForm', openForm)
-    },
+      },
+
+      checkifValidStartURL(formUrl){
+        try {
+          let url = new URL('', formUrl)
+          return url.hostname == "www.avito.ma"
+        } catch{
+          this.errors.push('Invalid URL. choose a Start Url from Avito.com.')
+        }
+        
+      }
 
   }
 }

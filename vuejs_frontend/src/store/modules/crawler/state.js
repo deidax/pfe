@@ -16,5 +16,6 @@ export default{
     crawler_details:{},
     crawler_logfile: '',
     products_data: [],
-    loading_products_data: false
+    loading_products_data: false,
+    loading_products_drop: false
 }

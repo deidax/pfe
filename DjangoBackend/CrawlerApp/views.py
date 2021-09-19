@@ -18,6 +18,11 @@ import urllib
 
 # connect scrapyd service
 SCRAPYD_SERVER = 'http://localhost:6800'
+# mongodb
+MONGODB_CLIENT = "mongodb://localhost:27017/"
+MONGO_DB = 'avito'
+PRODUCTS_COL = 'products'
+AVITO_CRAWLER_COL = 'avito_crawler'
 scrapyd = ScrapydAPI(SCRAPYD_SERVER)
 
 @csrf_exempt
@@ -108,12 +113,12 @@ def getScrapydListJobsApi(request):
 
 @csrf_exempt
 def crawlerDetailsManagerApi(request):
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
-    mongodb = client["avito"]
-    avito_crawler_collection = mongodb["avito_crawler"]
+    client = pymongo.MongoClient(MONGODB_CLIENT)
+    mongodb = client[MONGO_DB]
+    avito_crawler_collection = mongodb[AVITO_CRAWLER_COL]
     if request.method == 'GET':
         avito_crawler_data = avito_crawler_collection.find_one()
-        # client.close()
+        client.close()
         if avito_crawler_data:
             avito_crawler_data.pop('_id')
             return JsonResponse(avito_crawler_data)
@@ -162,16 +167,26 @@ def logFollow(logFile):
 
 @csrf_exempt
 def getProductsData(request):
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
-    mongodb = client["avito"]
-    products_collection = mongodb["products"]
+    client = pymongo.MongoClient(MONGODB_CLIENT)
+    mongodb = client[MONGO_DB]
+    products_collection = mongodb[PRODUCTS_COL]
     if request.method == 'GET':
         products_data = list(products_collection.find({},{"_id":0}))
-        # client.close()
+        client.close()
         if products_data:
             return JsonResponse(products_data, safe=False)
         
         return JsonResponse({"message": "No product collection is found. App started for the first time."})
 
+@csrf_exempt
+def dropProductsData(request):
+    client = pymongo.MongoClient(MONGODB_CLIENT)
+    mongodb = client[MONGO_DB]
+    products_collection = mongodb[PRODUCTS_COL]
+    if request.method == 'GET':
+        products_collection.drop()
+        client.close()
+        return JsonResponse({'message': 'Products data dropped successfully'})
+        
 
 

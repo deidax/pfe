@@ -84,3 +84,7 @@ export const SET_PRODUCTS_DATA = (state, products_data) => {
 export const SET_LOADING_PRODUCTS_DATA = (state, loading_products_data) => {
     state.loading_products_data = loading_products_data
 }
+
+export const SET_LOADING_PRODUCTS_DROP = (state, loading_products_drop) => {
+    state.loading_products_drop = loading_products_drop
+}

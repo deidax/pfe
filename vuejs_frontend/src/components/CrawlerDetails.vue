@@ -114,7 +114,7 @@
             <v-textarea
               filled
               readonly
-              rows="15"
+              rows="25"
               id="consolelogs"
               label="~avito-analyzer-server/crawlerlogs$"
               :value="getCrawlerLogfile"

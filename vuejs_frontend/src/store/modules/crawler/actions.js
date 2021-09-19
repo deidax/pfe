@@ -402,6 +402,47 @@ export const getProductsData = ({ commit })=> {
     
 }
 
+export const dropProductsData = ({ commit }, vm)=> {
+    commit('CLEAR_OTHER_ERRORS')
+    commit('SET_LOADING_PRODUCTS_DROP', true)
+    Crawler.dropProductsData().then(response => {
+        console.log("PRODUCTS DROP")
+        commit('SET_PRODUCTS_DATA', [])
+        commit('SET_LOADING_PRODUCTS_DROP', false)
+        vm.dropProductsDataAlert = true
+        vm.dropProductsDataAlertMessage = response.data.message
+        vm.dropProductsDataAlertIcon = 'mdi-database-check'
+        // commit('CRAWLER_DETAILS_LOADING', false)
+        // router.push({ name: 'crawlers_list' });
+        }).catch((error) => {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+            commit('SET_LOADING_PRODUCTS_DROP', false)
+    })
+    .catch((error) => {
+        if(error.response != undefined)
+        {
+            let error_data = error.response.data
+            console.log(error.response.status)
+            // commit('SET_CRAWLER_LOGFILE', '')
+            // commit('SET_CRAWLERDATA', null);
+            if (error.response.status != 400) {
+                let error_message = error.response.status+" "+error.response.statusText
+                commit('SET_OTHER_ERRORS',error_message)
+            }
+        }
+        else
+        {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+        }
+        
+        commit('SET_LOADING_PRODUCTS_DROP', false)
+        // commit('CRAWLER_DETAILS_LOADING', false)
+    })
+    
+}
+
 
 
 

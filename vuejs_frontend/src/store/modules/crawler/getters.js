@@ -71,3 +71,8 @@ export const getProductsDataFromDB = (state) => {
 export const getLoadingProductsData = (state) => {
     return state.loading_products_data
 }
+
+export const getLoadingProductsDrop = (state) => {
+    return state.loading_products_drop
+}
+

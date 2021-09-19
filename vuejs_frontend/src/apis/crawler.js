@@ -6,6 +6,7 @@ const RUN_CRAWLER_END_POINT = "/crawler/"
 const CRAWLER_END_POINT = "/crawler_manager"
 const CRAWLER_DETAILS_END_POINT ="/crawler_details_manager"
 const GET_PRODUCTS_DATA_END_POINT ="/get_products_data"
+const DROP_PRODUCTS_DATA_END_POINT ="/drop_products_data"
 
 
 export default{
@@ -31,6 +32,10 @@ export default{
     },
     async getProductsData(){
         return Api.get(GET_PRODUCTS_DATA_END_POINT)
+    },
+
+    async dropProductsData(){
+        return Api.get(DROP_PRODUCTS_DATA_END_POINT)
     }
     
 
