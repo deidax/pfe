@@ -1,6 +1,7 @@
 // import state from "../../state";
 
 import Vue from 'vue'
+import state from '../auth/state'
 
 export const SET_CRAWLERS_DATA = (state, crawlers_data) => {
     // state.crawlers = crawlers_data;
@@ -74,4 +75,12 @@ export const SET_CRAWLER_DETAILS = (state, crawler_details) => {
 
 export const SET_CRAWLER_LOGFILE = (state, crawler_logfile) => {
     state.crawler_logfile += crawler_logfile
+}
+
+export const SET_PRODUCTS_DATA = (state, products_data) => {
+    Vue.set(state,'products_data', products_data)
+}
+
+export const SET_LOADING_PRODUCTS_DATA = (state, loading_products_data) => {
+    state.loading_products_data = loading_products_data
 }

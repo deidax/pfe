@@ -363,6 +363,45 @@ export const getLogfile = ({ commit }, form)=> {
     
 }
 
+// get products Data
+export const getProductsData = ({ commit })=> {
+    commit('CLEAR_OTHER_ERRORS')
+    commit('SET_LOADING_PRODUCTS_DATA', true)
+    Crawler.getProductsData().then(response => {
+        console.log("PRODUCTS DATA")
+        commit('SET_LOADING_PRODUCTS_DATA', false)
+        commit('SET_PRODUCTS_DATA', response.data)
+        // commit('CRAWLER_DETAILS_LOADING', false)
+        // router.push({ name: 'crawlers_list' });
+        }).catch((error) => {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+            commit('SET_LOADING_PRODUCTS_DATA', false)
+    })
+    .catch((error) => {
+        if(error.response != undefined)
+        {
+            let error_data = error.response.data
+            console.log(error.response.status)
+            // commit('SET_CRAWLER_LOGFILE', '')
+            // commit('SET_CRAWLERDATA', null);
+            if (error.response.status != 400) {
+                let error_message = error.response.status+" "+error.response.statusText
+                commit('SET_OTHER_ERRORS',error_message)
+            }
+        }
+        else
+        {
+            error = error+". Can't connect to the server."
+            commit('SET_OTHER_ERRORS',error)
+        }
+        
+        commit('SET_LOADING_PRODUCTS_DATA', false)
+        // commit('CRAWLER_DETAILS_LOADING', false)
+    })
+    
+}
+
 
 
 

@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^listjobs$', views.getScrapydListJobsApi),
     url(r'^crawler_details_manager$', views.crawlerDetailsManagerApi),
     url(r'^read_log$', views.readLogFileApi),
+    url(r'^get_products_data$', views.getProductsData),
 ]

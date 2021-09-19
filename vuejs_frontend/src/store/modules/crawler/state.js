@@ -14,5 +14,7 @@ export default{
     deleting_crawler_loading: false,
     crawler_details_loading: false,
     crawler_details:{},
-    crawler_logfile: ''
+    crawler_logfile: '',
+    products_data: [],
+    loading_products_data: false
 }

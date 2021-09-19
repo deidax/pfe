@@ -16,7 +16,7 @@ const routes = [
         }
     },
     {
-        path:'/create_crawler',
+        path:'/products_data',
         component: () => import('../views/Crawler.vue'),
         name:'create_crawler',
         meta:{

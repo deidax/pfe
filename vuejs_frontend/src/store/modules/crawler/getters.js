@@ -63,3 +63,11 @@ export const getCrawlerDetails = (state) => {
 export const getCrawlerLogfile = (state) => {
     return state.crawler_logfile
 }
+
+export const getProductsDataFromDB = (state) => {
+    return state.products_data
+}
+
+export const getLoadingProductsData = (state) => {
+    return state.loading_products_data
+}

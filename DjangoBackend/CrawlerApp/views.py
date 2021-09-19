@@ -138,6 +138,10 @@ def readLogFileApi(request):
             return JsonResponse(line, safe=False)
 
 
+        return JsonResponse({"message": "No logs found. App started for the first time."})
+
+
+
 def logFollow(logFile):
     '''generator function that yields new lines in a file
     '''
@@ -154,5 +158,20 @@ def logFollow(logFile):
             continue
 
         yield line
+
+
+@csrf_exempt
+def getProductsData(request):
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    mongodb = client["avito"]
+    products_collection = mongodb["products"]
+    if request.method == 'GET':
+        products_data = list(products_collection.find({},{"_id":0}))
+        # client.close()
+        if products_data:
+            return JsonResponse(products_data, safe=False)
+        
+        return JsonResponse({"message": "No product collection is found. App started for the first time."})
+
 
 

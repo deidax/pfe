@@ -74,6 +74,7 @@ export default {
       appTitle: 'PFE Project',
       sidebar: false,
       menuItems: [
+          { title: 'Products Data', path: '/products_data', icon: 'mdi-database', id: 1 },
           { title: 'Crawlers', path: '/crawlers_list', icon: 'mdi-spider', id: 2 },
      ]
     }

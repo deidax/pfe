@@ -5,6 +5,8 @@ import AuthHeader from './authHeader'
 const RUN_CRAWLER_END_POINT = "/crawler/"
 const CRAWLER_END_POINT = "/crawler_manager"
 const CRAWLER_DETAILS_END_POINT ="/crawler_details_manager"
+const GET_PRODUCTS_DATA_END_POINT ="/get_products_data"
+
 
 export default{
 
@@ -26,6 +28,9 @@ export default{
 
     async getCrawlerDetails(){
         return Api.get(CRAWLER_DETAILS_END_POINT)
+    },
+    async getProductsData(){
+        return Api.get(GET_PRODUCTS_DATA_END_POINT)
     }
     
 

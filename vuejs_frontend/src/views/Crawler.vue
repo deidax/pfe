@@ -10,7 +10,10 @@
   <crawlers-list 
     v-show="crawlersList"
     :refreshCrawlerListData="refreshCrawlers"
-    />
+  />
+  <products-data
+    v-show="productsData"
+  />
   <v-fab-transition>
         <v-btn
           :disabled="getOtherErrors.length > 0 ? true : false"
@@ -53,9 +56,10 @@
 </template>
 
 <script>
-import CrawlersList from '../components/CrawlersList.vue'
-import CreateCrawler from '../components/CreateCrawler.vue'
 import NavBar from '../components/NavBar.vue'
+import CreateCrawler from '../components/CreateCrawler.vue'
+import CrawlersList from '../components/CrawlersList.vue'
+import ProductsData from '../components/ProductsData.vue'
 import {mapActions,mapGetters} from "vuex"
 
   export default {
@@ -70,7 +74,8 @@ import {mapActions,mapGetters} from "vuex"
     components: {
         NavBar,
         CreateCrawler,
-        CrawlersList   
+        CrawlersList,
+        ProductsData   
     },
     computed: {
       ...mapGetters("Crawler",["getOtherErrors"]),
@@ -82,12 +87,12 @@ import {mapActions,mapGetters} from "vuex"
       },
 
 
-      // createCrawler() {
-      //   if(this.$route.name == "create_crawler") {
-      //     return true
-      //   }
-      //   return false
-      // },
+      productsData() {
+        if(this.$route.name == "create_crawler") {
+          return true
+        }
+        return false
+      },
       crawlersList() {
         if(this.$route.name == "crawlers_list") {
           return true
