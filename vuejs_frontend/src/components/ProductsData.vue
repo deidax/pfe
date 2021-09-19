@@ -9,6 +9,53 @@
           <v-icon left>mdi-database-remove</v-icon>
               CLEAR PRODUCTS DATA
         </v-btn>
+        <!-- <v-btn
+              color="success"
+              style="margin-right: 10px;margin-bottom:10px" 
+              @click="downloadCSVFile"
+              >
+          <v-icon left>mdi-file-download-outline</v-icon>
+              Download CSV file
+        </v-btn> -->
+        <v-menu
+          rounded="lg"
+          offset-y
+        >
+          <template v-slot:activator="{ attrs, on }">
+            <v-btn
+              color="success"
+              style="margin-right: 10px;margin-bottom:10px"
+              class="white--text"
+              v-bind="attrs"
+              v-on="on"
+            >
+              <v-icon left>mdi-download</v-icon>
+              Download Products Data
+              <v-icon right>mdi-chevron-down</v-icon>
+            </v-btn>
+          </template>
+
+          <v-list>
+            <v-list-item
+              link
+            >
+              <v-list-item-title @click="downloadCSVFile">
+                <v-icon left>mdi-file-delimited</v-icon>
+                Download CSV
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+          <v-list>
+            <v-list-item
+              link
+            >
+              <v-list-item-title @click="downloadJSONFile">
+                <v-icon left>mdi-code-json</v-icon>
+                Download JSON
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-btn 
               style="margin-right: 10px;margin-bottom:10px" 
               @click="refreshDataTable"
@@ -159,6 +206,53 @@ import {mapActions,mapGetters} from "vuex"
         dropProducts(){
           let vm = this
           this.dropProductsData(vm)
+        },
+
+        downloadCSVFile(){
+          let productsJSON = JSON.stringify(this.getProductsDataFromDB);
+          let csv = this.ConvertToCSV(productsJSON)
+          let filename = 'products_data_'+this.getProductsDataFromDB.length+'.csv'
+          const anchor = document.createElement('a');
+          anchor.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+          anchor.target = '_blank';
+          anchor.download = filename;
+          anchor.click();
+        },
+
+        downloadJSONFile(){
+          let productsJSON = JSON.stringify(this.getProductsDataFromDB);
+          let filename = 'products_data_'+this.getProductsDataFromDB.length+'.json'
+          const anchor = document.createElement('a');
+          anchor.href = 'data:text/json;charset=utf-8,' + encodeURIComponent(productsJSON);
+          anchor.target = '_blank';
+          anchor.download = filename;
+          anchor.click();
+        },
+
+        ConvertToCSV(objArray) {
+            var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+            var csv = '';
+            array.forEach(product => {
+              var arr_line = []
+              this.productsKeys.forEach(element => {
+                var pr_keys = Object.keys(product)
+                if(pr_keys.includes(element)){
+                  var data = product[element]
+                  data = data != null ? data.toString() : ''
+                  if(element != 'url' && element != 'last_update_date')
+                    data = data.replace(/[\/\\'":*?<>{}]/g,'')
+                  data = data.includes(',') ? '"'+data+'"' : data
+                  arr_line.push(data)
+                }
+                else
+                  arr_line.push('')
+              });
+              csv += arr_line.join(',')+ '\r\n'
+            });
+
+            csv = this.productsKeys.join(',')+'\r\n'+csv
+            
+            return csv;
         }
         
     },
