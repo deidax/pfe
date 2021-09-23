@@ -18,7 +18,7 @@ const routes = [
     {
         path:'/products_data',
         component: () => import('../views/Crawler.vue'),
-        name:'create_crawler',
+        name:'products_data',
         meta:{
           authOnly:true
         }

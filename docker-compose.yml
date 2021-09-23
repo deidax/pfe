@@ -1,0 +1,50 @@
+version: '3.5'
+services:
+  frontend:
+    build:
+        context: ./vuejs_frontend
+        dockerfile: Dockerfile
+    restart: always
+    container_name: frontend_app
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./vuejs_frontend:/usr/src/app/vuejs_frontend
+      - /usr/src/app/vuejs_frontend/node_modules
+
+  backend:
+    build:
+        context: ./DjangoBackend
+        dockerfile: Dockerfile
+    restart: always
+    container_name: django_server
+    volumes:
+      - ./DjangoBackend:/pfe/backend
+      - avito-logs-volume:/pfe/backend/logs
+    ports:
+      - "8000:8000"
+    links:
+      - mongodb
+    depends_on:
+      - "mongodb"
+  
+  scrapy-service:
+    build:
+        context: ./avito
+        dockerfile: Dockerfile
+    restart: always
+    container_name: scrapy_server
+    volumes:
+      - ./avito:/pfe/avito-scrapy-server
+      - avito-logs-volume:/pfe/avito-scrapy-server/logs
+    ports:
+      - "6800:6800"
+  
+  mongodb:
+    image: mongo:latest
+    restart: always
+    container_name: mongodb_server
+    ports:
+      - 27017:27017
+volumes:
+  avito-logs-volume:

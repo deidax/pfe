@@ -29,8 +29,8 @@ class MongoDBPipeline(object):
     @classmethod
     def from_crawler(cls, crawler):
         return cls(
-            mongo_uri=crawler.settings.get('MONGO_URI'),
-            mongo_db=crawler.settings.get('MONGO_DATABASE', 'avito')
+            mongo_uri=crawler.settings.get('MONGODB_URI'),
+            mongo_db=crawler.settings.get('MONGODB_DB', 'avito')
         )
 
     def open_spider(self, spider):
@@ -77,7 +77,7 @@ class MongoDBPipeline(object):
                             return print(colored(item_return, 'yellow'))
                         return item_return
                     except pymongo.errors.PyMongoError as e:
-                        print(colored(" [!][MONGODB-ERROR] DB Not Updated! [ "+e+" ]", 'red'))
+                        print(colored(e, 'red'))
                         print(colored("[MONGODB]--> Product Error <--\n", 'red'))
                         print(colored(item_return, 'red'))
         if isinstance(item, AvitoCrawlerItem):
@@ -99,7 +99,7 @@ class MongoDBPipeline(object):
                     self.isCrawlerDetailsCreated = True
                     print(colored("[MONGODB]--> Storing Crawler Details <--\n", 'green'))
                 except pymongo.errors.PyMongoError as e:
-                        print(colored(" [!][MONGODB-ERROR] Avito Crawler Details Not Created! [ "+e+" ]", 'red'))
+                        print(colored(e, 'red'))
 
 
 

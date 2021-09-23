@@ -96,10 +96,8 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # MongoDB settings
-MONGODB_SERVER = "localhost"
-MONGODB_PORT = 27017
+MONGODB_URI = "mongodb://mongodb_server:27017/"
 MONGODB_DB = "avito"
-MONGODB_COLLECTION = "products"
 
 # CLI LOGS
 LOG_STDOUT = False

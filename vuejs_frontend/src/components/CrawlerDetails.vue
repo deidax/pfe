@@ -18,7 +18,7 @@
           >
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title>Settings {{openDialogSwitch}}</v-toolbar-title>
+          <v-toolbar-title>Settings {{this.jobState == 'finished'}}</v-toolbar-title>
           <v-spacer></v-spacer>
           <!-- <v-toolbar-items>
             <v-btn
@@ -119,31 +119,6 @@
               label="~avito-analyzer-server/crawlerlogs$"
               :value="getCrawlerLogfile"
             ></v-textarea>
-            <!-- <v-list-item-action>
-              <v-checkbox v-model="notifications"></v-checkbox>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Notifications</v-list-item-title>
-              <v-list-item-subtitle>Notify me about updates to apps or games that I downloaded</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-action>
-              <v-checkbox v-model="sound"></v-checkbox>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Sound</v-list-item-title>
-              <v-list-item-subtitle>Auto-update apps at any time. Data charges may apply</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-action>
-              <v-checkbox v-model="widgets"></v-checkbox>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Auto-add widgets</v-list-item-title>
-              <v-list-item-subtitle>Automatically add home screen widgets</v-list-item-subtitle>
-            </v-list-item-content> -->
           </v-list-item>
         </v-list>
       </v-card>
@@ -200,7 +175,7 @@ import {mapActions, mapGetters} from "vuex"
         this.getLogfile(form)
       },
 
-      readCrawlerLogFile(startReadingLogs){
+      readCrawlerLogFile(){
 
         let readLog = setInterval(function() {
         
@@ -209,12 +184,13 @@ import {mapActions, mapGetters} from "vuex"
         
         // Display the message when countdown is over
         console.log("Reading logs")
+        console.log("JOBSTATE----> "+this.jobState)
         if (this.jobState == 'finished' || !this.openDialog) {
-          clearInterval(readLog);
-              console.log("Log file finished")
+            clearInterval(readLog);
+            console.log("Log file finished")
           }
         }
-        .bind(this), 1000);
+        .bind(this), 5000);
       }
 
 

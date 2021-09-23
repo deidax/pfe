@@ -14,16 +14,21 @@ import json
 from django.conf import settings
 import os
 import time
+from pygtail import Pygtail
+import subprocess
+import select
 import urllib
 
 # connect scrapyd service
-SCRAPYD_SERVER = 'http://localhost:6800'
+SCRAPYD_SERVER = 'http://scrapy-service:6800/'
 # mongodb
-MONGODB_CLIENT = "mongodb://localhost:27017/"
+MONGODB_CLIENT = "mongodb://mongodb_server:27017/"
 MONGO_DB = 'avito'
 PRODUCTS_COL = 'products'
 AVITO_CRAWLER_COL = 'avito_crawler'
 scrapyd = ScrapydAPI(SCRAPYD_SERVER)
+first_time_reading_log = True
+
 
 @csrf_exempt
 def crawlerManagerApi(request, id=0):
@@ -42,14 +47,6 @@ def crawlerManagerApi(request, id=0):
         crawler = Crawler.objects.get(crawlerId=id)
         crawler.delete()
         return JsonResponse({"message":"Crawler deleted successfully", "code":200}, safe=False)
-    # elif request.method == 'PUT':
-    #     department_data = JSONParser().parse(request)
-    #     department = Departement.objects.get(DepartementId=department_data['DepartementId'])
-    #     department_serializer=DepartementSerializer(department,data=department_data)
-    #     if department_serializer.is_valid():
-    #         department_serializer.save()
-    #         return JsonResponse("Updated successfully", safe=False)
-    #     return JsonResponse("Fialed to update", safe=False)
 
 @csrf_exempt
 def crawlerApi(request, id):
@@ -106,7 +103,6 @@ def getScrapydListJobsApi(request):
     if request.method == 'POST':
         running_project = JSONParser().parse(request)
         scrapyd_list_jobs = []
-
         scrapyd_list_jobs = scrapyd.list_jobs(running_project['project'])
 
         return JsonResponse(scrapyd_list_jobs)
@@ -130,39 +126,16 @@ def crawlerDetailsManagerApi(request):
 def readLogFileApi(request):
     if request.method == 'POST':
 
-        logfile = 'logs/default/productspider/'+request.POST.get('task_id')+'.log'
+        logfile_path_name = 'default/productspider/'+request.POST.get('task_id')+'.log'
 
-        logfile_path = os.path.join(settings.SCRAPY_DIR, logfile)
-        logfile = open(logfile_path, "r")
+        logfile_path = os.path.join(settings.SCRAPY_LOGS_DIR, logfile_path_name)
+        # logfile = open(logfile_path, "r")
+        new_line = Pygtail(logfile_path)
+        # for line in Pygtail(logfile_path):
+        if new_line is not None:
+            return JsonResponse(new_line.read(), safe=False)
 
-        loglines = logFollow(logfile)
-
-        # iterate over the generator
-        for line in loglines:
-            # print(line)
-            return JsonResponse(line, safe=False)
-
-
-        return JsonResponse({"message": "No logs found. App started for the first time."})
-
-
-
-def logFollow(logFile):
-    '''generator function that yields new lines in a file
-    '''
-    # seek the end of the file
-    logFile.seek(0, os.SEEK_END)
-    
-    # start infinite loop
-    while True:
-        # read last line of file
-        line = logFile.readline()
-        # sleep if file hasn't been updated
-        if not line:
-            time.sleep(0.1)
-            continue
-
-        yield line
+        return JsonResponse('', safe=False)
 
 
 @csrf_exempt

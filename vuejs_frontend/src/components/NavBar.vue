@@ -28,7 +28,21 @@
           <v-icon left dark>{{ item.icon }}</v-icon>
         </v-badge>
         <v-icon left dark v-else>{{ item.icon }}</v-icon>
-        <span class="mr-2">{{ item.title }}</span>
+        <span class="mr-2" v-if="item.id == 1 && getProductsDataFromDB.length > 0">
+          <v-badge
+            color="green"
+            left
+            :content="getProductsDataFromDB.length > 999 ? '+1k': getProductsDataFromDB.length"
+          >
+          {{ item.title }}
+          </v-badge>
+        </span>
+        <span class="mr-2" v-else-if="item.id == 1">
+          {{ item.title }}
+        </span>
+        <span class="mr-2" v-else>
+          {{ item.title }}
+        </span>
       </v-btn>
       <v-chip
         class="ma-2"
@@ -80,8 +94,33 @@ export default {
     }
   },
 
+  watch: {
+    getJobState(oldVal, newVal){
+      console.log("OLD VAL C: "+oldVal)
+      console.log("NEW VAL C: "+newVal)
+      this.readDBCount()
+
+    }
+  },
+
   methods: {
     ...mapActions('Auth',['logout']),
+    ...mapActions('Crawler',['getProductsData']),
+
+    readDBCount(){
+      let productsCount = setInterval(function() {
+        console.log("Products Count")
+        this.getProductsData()
+        
+        // Display the message when countdown is over
+        
+        if (this.getJobState == 'finished') {
+            clearInterval(productsCount);
+            console.log("Products Count finished")
+          }
+        }
+        .bind(this), 5000);
+    }
 
     
   },
@@ -90,6 +129,7 @@ export default {
     ...mapGetters("Auth", ["isLogoutLoading"]),
     ...mapGetters("Crawler",["getJobState"]),
     ...mapGetters("Crawler",["getOtherErrors"]),
+    ...mapGetters("Crawler",["getProductsDataFromDB"]),
     
 
   }

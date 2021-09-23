@@ -208,6 +208,7 @@ import {mapActions,mapGetters} from "vuex"
           this.dropProductsData(vm)
         },
 
+
         downloadCSVFile(){
           let productsJSON = JSON.stringify(this.getProductsDataFromDB);
           let csv = this.ConvertToCSV(productsJSON)
@@ -238,7 +239,7 @@ import {mapActions,mapGetters} from "vuex"
                 var pr_keys = Object.keys(product)
                 if(pr_keys.includes(element)){
                   var data = product[element]
-                  data = data != null ? data.toString() : ''
+                  data = data != null ? data.toString().trim() : ''
                   if(element != 'url' && element != 'last_update_date')
                     data = data.replace(/[\/\\'":*?<>{}]/g,'')
                   data = data.includes(',') ? '"'+data+'"' : data

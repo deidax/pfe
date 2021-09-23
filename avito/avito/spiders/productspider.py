@@ -150,7 +150,8 @@ class ProductSpider(CrawlSpider):
         estimated_time = "%d:%d:%d:%d" % (day, hour, minutes, seconds)
         self.avito_crawler['avito_crawler_id'] = 1
         self.avito_crawler['estimated_time_to_finish'] = estimated_time
-        estimated_count_down_date = datetime.datetime.now() + datetime.timedelta(days=day,hours=hour,minutes=minutes,seconds=seconds)
+        now = datetime.datetime.now() + datetime.timedelta(hours=1)
+        estimated_count_down_date = now + datetime.timedelta(days=day,hours=hour,minutes=minutes,seconds=seconds)
         estimated_count_down_date = estimated_count_down_date.strftime("%d %b, %Y %H:%M:%S")
         self.avito_crawler['estimatred_count_down_date'] = estimated_count_down_date
         estimated_time_str = "ESTIMATED TIME TO SCRAPE ~ " + estimated_time
@@ -197,7 +198,7 @@ class ProductSpider(CrawlSpider):
 
         general_product_data_dict['address'] = product_general_data['location']['address']
         general_product_data_dict['url'] = product_general_data['friendlyUrl']['url']
-        general_product_data_dict['last_update_date'] = product_general_data['listTime']['raw']
+        general_product_data_dict['last_update_date'] = datetime.datetime.strptime(product_general_data['listTime']['raw'], '%Y-%m-%d %H:%M:%S')
         general_product_data_dict['has_shipping'] = product_general_data['hasShipping']
 
         for i in product_params_murged_list:

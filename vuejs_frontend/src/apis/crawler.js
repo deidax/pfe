@@ -16,6 +16,7 @@ export default{
     },
 
     async runCrawler(id){
+        
         return Api.get(RUN_CRAWLER_END_POINT+id)
     },
 

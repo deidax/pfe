@@ -88,7 +88,7 @@ import {mapActions,mapGetters} from "vuex"
 
 
       productsData() {
-        if(this.$route.name == "create_crawler") {
+        if(this.$route.name == "products_data") {
           return true
         }
         return false

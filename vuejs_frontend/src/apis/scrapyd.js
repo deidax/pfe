@@ -1,4 +1,3 @@
-import Scrapyd from './scrapyd_server'
 import Api from './server'
 
 

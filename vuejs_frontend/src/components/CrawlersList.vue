@@ -302,6 +302,8 @@ import CrawlerDetails from './CrawlerDetails.vue';
       },
 
       getLastCrawlerTaskId(newVal, oldVal){
+          console.log("OLD ID: "+oldVal)
+          console.log("NEW ID: "+newVal)
           if(oldVal != undefined){
             console.log("-->READY")
             this.crawlerDetailsReady = true
@@ -426,6 +428,8 @@ import CrawlerDetails from './CrawlerDetails.vue';
 
         openCrawlerDetails(){
           this.triggerOpenCrawlerDetails = true
+          console.log("TIME ES --->")
+          console.log(this.getCrawlerDetails.estimatred_count_down_date)
           this.timeCountDown(this.getCrawlerDetails.estimatred_count_down_date)
         },
 
@@ -469,14 +473,15 @@ import CrawlerDetails from './CrawlerDetails.vue';
 
         timeCountDown(time){
         // try {
-            let countDownDate = new Date(time).getTime();
+          let countDownDate = new Date(time).getTime();
+          
 
             // Run myfunc every second
             let myfunc = setInterval(function() {
 
             let now = new Date().getTime();
             let timeleft = countDownDate - now;
-                
+
             // Calculating the days, hours, minutes and seconds left
             let days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
             let hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -484,6 +489,8 @@ import CrawlerDetails from './CrawlerDetails.vue';
             let seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
                 
             this.timeCounter = days+":"+hours+":"+minutes+":"+seconds
+            console.log('TIME--------->')
+            console.log(this.timeCounter)
             // Display the message when countdown is over
             if (timeleft < 0 || this.getJobState == 'finished') {
               this.timeCounter = ''

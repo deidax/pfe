@@ -18,7 +18,7 @@ export const login = ({ commit }, credentials) => {
         commit('SET_AUTHENTICATED',true);
         commit('SET_AUTH_ERRORS',null);
         commit('SET_LOADING',false)
-        router.push({ name: 'dashboard' });
+        router.push({ name: 'crawlers_list' });
         }).catch((error) => {
             console.log("Auth catch ==>"+error)
             error = error+". Can't connect to the server."
