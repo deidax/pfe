@@ -198,7 +198,9 @@ class ProductSpider(CrawlSpider):
 
         general_product_data_dict['address'] = product_general_data['location']['address']
         general_product_data_dict['url'] = product_general_data['friendlyUrl']['url']
-        general_product_data_dict['last_update_date'] = datetime.datetime.strptime(product_general_data['listTime']['raw'], '%Y-%m-%d %H:%M:%S')
+        update_date_split = product_general_data['listTime']['raw'].split('+')
+        update_date = update_date_split[0].replace('T', ' ')
+        general_product_data_dict['last_update_date'] = update_date
         general_product_data_dict['has_shipping'] = product_general_data['hasShipping']
 
         for i in product_params_murged_list:
