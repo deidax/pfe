@@ -1,4 +1,9 @@
 
+# Avito Scraper, Elasticsearch and Kibana
+
+Make sure to have docker and docker compose installed
+
+
 ## Installation
 
 Clone project
@@ -29,5 +34,4 @@ Open in browser
   Username: admin
   password: pfe123456
 ```
-
 
