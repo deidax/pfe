@@ -11,10 +11,15 @@ Clone project
 ```bash
   git clone https://github.com/Sigma247/pfe.git
 ```
-Run docker compose
+Build project with docker compose
 
 ```bash
   docker-compose build --no-cach
+```
+Run project
+
+```bash
+  docker-compose up
 ```
 
 Create user to login
