@@ -18,7 +18,7 @@
           >
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title>Settings {{this.jobState == 'finished'}}</v-toolbar-title>
+          <v-toolbar-title>Process details</v-toolbar-title>
           <v-spacer></v-spacer>
           <!-- <v-toolbar-items>
             <v-btn

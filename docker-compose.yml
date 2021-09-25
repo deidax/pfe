@@ -11,6 +11,8 @@ services:
     volumes:
       - ./vuejs_frontend:/usr/src/app/vuejs_frontend
       - /usr/src/app/vuejs_frontend/node_modules
+    networks:
+      - app-network
 
   backend:
     build:
@@ -27,6 +29,8 @@ services:
       - mongodb
     depends_on:
       - "mongodb"
+    networks:
+      - app-network
   
   scrapy-service:
     build:
@@ -39,7 +43,68 @@ services:
       - avito-logs-volume:/pfe/avito-scrapy-server/logs
     ports:
       - "6800:6800"
+    networks:
+      - app-network
   
+  elasticsearch:
+    image: elasticsearch:7.7.0
+    container_name: elasticsearch
+    volumes: 
+        - ./data/elasticsearch:/usr/share/elasticsearch/data
+    env_file: 
+        - elasticsearch.env
+    ports: 
+        - "9200:9200"
+    healthcheck:
+      test: "wget -q -O - http://localhost:9200/_cat/health"
+      interval: 1s
+      timeout: 30s
+      retries: 300
+    ulimits:
+      nproc: 65536
+      nofile:
+        soft: 65536
+        hard: 65536
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - app-network
+
+  kibana:
+    image: kibana:7.7.0
+    container_name: kibana
+    env_file: 
+      - kibana.env
+    ports: 
+      - "5601:5601"
+    links:
+      - elasticsearch:elasticsearch
+    depends_on:
+      - elasticsearch
+    networks:
+      - app-network
+  
+  monstache:
+    build:
+        context: ./monstache
+        dockerfile: Dockerfile
+    container_name: monstache
+    # expose:
+    #   - "8080"
+    # ports:
+    #   - "8080:8080"
+    depends_on:
+      - elasticsearch
+      - mongodb
+      - mongodb1
+      - mongodb2
+    links:
+      - elasticsearch
+    networks:
+      - app-network
+      
+
   mongodb:
     image: mongo:latest
     restart: always
@@ -49,6 +114,8 @@ services:
     expose:
       - "27017"
     entrypoint: [ "/usr/bin/mongod", "--replSet", "rsmongo", "--bind_ip_all", "--wiredTigerCacheSizeGB", "1"]
+    networks:
+      - app-network
 
   mongodb1:
     image: mongo:latest
@@ -59,6 +126,8 @@ services:
     expose:
       - "27017"
     entrypoint: [ "/usr/bin/mongod", "--replSet", "rsmongo", "--bind_ip_all", "--wiredTigerCacheSizeGB", "1"]
+    networks:
+      - app-network
 
   mongodb2:
     image: mongo:latest
@@ -69,16 +138,22 @@ services:
     expose:
       - "27017"
     entrypoint: [ "/usr/bin/mongod", "--replSet", "rsmongo", "--bind_ip_all", "--wiredTigerCacheSizeGB", "1"]    
+    networks:
+      - app-network
 
   mongosetup:
     build:
-        context: ./mongo-setup
-        dockerfile: Dockerfile
+      context: ./mongo-setup
+      dockerfile: Dockerfile
     container_name: "mongosetup"
     depends_on:
-        - mongodb
+      - mongodb
     volumes:
-        - mongostatus:/data/
+      - mongostatus:/data/
+    networks:
+      - app-network
+  
+
 
 volumes:
   avito-logs-volume:
@@ -86,3 +161,7 @@ volumes:
   mongodata1:
   mongodata2:
   mongostatus:
+
+networks:
+  app-network:
+    driver: bridge

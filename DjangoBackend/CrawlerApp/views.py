@@ -101,11 +101,14 @@ def cancelCrawlerProcessApi(request):
 @csrf_exempt
 def getScrapydListJobsApi(request):
     if request.method == 'POST':
-        running_project = JSONParser().parse(request)
-        scrapyd_list_jobs = []
-        scrapyd_list_jobs = scrapyd.list_jobs(running_project['project'])
-
-        return JsonResponse(scrapyd_list_jobs)
+        try:
+            running_project = JSONParser().parse(request)
+            scrapyd_list_jobs = []
+            scrapyd_list_jobs = scrapyd.list_jobs(running_project['project'])
+            return JsonResponse(scrapyd_list_jobs)
+        except Exception as e:
+            return JsonResponse({"listJobsApiError": e})
+        
 
 @csrf_exempt
 def crawlerDetailsManagerApi(request):

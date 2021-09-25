@@ -11,7 +11,12 @@
 
       <v-spacer></v-spacer>
 
-      
+      <v-btn
+        text
+        href="http://localhost:5601/">
+        <v-icon left>mdi-monitor-dashboard</v-icon>
+        Kibana
+      </v-btn>
       <v-btn
         text
         v-for="item in menuItems"

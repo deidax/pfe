@@ -239,10 +239,14 @@ import {mapActions,mapGetters} from "vuex"
                 var pr_keys = Object.keys(product)
                 if(pr_keys.includes(element)){
                   var data = product[element]
-                  data = data != null ? data.toString().trim() : ''
+                  data = data != null ? data.toString() : ''
                   if(element != 'url' && element != 'last_update_date')
-                    data = data.replace(/[\/\\'":*?<>{}]/g,'')
+                  {
+                    data = data.replace(/(\r\n|\n|\r)/gm, "");
+                    data = data.replace(/[\/\\'":*?<>{}]/g,"")
+                  }
                   data = data.includes(',') ? '"'+data+'"' : data
+                  data = data.trim();
                   arr_line.push(data)
                 }
                 else
