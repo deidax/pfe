@@ -1,7 +1,7 @@
 FROM mongo:4
 RUN mkdir /config
 WORKDIR /config
-COPY wait-for-it/wait-for-it.sh .
+COPY wait-for-it.sh .
 COPY mongo-setup.js .
 COPY mongo-setup.sh .
 RUN chmod +x /config/wait-for-it.sh
