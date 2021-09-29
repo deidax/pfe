@@ -45,26 +45,23 @@ services:
       - "6800:6800"
     networks:
       - app-network
-  
+
   elasticsearch:
     image: elasticsearch:7.7.0
     container_name: elasticsearch
     volumes: 
-        - ./data/elasticsearch:/usr/share/elasticsearch/data
-    env_file: 
+        - esdata:/usr/share/elasticsearch/data
+    env_file:   
         - elasticsearch.env
     ports: 
         - "9200:9200"
+        - "9300:9300"
     healthcheck:
       test: "wget -q -O - http://localhost:9200/_cat/health"
       interval: 1s
       timeout: 30s
       retries: 300
     ulimits:
-      nproc: 65536
-      nofile:
-        soft: 65536
-        hard: 65536
       memlock:
         soft: -1
         hard: -1
@@ -86,14 +83,11 @@ services:
       - app-network
   
   monstache:
-    build:
-        context: ./monstache
-        dockerfile: Dockerfile
-    container_name: monstache
-    # expose:
-    #   - "8080"
-    # ports:
-    #   - "8080:8080"
+    restart: always
+    image: rwynn/monstache:rel5
+    command: -f /home/monstache.config.toml &
+    volumes:
+      - ./monstache.config.toml:/home/monstache.config.toml
     depends_on:
       - elasticsearch
       - mongodb
@@ -101,6 +95,8 @@ services:
       - mongodb2
     links:
       - elasticsearch
+    # ports:
+    #   - "8080:8080"
     networks:
       - app-network
       
@@ -111,8 +107,8 @@ services:
     container_name: mongodb_server
     volumes:
       - mongodata:/data/db
-    expose:
-      - "27017"
+    ports:
+      - "27020:27017"
     entrypoint: [ "/usr/bin/mongod", "--replSet", "rsmongo", "--bind_ip_all", "--wiredTigerCacheSizeGB", "1"]
     networks:
       - app-network
@@ -123,9 +119,11 @@ services:
     container_name: mongodb1_server
     volumes:
       - mongodata1:/data/db
-    expose:
-      - "27017"
+    ports:
+      - "27021:27017"
     entrypoint: [ "/usr/bin/mongod", "--replSet", "rsmongo", "--bind_ip_all", "--wiredTigerCacheSizeGB", "1"]
+    depends_on:
+      - mongodb
     networks:
       - app-network
 
@@ -135,9 +133,11 @@ services:
     container_name: mongodb2_server
     volumes:
       - mongodata2:/data/db
-    expose:
-      - "27017"
+    ports:
+      - "27022:27017"
     entrypoint: [ "/usr/bin/mongod", "--replSet", "rsmongo", "--bind_ip_all", "--wiredTigerCacheSizeGB", "1"]    
+    depends_on:
+      - mongodb1
     networks:
       - app-network
 
@@ -161,6 +161,7 @@ volumes:
   mongodata1:
   mongodata2:
   mongostatus:
+  esdata:
 
 networks:
   app-network:

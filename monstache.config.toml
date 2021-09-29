@@ -1,0 +1,10 @@
+mongo-url = "mongodb://mongodb:27017,mongodb1:27017,mongodb2:27017/avito?replicaSet=rsmongo"
+elasticsearch-urls = ["http://elasticsearch:9200"]
+elasticsearch-max-conns = 4
+elasticsearch-max-seconds = 5
+elasticsearch-max-bytes = 8000000
+dropped-collections = false
+dropped-databases = false
+
+namespace-regex = "^avito"
+direct-read-namespaces = ["products"]
