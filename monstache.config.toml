@@ -3,8 +3,14 @@ elasticsearch-urls = ["http://elasticsearch:9200"]
 elasticsearch-max-conns = 4
 elasticsearch-max-seconds = 5
 elasticsearch-max-bytes = 8000000
-dropped-collections = false
-dropped-databases = false
+dropped-collections = true
+dropped-databases = true
 
-namespace-regex = "^avito"
-direct-read-namespaces = ["products"]
+direct-read-namespaces = ["avito.products"]
+change-stream-namespaces = ["avito.products"]
+stats = false
+resume = true
+
+[[mapping]]
+namespace = "avito.products"
+index = "products_index"
