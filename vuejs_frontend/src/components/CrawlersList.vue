@@ -258,8 +258,9 @@ import CrawlerDetails from './CrawlerDetails.vue';
         lastCrawler: {},
         lastCrawlerTaskId: null,
         crawlerDetailsReady: false,
-        productsInsertedPercentage:0,
+        productsInsertedPercentage: 0,
         timeCounter: '',
+        timeToPullFreshCrawlerData: 0,
         job_id : null,
         crawlerInProcess:{
           project: 'default',
@@ -298,6 +299,8 @@ import CrawlerDetails from './CrawlerDetails.vue';
       },  
 
       getJobState(newVal, oldVal){
+          this.computeTimeToPullCrawlerData(this.getCrawlerDetails.number_of_products_found)
+          console.log("TIME TO PULL---> "+this.timeToPullFreshCrawlerData)
           this.pollingFreshCrawlersInfo()
       },
 
@@ -433,6 +436,29 @@ import CrawlerDetails from './CrawlerDetails.vue';
           this.timeCountDown(this.getCrawlerDetails.estimatred_count_down_date)
         },
 
+        computeTimeToPullCrawlerData(number_of_products_found){
+            let number = number_of_products_found.toString().length;
+            console.log('nbr : '+number)
+            if ( number == 1 || number == 2) {
+              this.timeToPullFreshCrawlerData = 2000
+            }
+            else if ( number == 3){
+              this.timeToPullFreshCrawlerData = 6000
+            }
+            else if ( number == 4){
+              this.timeToPullFreshCrawlerData = 30000
+            }
+            else if ( number == 5){
+              this.timeToPullFreshCrawlerData = 50000
+            }
+            else if ( number == 6){
+              this.timeToPullFreshCrawlerData = 100000
+            }
+            else{
+              this.timeToPullFreshCrawlerData = 200000
+            }
+        },
+
         calculatePercentage(value, total){
           return Math.ceil((value/total) * 100)
         },
@@ -467,7 +493,7 @@ import CrawlerDetails from './CrawlerDetails.vue';
                   // clearInterval(this.$store.getters['Crawler/getPollingInterval'])
                 }
               }
-              .bind(this), 3000)
+              .bind(this), this.timeToPullFreshCrawlerData)
             // this.polling = interval
         },
 
