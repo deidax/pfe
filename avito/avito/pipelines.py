@@ -14,6 +14,8 @@ from .items import AvitoItem, AvitoCrawlerItem
 import logging
 from termcolor import colored
 import os
+# import yagmail
+import datetime
 
 class MongoDBPipeline(object):
 
@@ -50,6 +52,11 @@ class MongoDBPipeline(object):
         print('\n')
         print(finished_text)
         self.client.close()
+        # # sending an email
+        # contents = [
+        #     finished_text
+        # ]
+        # yagmail.SMTP('cobratkhl@gmail.com').send('to@someone.com', 'subject', contents)
 
     def process_item(self, item, spider):
         if isinstance(item, AvitoItem):

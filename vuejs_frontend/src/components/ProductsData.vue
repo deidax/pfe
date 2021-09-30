@@ -4,7 +4,7 @@
         <v-btn color="error" 
               style="margin-right: 10px;margin-bottom:10px" 
               @click="dropProducts"
-              :disabled="getJobState != 'finished' || getProductsDataFromDB.length == 0  ? true : false"
+              :disabled="getJobState != 'finished' || !Array.isArray(getProductsDataFromDB) || getProductsDataFromDB.length == 0  ? true : false"
               >
           <v-icon left>mdi-database-remove</v-icon>
               CLEAR PRODUCTS DATA
@@ -28,6 +28,7 @@
               class="white--text"
               v-bind="attrs"
               v-on="on"
+              :disabled="!Array.isArray(getProductsDataFromDB) || getProductsDataFromDB.length == 0  ? true : false"
             >
               <v-icon left>mdi-download</v-icon>
               Download Products Data
@@ -72,7 +73,7 @@
             No products data found
             <v-spacer></v-spacer>
             </v-card-title>
-          <v-data-table v-show="getProductsDataFromDB.length > 0"
+          <v-data-table v-if="Array.isArray(getProductsDataFromDB) && getProductsDataFromDB.length > 0"
             :headers="headers"
             :items="getProductsDataFromDB"
             class="elevation-1"
@@ -137,7 +138,7 @@ import {mapActions,mapGetters} from "vuex"
     watch: {
       getFullPath(){
         this.renderProductsDataTable()
-        console.log(this.headers)
+        // console.log(this.headers)
       }
     },
 

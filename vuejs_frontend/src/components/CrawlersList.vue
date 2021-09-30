@@ -299,7 +299,7 @@ import CrawlerDetails from './CrawlerDetails.vue';
       },  
 
       getJobState(newVal, oldVal){
-          this.computeTimeToPullCrawlerData(this.getCrawlerDetails.number_of_products_found)
+          // this.computeTimeToPullCrawlerData(this.getCrawlerDetails.number_of_products_found)
           console.log("TIME TO PULL---> "+this.timeToPullFreshCrawlerData)
           this.pollingFreshCrawlersInfo()
       },
@@ -439,24 +439,25 @@ import CrawlerDetails from './CrawlerDetails.vue';
         computeTimeToPullCrawlerData(number_of_products_found){
             let number = number_of_products_found.toString().length;
             console.log('nbr : '+number)
-            if ( number == 1 || number == 2) {
-              this.timeToPullFreshCrawlerData = 2000
+            if (this.getJobState == 'pending') {
+              return 1000
+            }
+            else if ( number == 1 || number == 2) {
+              return 2000
             }
             else if ( number == 3){
-              this.timeToPullFreshCrawlerData = 6000
+              return 6000
             }
             else if ( number == 4){
-              this.timeToPullFreshCrawlerData = 30000
+              return 30000
             }
             else if ( number == 5){
-              this.timeToPullFreshCrawlerData = 50000
+              return 50000
             }
             else if ( number == 6){
-              this.timeToPullFreshCrawlerData = 100000
+              return 100000
             }
-            else{
-              this.timeToPullFreshCrawlerData = 200000
-            }
+            return 200000
         },
 
         calculatePercentage(value, total){
@@ -493,7 +494,7 @@ import CrawlerDetails from './CrawlerDetails.vue';
                   // clearInterval(this.$store.getters['Crawler/getPollingInterval'])
                 }
               }
-              .bind(this), this.timeToPullFreshCrawlerData)
+              .bind(this), this.computeTimeToPullCrawlerData(this.getCrawlerDetails.number_of_products_found))
             // this.polling = interval
         },
 
