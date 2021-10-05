@@ -1,9 +1,12 @@
-FROM mongo:4
-RUN mkdir /config
-WORKDIR /config
-COPY wait-for-it.sh .
+FROM mongo
+
+WORKDIR /usr/src
+RUN mkdir configs
+WORKDIR /usr/src/configs
+
 COPY mongo-setup.js .
 COPY mongo-setup.sh .
-RUN chmod +x /config/wait-for-it.sh
-RUN chmod +x /config/mongo-setup.sh
-CMD [ "bash", "-c", "/config/wait-for-it.sh mongodb:27017 -- /config/mongo-setup.sh"]
+
+RUN chmod +x ./mongo-setup.sh
+
+CMD ["./mongo-setup.sh"]

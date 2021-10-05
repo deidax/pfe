@@ -12,7 +12,7 @@ services:
       - ./vuejs_frontend:/usr/src/app/vuejs_frontend
       - /usr/src/app/vuejs_frontend/node_modules
     networks:
-      - app-network
+      - monstache-network
 
   backend:
     build:
@@ -26,11 +26,11 @@ services:
     ports:
       - "8000:8000"
     links:
-      - mongodb
+      - mongo1
     depends_on:
-      - "mongodb"
+      - "mongo1"
     networks:
-      - app-network
+      - monstache-network
   
   scrapy-service:
     build:
@@ -44,7 +44,7 @@ services:
     ports:
       - "6800:6800"
     networks:
-      - app-network
+      - monstache-network
 
   elasticsearch:
     image: elasticsearch:7.7.0
@@ -66,7 +66,7 @@ services:
         soft: -1
         hard: -1
     networks:
-      - app-network
+      - monstache-network
 
   kibana:
     image: kibana:7.7.0
@@ -80,7 +80,7 @@ services:
     depends_on:
       - elasticsearch
     networks:
-      - app-network
+      - monstache-network
   
   monstache:
     restart: always
@@ -90,70 +90,56 @@ services:
       - ./monstache.config.toml:/home/monstache.config.toml
     depends_on:
       - elasticsearch
-      - mongodb
-      - mongodb1
-      - mongodb2
+      - mongo1
+      - mongo2
+      - mongo3
     links:
       - elasticsearch
     # ports:
     #   - "8080:8080"
     networks:
-      - app-network
+      - monstache-network
       
 
-  mongodb:
-    image: mongo:latest
-    restart: always
-    container_name: mongodb_server
-    volumes:
-      - mongodata:/data/db
+  mongo1:
+    image: "mongo"
     ports:
       - "27020:27017"
-    entrypoint: [ "/usr/bin/mongod", "--replSet", "rsmongo", "--bind_ip_all", "--wiredTigerCacheSizeGB", "1"]
-    networks:
-      - app-network
-
-  mongodb1:
-    image: mongo:latest
-    restart: always
-    container_name: mongodb1_server
     volumes:
-      - mongodata1:/data/db
+      - mongodata:/home/psw/data
+    networks:
+      - monstache-network
+    command: mongod --replSet replication
+  mongo2:
+    image: "mongo"
     ports:
       - "27021:27017"
-    entrypoint: [ "/usr/bin/mongod", "--replSet", "rsmongo", "--bind_ip_all", "--wiredTigerCacheSizeGB", "1"]
-    depends_on:
-      - mongodb
-    networks:
-      - app-network
-
-  mongodb2:
-    image: mongo:latest
-    restart: always
-    container_name: mongodb2_server
     volumes:
-      - mongodata2:/data/db
+      - mongodata1:/home/psw/data
+    networks:
+      - monstache-network
+    command: mongod --replSet replication
+    depends_on:
+      - mongo1
+  mongo3:
+    image: "mongo"
     ports:
       - "27022:27017"
-    entrypoint: [ "/usr/bin/mongod", "--replSet", "rsmongo", "--bind_ip_all", "--wiredTigerCacheSizeGB", "1"]    
-    depends_on:
-      - mongodb1
+    volumes:
+      - mongodata2:/home/psw/data
     networks:
-      - app-network
-
+      - monstache-network
+    command: mongod --replSet replication
+    depends_on:
+      - mongo2
   mongosetup:
     build:
-      context: ./mongo-setup
-      dockerfile: Dockerfile
-    container_name: "mongosetup"
+        context: ./mongo-setup
+        dockerfile: Dockerfile
     depends_on:
-      - mongodb
-    volumes:
-      - mongostatus:/data/
+      - mongo1
     networks:
-      - app-network
-  
-
+      - monstache-network
 
 volumes:
   avito-logs-volume:
@@ -164,5 +150,5 @@ volumes:
   esdata:
 
 networks:
-  app-network:
+  monstache-network:
     driver: bridge

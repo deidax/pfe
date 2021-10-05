@@ -1,9 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-if [ ! -f /data/mongo-init.flag ]; then
-    echo "Init replicaset"
-    mongo mongodb://mongodb:27017 mongo-setup.js
-    touch /data/mongo-init.flag
-else
-    echo "Replicaset already initialized"
-fi
+sleep 10 | echo Sleeping
+
+mongo mongodb://mongo1:27017 mongo-setup.js

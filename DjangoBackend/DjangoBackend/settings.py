@@ -97,11 +97,13 @@ WSGI_APPLICATION = 'DjangoBackend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
+        'NAME': 'mongodb',
         'CLIENT': {
-            "host":"mongodb://mongodb_server:27017/",
+            "host":"mongodb://mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=replication",
             "name":"avito"
         }
-    }
+    },
+
 }
 
 

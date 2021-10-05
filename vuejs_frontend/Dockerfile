@@ -1,5 +1,7 @@
 FROM node:lts-alpine as build-stage
 WORKDIR /usr/src/app/vuejs_frontend
+
+
 COPY package*.json ./
 RUN npm install --verbose
 

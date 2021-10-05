@@ -22,7 +22,7 @@ import urllib
 # connect scrapyd service
 SCRAPYD_SERVER = 'http://scrapy-service:6800/'
 # mongodb
-MONGODB_CLIENT = "mongodb://mongodb_server:27017/"
+MONGODB_CLIENT = "mongodb://mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=replication"
 MONGO_DB = 'avito'
 PRODUCTS_COL = 'products'
 AVITO_CRAWLER_COL = 'avito_crawler'
